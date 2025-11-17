@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CBF9023F-3D06-42A7-BB63-AA7DED461CE5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VIMS.Model</RootNamespace>
+    <AssemblyName>VIMS.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Home\CurrentClickPageViewModel.cs" />
+    <Compile Include="Home\DashboardViewModel.cs" />
+    <Compile Include="Home\LoginViewModel.cs" />
+    <Compile Include="Home\RequiredAttribute.cs" />
+    <Compile Include="Master\AilmentViewModel.cs" />
+    <Compile Include="Master\BreedViewModel.cs" />
+    <Compile Include="Master\SpeciesViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Ailment.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ailment.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Ailment.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Ailment.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Breed.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Breed.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Breed.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Breed.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ChangePassword.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePassword.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\ChangePassword.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangePassword.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Dashboard.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dashboard.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Dashboard.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Dashboard.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Species.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Species.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Species.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Species.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Usermanagement\MenuViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\VIMS.DB\VIMS.DB.csproj">
+      <Project>{9e0938cf-c862-4cb7-bebc-6eb3ae8a2cca}</Project>
+      <Name>VIMS.DB</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Ailment.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ailment.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Ailment.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Ailment.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Breed.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Breed.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Breed.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Breed.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ChangePassword.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChangePassword.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ChangePassword.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ChangePassword.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Dashboard.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Dashboard.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Dashboard.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Dashboard.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Species.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Species.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Species.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Species.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

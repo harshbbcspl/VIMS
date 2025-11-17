@@ -1,0 +1,17 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "VIMS.Web\\VIMS.Web.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express (Google Chrome)"
+      },
+      {
+        "Path": "VIMS.API\\VIMS.API.csproj",
+        "Action": "Start",
+        "DebugTarget": "IIS Express (Google Chrome)"
+      }
+    ]
+  }
+]

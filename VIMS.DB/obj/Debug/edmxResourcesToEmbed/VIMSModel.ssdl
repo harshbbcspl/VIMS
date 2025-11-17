@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VIMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="SpeciesMaster">
+    <Key>
+      <PropertyRef Name="SpeciesId" />
+    </Key>
+    <Property Name="SpeciesId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SpeciesCode" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="SpeciesName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Function Name="VIMS_AilmentMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AilmentId" Type="int" Mode="In" />
+    <Parameter Name="AilmentCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="AilmentName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VIMS_AilmentMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AilmentId" Type="int" Mode="In" />
+    <Parameter Name="AilmentCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VIMS_BreedMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BreedId" Type="int" Mode="In" />
+    <Parameter Name="BreedCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="BreedName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SpeciesCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VIMS_BreedMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BreedId" Type="int" Mode="In" />
+    <Parameter Name="BreedCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="SpeciesCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VIMS_SpeciesMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpeciesId" Type="int" Mode="In" />
+    <Parameter Name="SpeciesName" Type="nvarchar" Mode="In" />
+    <Parameter Name="SpeciesCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="bit" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VIMS_SpeciesMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SpeciesId" Type="int" Mode="In" />
+    <Parameter Name="SpeciesCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="VIMSModelStoreContainer">
+    <EntitySet Name="SpeciesMaster" EntityType="Self.SpeciesMaster" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

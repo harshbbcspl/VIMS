@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VIMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="SpeciesMaster">
+    <Key>
+      <PropertyRef Name="SpeciesId" />
+    </Key>
+    <Property Name="SpeciesId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpeciesCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SpeciesName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="VIMSEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="SpeciesMasters" EntityType="Self.SpeciesMaster" />
+    <FunctionImport Name="VIMS_AilmentMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="AilmentId" Mode="In" Type="Int32" />
+      <Parameter Name="AilmentCode" Mode="In" Type="String" />
+      <Parameter Name="AilmentName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_AilmentMasterRtr" ReturnType="Collection(VIMSModel.VIMS_AilmentMasterRtr_Result)">
+      <Parameter Name="AilmentId" Mode="In" Type="Int32" />
+      <Parameter Name="AilmentCode" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_BreedMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="BreedId" Mode="In" Type="Int32" />
+      <Parameter Name="BreedCode" Mode="In" Type="String" />
+      <Parameter Name="BreedName" Mode="In" Type="String" />
+      <Parameter Name="SpeciesCode" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_BreedMasterRtr" ReturnType="Collection(VIMSModel.VIMS_BreedMasterRtr_Result)">
+      <Parameter Name="BreedId" Mode="In" Type="Int32" />
+      <Parameter Name="BreedCode" Mode="In" Type="String" />
+      <Parameter Name="SpeciesCode" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_SpeciesMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="SpeciesId" Mode="In" Type="Int32" />
+      <Parameter Name="SpeciesName" Mode="In" Type="String" />
+      <Parameter Name="SpeciesCode" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_SpeciesMasterRtr" ReturnType="Collection(VIMSModel.VIMS_SpeciesMasterRtr_Result)">
+      <Parameter Name="SpeciesId" Mode="In" Type="Int32" />
+      <Parameter Name="SpeciesCode" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="VIMS_AilmentMasterRtr_Result">
+    <Property Type="Int32" Name="AilmentId" Nullable="false" />
+    <Property Type="String" Name="AilmentCode" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="AilmentName" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_BreedMasterRtr_Result">
+    <Property Type="Int32" Name="BreedId" Nullable="false" />
+    <Property Type="String" Name="BreedCode" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="BreedName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SpeciesCode" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="SpeciesName" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_SpeciesMasterRtr_Result">
+    <Property Type="Int32" Name="SpeciesId" Nullable="false" />
+    <Property Type="String" Name="SpeciesName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SpeciesCode" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+</Schema>

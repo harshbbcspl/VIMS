@@ -1,0 +1,49 @@
+﻿@using VIMS.Web.GeneralClasses 
+@Scripts.Render("~/bundles/toastr")
+
+<script src="~/Assets/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    window.setTimeout(function () {
+        $(".toast").fadeTo(1000, 0).slideUp(1000, function () {
+            $(this).remove();
+        });
+    }, 3000);
+
+</script>
+<style>
+    .close {
+        background-color: transparent;
+        font-size: 22px !important;
+        border: none;
+    }
+
+    .alert-top-right {
+        top: 12px;
+        right: 12px
+    }
+</style>
+@{
+    var alerts = TempData.ContainsKey(Alert.TempDataKey)
+                ? (List<Alert>)TempData[Alert.TempDataKey]
+                : new List<Alert>();
+
+    if (alerts.Any())
+    {
+
+    }
+    foreach (var alert in alerts)
+    {
+        var dismissableClass = alert.Dismissable ? "alert-dismissable" : null;
+        <div id="toast-container" class="toast-top-right" aria-live="polite" role="alert">
+            <div class="toast toast-@alert.AlertStyle" style="display: block;">
+                @if (alert.Dismissable)
+                {
+                    <button type="button" class="close text-white float-end">&times;</button>
+                }
+                <div class="toast-message">
+                    <strong>@Html.Raw(alert.AlertMsg)</strong> @Html.Raw(alert.Message)
+                </div>
+            </div>
+        </div>
+    }
+}

@@ -1,0 +1,12 @@
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\bin\Debug\VIMS.DB.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\bin\Debug\VIMS.DB.pdb
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\obj\Debug\VIMS.DB.csproj.AssemblyReference.cache
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\obj\Debug\VIMS.DB.csproj.CoreCompileInputs.cache
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\obj\Debug\VIMS.DB.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\obj\Debug\VIMS.DB.pdb
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\bin\Debug\VIMS.DB.dll.config
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\bin\Debug\EntityFramework.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\bin\Debug\EntityFramework.xml
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.DB\obj\Debug\VIMS.DB.csproj.CopyComplete

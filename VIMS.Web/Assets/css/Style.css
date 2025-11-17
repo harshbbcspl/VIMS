@@ -1,0 +1,190 @@
+﻿#navbar-menu .navbar {
+    background-color: #00A1EE !important;
+}
+#navbar-menu .nav-link-icon, #navbar-menu .nav-link-title, #navbar-menu .nav-link {
+    color: #fff !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+#navbar-menu .nav-item:hover .nav-link-title,
+#navbar-menu .nav-item:hover .nav-link-icon,
+#navbar-menu .nav-item.dropdown:hover * {
+    color: #0056b3 !important;
+}
+
+.BanasText {
+    margin-top: 1rem !important;
+    font-weight: bolder !important;
+    font-size: 2.5rem !important;
+}
+
+
+.BanasSocText {
+    font-weight: bolder !important;
+}
+
+.Logouticon {
+    font-size: 24px;
+}
+
+.UserCode {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.dataTables_wrapper .dt-buttons .dt-button {
+    right: 28px;
+    font-size: 15px !important;
+    color: green;
+    font-weight: 400;
+    padding: 6px 12px;
+    border-radius: 0.25rem;
+    background: #d9e3f194 !important;
+}
+
+    .dataTables_wrapper .dt-buttons .dt-button:hover {
+        background: #2c9f95 !important;
+        color: #fff;
+    }
+
+.cardTitleRow{
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
+
+
+/*Slider Start*/
+.slider {
+    border: none;
+    position: relative;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 110px;
+}
+
+.slider-checkbox {
+    display: none;
+}
+
+.slider-label {
+    border: 2px solid #666;
+    border-radius: 20px;
+    cursor: pointer;
+    display: block;
+    overflow: hidden;
+}
+
+.slider-inner {
+    display: block;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+    width: 200%;
+}
+
+    .slider-inner:before,
+    .slider-inner:after {
+        box-sizing: border-box;
+        display: block;
+        float: left;
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: bold;
+        height: 32px;
+        line-height: 30px;
+        padding: 0;
+        width: 50%;
+    }
+
+    .slider-inner:before {
+        background-color: #40befb;
+        color: #fff;
+        content: "ACTIVE";
+        padding-left: .75em;
+        text-align: justify !important;
+    }
+
+    .slider-inner:after {
+        background-color: #eee;
+        color: #666;
+        content: "INACTIVE";
+        padding-right: .75em;
+        text-align: right;
+    }
+
+.slider-circle {
+    background-color: #40befb;
+    border: 2px solid #666;
+    border-radius: 20px;
+    bottom: 0;
+    display: block;
+    margin: 5px;
+    position: absolute;
+    right: 78px;
+    top: 0;
+    transition: all 0.3s ease-in 0s;
+    width: 23px;
+}
+
+.slider-checkbox:checked + .slider-label .slider-inner {
+    margin-left: 0;
+}
+
+.slider-checkbox:checked + .slider-label .slider-circle {
+    background-color: #eee;
+    right: 0;
+}
+/*Slider End*/
+
+.datatable thead tr, .datatable tbody tr {
+    text-align: center !important;
+}
+
+.nav-link-title{
+    margin-top:3px !important;
+}
+
+.error-row {
+    background-color: #f8d7da;
+}
+
+.ti:before {
+    font-size: 24px !important;
+}
+
+@media (min-width:768px) {
+    #navbar-menu .nav-link-icon, #navbar-menu .nav-link-title, #navbar-menu .nav-link {
+        font-size: 12px !important;
+    }
+    .dropdown-item {
+        font-size: 12px !important;
+    }
+}
+
+@media (min-width:1024px) {
+    #navbar-menu .nav-link-icon, #navbar-menu .nav-link-title, #navbar-menu .nav-link {
+        font-size: 13px !important;
+    }
+    .dropdown-item {
+        font-size: 13px !important;
+    }
+}
+
+@media (min-width:1440px) {
+    #navbar-menu .nav-link-icon, #navbar-menu .nav-link-title, #navbar-menu .nav-link {
+        font-size: 18px !important;
+    }
+
+    .dropdown-item {
+        font-size: 17px !important;
+    }
+}
+
+
+.datepicker-icon, .timepicker-icon {
+    color: #212529 !important;
+    border: 1px solid #ced4da !important;
+    cursor: pointer !important;
+}

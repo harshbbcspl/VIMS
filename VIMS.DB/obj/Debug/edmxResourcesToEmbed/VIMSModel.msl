@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VIMSModelStoreContainer" CdmEntityContainer="VIMSEntities">
+    <EntitySetMapping Name="SpeciesMasters">
+      <EntityTypeMapping TypeName="VIMSModel.SpeciesMaster">
+        <MappingFragment StoreEntitySet="SpeciesMaster">
+          <ScalarProperty Name="SpeciesId" ColumnName="SpeciesId" />
+          <ScalarProperty Name="SpeciesCode" ColumnName="SpeciesCode" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="VIMS_AilmentMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_AilmentMasterInsUpd" />
+    <FunctionImportMapping FunctionImportName="VIMS_AilmentMasterRtr" FunctionName="VIMSModel.Store.VIMS_AilmentMasterRtr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VIMSModel.VIMS_AilmentMasterRtr_Result">
+          <ScalarProperty Name="AilmentId" ColumnName="AilmentId" />
+          <ScalarProperty Name="AilmentCode" ColumnName="AilmentCode" />
+          <ScalarProperty Name="AilmentName" ColumnName="AilmentName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VIMS_BreedMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_BreedMasterInsUpd" />
+    <FunctionImportMapping FunctionImportName="VIMS_BreedMasterRtr" FunctionName="VIMSModel.Store.VIMS_BreedMasterRtr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VIMSModel.VIMS_BreedMasterRtr_Result">
+          <ScalarProperty Name="BreedId" ColumnName="BreedId" />
+          <ScalarProperty Name="BreedCode" ColumnName="BreedCode" />
+          <ScalarProperty Name="BreedName" ColumnName="BreedName" />
+          <ScalarProperty Name="SpeciesCode" ColumnName="SpeciesCode" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VIMS_SpeciesMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_SpeciesMasterInsUpd" />
+    <FunctionImportMapping FunctionImportName="VIMS_SpeciesMasterRtr" FunctionName="VIMSModel.Store.VIMS_SpeciesMasterRtr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VIMSModel.VIMS_SpeciesMasterRtr_Result">
+          <ScalarProperty Name="SpeciesId" ColumnName="SpeciesId" />
+          <ScalarProperty Name="SpeciesName" ColumnName="SpeciesName" />
+          <ScalarProperty Name="SpeciesCode" ColumnName="SpeciesCode" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

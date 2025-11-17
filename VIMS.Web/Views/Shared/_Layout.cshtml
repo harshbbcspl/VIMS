@@ -1,0 +1,398 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/bundles/css")
+    <link href="~/Assets/css/zebra_datepicker.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/zebra_datepicker.css" rel="stylesheet" />
+    <script src="~/Assets/lib/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div class="page">
+        <!-- Navbar -->
+        <header class="navbar navbar-expand-md d-print-none">
+            <div class="container-fluid d-flex">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href="@Url.Action("Dashboard", "Home")">
+                        <img src="~/Assets/img/NewLogo.png" width="110" height="60" alt="Tabler">
+                    </a>
+                </h1>
+                <h1 class="navbar-brand-autodark d-md-flex BanasText d-none">
+                    @VIMS.Model.Resources.Dashboard.VIMSTitle
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+                            <span class="avatar avatar-sm">
+                                <i class="ti ti-user Logouticon mx-2"></i>
+                            </span>
+                            @{ string SocietyCode = string.Empty;
+                                string SocietyName = string.Empty;
+                                HttpCookie reqCookies = Request.Cookies["LoginMaster"];
+                                if (reqCookies != null)
+                                {
+                                    SocietyCode = reqCookies["SocietyCode"].ToString();
+                                    SocietyName = reqCookies["SocietyName"].ToString();
+                                }
+                            }
+                            <div class="d-none d-xl-block ps-2">
+                                <div class="UserCode my-3">@SocietyCode</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="@Url.Action("ChangePassword", "Home")" class="dropdown-item h3">
+                                <i class="ti ti-password-user Logouticon mx-2"></i> @VIMS.Model.Resources.ChangePassword.title
+                            </a>
+                            <a href="@Url.Action("Logout", "Home")" onclick="return confirm('Are your sure you want to logout?')" title="Logout" class="dropdown-item h3"><i class="ti ti-logout Logouticon mx-2"></i> @VIMS.Model.Resources.ChangePassword.Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <header class="navbar-expand-md">
+            @Html.Action("Menu", "Home")
+        </header>
+        <header class="navbar navbar-expand-md">
+            <div class="navbar-collapse">
+                <div class="container-fluid">
+                    <div class="float-start">
+                        <h1 class="navbar-brand d-md-flex">
+                            @VIMS.Model.Resources.Dashboard.SocietyCode : <span class="BanasSocText text-danger">@SocietyCode</span>
+                        </h1>
+                    </div>
+                    <div class="float-end">
+                        <h1 class="navbar-brand d-md-flex">
+                            @VIMS.Model.Resources.Dashboard.SocietyName : <span class="BanasSocText text-danger">@SocietyName</span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="container-fluid">
+            <div class="page-wrapper">
+                @{Html.RenderPartial("_Alerts"); }
+                <span class="msg">
+                </span>
+                @RenderBody()
+            </div>
+        </div>
+
+        <footer class="footer footer-transparent d-print-none">
+            <div class="container-fluid">
+                <div class="row text-center justify-content-center">
+                    <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                        <ul class="list-inline list-inline-dots mb-0">
+                            <li class="list-inline-item">
+                                Copyright &copy; 2023 <a href="" class="font-weight-bold" target="_blank">VIMS</a>
+                                All rights reserved.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="~/Assets/datatables/js/jquery.dataTables.js"></script>
+    <script src="~/Assets/datatables/js/dataTables.buttons.min.js"></script>
+    <script src="~/Assets/datatables/js/buttons.html5.min.js"></script>
+    <script src="~/Assets/datatables/js/jszip.min.js"></script>
+    <script src="~/Assets/datatables/js/dataTables.bootstrap4.js"></script>
+    <script src="~/Assets/datatables/js/data-table.js"></script>
+    <script src="~/Assets/datatables/js/datatables.init.js"></script>
+
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Assets/js/zebra_datepicker.min.js"></script>
+    @*<script src="~/Assets/flatpicker/flatpickr.js"></script>*@
+    <script src="~/Assets/select2/select2.min.js"></script>
+    <script src="~/Assets/dropify/js/dropify.min.js"></script>
+    <script src="~/Assets/js/html2pdf.bundle.min.js"></script>
+
+    <script src="~/Assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/Assets/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        function SetPageValue(pageName, pageId) {
+            $.ajax({
+                url: "/Home/SetPageValue",
+                type: 'POST',
+                data: {
+                    PageName: pageName,
+                    PageId: pageId
+                },
+                success: function (data) {
+                    if (data.success === true) {
+                        console.log('Page value set successfully.');
+                    }
+                },
+                error: function (error) {
+                    console.log('Page value not set.');
+                }
+            });
+        }
+        $(".select2").select2();
+        $('.dropify').dropify();
+        $('.close').click(function () {
+            $(this).closest('.toast').remove();
+        });
+
+        $(".datetime").Zebra_DatePicker({
+            enableTime: true,
+            dateFormat: "d-m-Y H:i"
+        });
+
+        $(".dateflat").Zebra_DatePicker({
+            dateFormat: "d-m-Y",
+
+        });
+
+        $('.timepicker').Zebra_DatePicker({
+            enableTime: true, // Set this to enable time selection
+            noCalendar: true, // Disable the date picker
+            dateFormat: 'H:i', // Use 24-hour time format (HH:mm)
+            //time_24hr: true, // Enable 24-hour format
+            icons: {
+                time: 'fa fa-clock'
+            }
+        });
+        $(".timepicker-icon").click(function () {
+            var $textbox = $(this).closest('.input-group').find('input[type=text]');
+            $textbox.focus();
+        });
+
+        var currentDate = new Date();
+        var formattedCurrentDate = String(currentDate.getDate()).padStart(2, '0') + '-' + String(currentDate.getMonth() + 1).padStart(2, '0') + '-' + currentDate.getFullYear();
+        var selectedDate = null;
+        $('#txtFromDate').Zebra_DatePicker({
+            format: 'd-m-Y',
+            direction: false,
+            default_position: 'below',
+            disabled_dates: ['*+' + currentDate.getMonth() + 'm+1d-*'],
+            onSelect: function (date) {
+                selectedDate = date;
+            }
+        });
+        $('#txtToDate').Zebra_DatePicker({
+            format: 'd-m-Y',
+            direction: false,
+            default_position: 'below',
+            disabled_dates: ['*+' + currentDate.getMonth() + 'm+1d-*'],
+            onOpen: function () {
+                if (selectedDate != null) {
+                    var direction = [selectedDate, formattedCurrentDate];
+                }
+                $('#txtToDate').data('Zebra_DatePicker').update({
+                    direction: direction
+                });
+            }
+        });
+        $('#Zebra_DatePicker_Icon').on('click', function () {
+            $('#txtToDate').Zebra_DatePicker('show');
+        });
+
+    function ActiveDeactiveStatusChange(status, Code, Type) {
+    if (Code != null) {
+
+        // ✅ Save the previous state BEFORE ajax
+        var previousValue = !status.checked;   // because it’s already toggled
+        var currentValue = status.checked;     // new state user clicked
+
+        $.ajax({
+            url: "@System.Configuration.ConfigurationManager.AppSettings["myKey"]" + "/Master/ChangeStatus",
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            data: { Code: Code, status: currentValue, Type: Type },
+            dataType: "html",
+            success: function (response) {
+
+                // remove old toasts
+                if ($("#toast-container").length > 0) {
+                    $(".toast").remove();
+                }
+
+                // check success
+                var isSuccess = response.toLowerCase().indexOf("successfully") !== -1;
+
+                // ✅ If server says error → revert back to old state
+                if (!isSuccess) {
+                    status.checked = previousValue;
+                }
+
+                // Show toast
+                var toastClass = isSuccess ? 'toast-success' : 'bg-danger text-white';
+                var toastTitle = isSuccess ? 'Success!' : 'Error!';
+                var result = "<div id='toast-container' class='toast-top-right' aria-live='polite'>" +
+                    "<div class='toast " + toastClass + "' style='display:block;' role='alert'>" +
+                    "<div class='toast-message'><strong>" + toastTitle + "</strong> " + response + "</div></div></div>";
+                $(".msg").append(result);
+
+                // fade out toast
+                window.setTimeout(function () {
+                    $(".toast").fadeTo(1000, 0).slideUp(1000, function () {
+                        $(this).remove();
+                    });
+                }, 3000);
+            },
+            error: function () {
+                // ✅ If AJAX fails → revert back to old state
+                status.checked = previousValue;
+
+                // Show error toast
+                if ($("#toast-container").length > 0) {
+                    $(".toast").remove();
+                }
+                var result = "<div id='toast-container' class='toast-top-right' aria-live='polite'>" +
+                    "<div class='toast toast-danger' style='display:block;' role='alert'>" +
+                    "<div class='toast-message'><strong>Error!</strong> Status Not Updated</div></div></div>";
+                $(".msg").before(result);
+
+                window.setTimeout(function () {
+                    $(".toast").fadeTo(1000, 0).slideUp(1000, function () {
+                        $(this).remove();
+                    });
+                }, 3000);
+            }
+        });
+    }
+}
+
+
+        function UMActiveDeactiveStatusChange(status, Code, Type) {
+            if (Code != null) {
+            var Value = status.checked;
+                $.ajax({
+                    url: "@System.Configuration.ConfigurationManager.AppSettings["myKey"]" + "/Usermanagement/ChangeStatus",
+                    contentType: "application/json; charset=utf-8",
+                    data: { Code: Code, status: Value, Type: Type },
+                    dataType: "html",
+                    success: function (response) {
+                        if ($("#toast-container").length > 0) {
+                            $(".toast").remove();
+                        }
+                        var result = " <div id='toast-container' class='toast-top-right' aria-live='polite'><div class='toast toast-success' style='display:block;' role='alert'><div class='toast-message'><strong>Success!</strong> " + response + "</div></div></div>"
+                        $(".msg").append(result);
+                        window.setTimeout(function () {
+                            $(".toast").fadeTo(1000, 0).slideUp(1000, function () {
+                                $(this).remove();
+                            });
+                        }, 3000);
+                    },
+                    error: function (xhr, status, error) {
+                        if ($("#toast-container").length > 0) {
+                            $(".toast").remove();
+                        }
+                        var result = "<div id='toast-container' class='toast-top-right' aria-live='polite'><div class='toast toast-danger' style='display:block;' role='alert'><div class='toast-message'><strong>Error!</strong> Status Not Updated</div></div></div>"
+                        $(".msg").before(result);
+                        window.setTimeout(function () {
+                            $(".toast").fadeTo(1000, 0).slideUp(1000, function () {
+                                $(this).remove();
+                            });
+                        }, 3000);
+                    }
+                });
+            }
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".date-input").each(function () {
+                var fromDateInput = $(this);
+                fromDateInput.Zebra_DatePicker({
+                    dateFormat: "d-m-Y",
+                    maxDate: "today",
+                    onClose: function (selectedDates, dateStr, instance) {
+                        if (selectedDates.length > 0) {
+                            var selectedDate = selectedDates[0];
+
+                            var toDateInput = fromDateInput.closest('tr').find(".ToDate.date-input");
+
+                            if (toDateInput.length > 0) {
+                                toDateInput.Zebra_DatePicker({
+                                    dateFormat: "d-m-Y",
+                                    minDate: selectedDate,
+                                    maxDate: "today"
+                                });
+                            }
+                        }
+                    }
+                });
+            });
+
+            $(".ReportDates").Zebra_DatePicker({
+                dateFormat: "d-m-Y",
+                maxDate: "today",
+                onClose: function (selectedDates, dateStr, instance) {
+                    if (selectedDates && selectedDates.length > 0) {
+                        var selectedDate = selectedDates[0];
+                        $(".ReportDates").not(instance.element).Zebra_DatePicker({
+                            dateFormat: "d-m-Y",
+                            minDate: selectedDate,
+                            maxDate: "today"
+                        });
+                    }
+                }
+            });
+
+            $(".datepicker-icon").on('click', function () {
+                $(this).closest('.input-group').find('.date-input').click();
+                $(this).closest('.input-group').find('.ReportDates').click();
+                $(this).closest('.input-group').find('.dateflat').click();
+            });
+        });
+    </script>
+
+    <script>
+        (function ($) {
+            $.fn.inputFilter = function (callback, errMsg) {
+                return this.on("input keydown keyup mousedown mouseup select contextmenu drop focusout", function (e) {
+                    if (callback(this.value)) {
+                        // Accepted value
+                        if (["keydown", "mousedown", "focusout"].indexOf(e.type) >= 0) {
+                            $(this).removeClass("input-error");
+                            this.setCustomValidity("");
+                        }
+                        this.oldValue = this.value;
+                        this.oldSelectionStart = this.selectionStart;
+                        this.oldSelectionEnd = this.selectionEnd;
+                    } else if (this.hasOwnProperty("oldValue")) {
+                        // Rejected value - restore the previous one
+                        $(this).addClass("input-error");
+                        this.setCustomValidity(errMsg);
+                        this.reportValidity();
+                        this.value = this.oldValue;
+                        this.setSelectionRange(this.oldSelectionStart, this.oldSelectionEnd);
+                    } else {
+                        // Rejected value - nothing to restore
+                        this.value = "";
+                    }
+                });
+            };
+        }(jQuery));
+
+        $(".numbererror").inputFilter(function (value) {
+            return /^-?^\d*[.,]?\d*$/.test(value) && (value === "" || parseInt(value) >= 0);
+        }, "Number Only Allow");
+        $(".yearerror").inputFilter(function (value) {
+            return /^\d*(?:\.\d{1,2})?$/.test(value) && (value === "" || parseInt(value) <= 10000);
+        }, "Only Enter Year");
+        $(".contacterror").inputFilter(function (value) {
+            return /^\d*(?:\.\d{1,2})?$/.test(value) && (value === "" || parseInt(value) <= 10000000000);
+        }, "10 Numbers Only Allow");
+        $(".numbersymbolerror").inputFilter(function (value) { return /^-?^\d*[.,+-]?\d*$/.test(value); }, " Numbers and Symbol Only Allow");
+        $(".numberdecimal").inputFilter(function (value) { return /^-?\d*[.,]?\d*$/.test(value); }, "Decmial Numbers Only Allow");
+        $(".numberonly").inputFilter(function (value) { return /^\d*[]?\d*$/.test(value); }, " Numbers Only Allow");
+        $(".alphanumber").inputFilter(function (value) { return /^[a-zA-Z0-9-]*$/.test(value); }, "Only Alphabets and Numbers Allowed.");
+        $(".alphanum").inputFilter(function (value) { return /^[a-zA-Z0-9-,<]*$/.test(value); }, "Only Alphabets and Numbers Allowed.");
+        $(".Rangenumberdecimal").inputFilter(function (value) { return /^\d*[.]?\d*[-]?\d*[.]?\d*$/.test(value); }, " Numbers Only Allow");
+
+    </script>
+
+</body>
+</html>

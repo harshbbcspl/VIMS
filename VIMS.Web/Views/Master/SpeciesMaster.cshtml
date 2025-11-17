@@ -1,0 +1,88 @@
+﻿@model IEnumerable<VIMS.DB.VIMS_SpeciesMasterRtr_Result>
+@{
+    ViewBag.Title = "Species Master";
+    ViewBag.Module = "Master";
+}
+
+<div class="row">
+    <div class="col-sm-12 my-5">
+        <div class="card card-table">
+            <div class="card-header row cardTitleRow">
+                <div class="col">
+                    <h4 class="card-title float-left">Species Master</h4>
+                </div>
+                <div class="col-auto">
+                    @*@if (Convert.ToInt32(TempData["InsertRight"]) == 1)
+                    {*@
+                        <a href="@Url.Action("AddSpecies", "Master")" class="btn btn-outline-primary float-right">Add Species</a>
+                    @*}*@
+                </div>
+            </div>
+            <div class="card-body booking_card">
+                <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Active</th>
+                                <th>Species Code</th>
+                                <th>Species Name</th>
+                                <th>Created By</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*@if (Convert.ToInt32(TempData["ViewRight"]) == 1)
+                            {*@
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @*@if (Convert.ToInt32(TempData["UpdateRight"]) == 1)
+                                            {*@
+                                                <a href="@Url.Action("EditSpeciesMaster", "Master", new { id = item.SpeciesId })" class="mx-3">
+                                                    <i class="ti ti-edit fa-2x"></i>
+                                                </a>
+                                            @*}
+                                            else
+                                            {
+                                                <i class="ti ti-edit-off fa-2x"></i>
+                                            }*@
+                                        </td>
+                                        <td class="justify-content-center d-flex">
+                                            @*@if (Convert.ToInt32(TempData["DeleteRight"]) == 1)
+                                            {*@
+                                                <div class="slider">
+                                                    <input type="checkbox" name="slider" class="slider-checkbox" id="@item.SpeciesId"
+                                                           onclick='ActiveDeactiveStatusChange(this, "@item.SpeciesId", "SpeciesMaster")'
+                                                           @(item.IsActive == true ? "checked" : "")>
+                                                    <label class="slider-label" for="@item.SpeciesId">
+                                                        <span class="slider-inner"></span>
+                                                        <span class="slider-circle"></span>
+                                                    </label>
+                                                </div>
+                                            @*}
+                                            else
+                                            {
+                                                <div class="slider">
+                                                    <input type="checkbox" name="slider" class="slider-checkbox" disabled="disabled" id="@item.SpeciesId"
+                                                           @(item.IsActive == true ? "checked" : "")>
+                                                    <label class="slider-label" for="@item.SpeciesId">
+                                                        <span class="slider-inner"></span>
+                                                        <span class="slider-circle"></span>
+                                                    </label>
+                                                </div>
+                                            }*@
+                                        </td>
+                                        <td>@Html.DisplayFor(modelItem => item.SpeciesCode)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.SpeciesName)</td>
+                                        <td>@Html.DisplayFor(modelItem => item.CreatedBy)</td>
+                                    </tr>
+                                }
+                            @*}*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

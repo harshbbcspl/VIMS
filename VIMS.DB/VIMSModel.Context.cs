@@ -186,5 +186,52 @@ namespace VIMS.DB
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_SpeciesMasterRtr_Result>("VIMS_SpeciesMasterRtr", speciesIdParameter, speciesCodeParameter, actionParameter);
         }
+    
+        public virtual ObjectResult<string> VIMS_LoginCheck(string societyCode, string password)
+        {
+            var societyCodeParameter = societyCode != null ?
+                new ObjectParameter("SocietyCode", societyCode) :
+                new ObjectParameter("SocietyCode", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_LoginCheck", societyCodeParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_LoginRtr_Result> VIMS_LoginRtr(string societyCode, string password)
+        {
+            var societyCodeParameter = societyCode != null ?
+                new ObjectParameter("SocietyCode", societyCode) :
+                new ObjectParameter("SocietyCode", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_LoginRtr_Result>("VIMS_LoginRtr", societyCodeParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_ChangePassword(string societyCode, string oldpassword, string newpassword, string createDate)
+        {
+            var societyCodeParameter = societyCode != null ?
+                new ObjectParameter("SocietyCode", societyCode) :
+                new ObjectParameter("SocietyCode", typeof(string));
+    
+            var oldpasswordParameter = oldpassword != null ?
+                new ObjectParameter("Oldpassword", oldpassword) :
+                new ObjectParameter("Oldpassword", typeof(string));
+    
+            var newpasswordParameter = newpassword != null ?
+                new ObjectParameter("Newpassword", newpassword) :
+                new ObjectParameter("Newpassword", typeof(string));
+    
+            var createDateParameter = createDate != null ?
+                new ObjectParameter("CreateDate", createDate) :
+                new ObjectParameter("CreateDate", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_ChangePassword", societyCodeParameter, oldpasswordParameter, newpasswordParameter, createDateParameter);
+        }
     }
 }

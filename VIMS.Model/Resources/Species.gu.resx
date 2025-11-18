@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>એક્શન</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>સક્રિય</value>
+  </data>
+  <data name="AddSpecies" xml:space="preserve">
+    <value>પ્રજાતિઓ ઉમેરો</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>દ્વારા બનાવેલ</value>
+  </data>
+  <data name="ESpeciesCode" xml:space="preserve">
+    <value>પ્રજાતિનો કોડ દાખલ કરો</value>
+  </data>
+  <data name="ESpeciesName" xml:space="preserve">
+    <value>જાતિનું નામ દાખલ કરો</value>
+  </data>
   <data name="RSpeciesCode" xml:space="preserve">
     <value>પ્રજાતિ કોડ જરૂરી છે.</value>
   </data>
@@ -125,5 +143,23 @@
   </data>
   <data name="RSpeciesName" xml:space="preserve">
     <value>પ્રજાતિનું નામ જરૂરી છે.</value>
+  </data>
+  <data name="SpeciesCode" xml:space="preserve">
+    <value>જાતિ કોડ</value>
+  </data>
+  <data name="Speciese" xml:space="preserve">
+    <value>પ્રજાતિઓ</value>
+  </data>
+  <data name="SpeciesMaster" xml:space="preserve">
+    <value>જાતિ માસ્ટર</value>
+  </data>
+  <data name="SpeciesName" xml:space="preserve">
+    <value>જાતિનું નામ</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>જાતિ માસ્ટર</value>
+  </data>
+  <data name="ViewSpecies" xml:space="preserve">
+    <value>પ્રજાતિઓ જુઓ</value>
   </data>
 </root>

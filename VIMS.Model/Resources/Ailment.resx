@@ -117,6 +117,33 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AddAilment" xml:space="preserve">
+    <value>Add Ailment</value>
+  </data>
+  <data name="AilmentCode" xml:space="preserve">
+    <value>Ailment Code</value>
+  </data>
+  <data name="AilmentMaster" xml:space="preserve">
+    <value>Ailment Master</value>
+  </data>
+  <data name="AilmentName" xml:space="preserve">
+    <value>Ailment Name</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>CreatedBy</value>
+  </data>
+  <data name="EAilmentCode" xml:space="preserve">
+    <value>Enter Ailment Code</value>
+  </data>
+  <data name="EAilmentName" xml:space="preserve">
+    <value>Enter Ailment Name</value>
+  </data>
   <data name="RAilmentCode" xml:space="preserve">
     <value>Ailment Code is required.</value>
   </data>
@@ -125,5 +152,11 @@
   </data>
   <data name="RAilmentName" xml:space="preserve">
     <value>Aliment Name is required.</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Ailment Master</value>
+  </data>
+  <data name="ViewAilment" xml:space="preserve">
+    <value>View Ailment</value>
   </data>
 </root>

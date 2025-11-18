@@ -18,49 +18,57 @@ namespace VIMS.Web.Controllers
         {
             return View();
         }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginViewModel lm)
         {
             try
             {
-                var emplog = ApiCall.PostApi("LoginCheckGet", Newtonsoft.Json.JsonConvert.SerializeObject(lm));
-                lm = JsonConvert.DeserializeObject<LoginViewModel>(emplog);
-                if (lm.result.Equals("1"))
+
+                var apiResponse = ApiCall.PostApi("LoginCheckGet", JsonConvert.SerializeObject(lm));
+                var loginCheck = JsonConvert.DeserializeObject<ApiResponse<int>>(apiResponse); 
+
+                if (loginCheck != null && loginCheck.result && loginCheck.data == 1)
                 {
-                    FormsAuthentication.SetAuthCookie(lm.Usercode, false);
-                    FormsAuthentication.RedirectFromLoginPage(lm.Usercode, true);
+                    FormsAuthentication.SetAuthCookie(lm.SocietyCode, false);
+                    FormsAuthentication.RedirectFromLoginPage(lm.SocietyCode, true);
 
-                    var Staff = ApiCall.PostApi("LoginUserRtr", Newtonsoft.Json.JsonConvert.SerializeObject(lm));
-                    lm = JsonConvert.DeserializeObject<LoginViewModel>(Staff);
+                    var staffResponse = ApiCall.PostApi("LoginUserRtr", JsonConvert.SerializeObject(lm));
+                    var staffData = JsonConvert.DeserializeObject<ApiResponse<List<LoginViewModel>>>(staffResponse);
 
-                    HttpCookie LoginMaster = new HttpCookie("LoginMaster");
-                    if (lm.Usercode != null)
+                    if (staffData != null && staffData.result && staffData.data.Count > 0)
                     {
-                        LoginMaster["SocietyCode"] = lm.LoginUserList.FirstOrDefault().sold_to_party;
-                        LoginMaster["SocietyName"] = lm.LoginUserList.FirstOrDefault().customername;
-                        LoginMaster["RoleId"] = lm.LoginUserList.FirstOrDefault().RoleId.ToString();
-                        LoginMaster["RoleName"] = lm.LoginUserList.FirstOrDefault().RoleName.ToString();
+                        var user = staffData.data.First();
+
+                        HttpCookie LoginMaster = new HttpCookie("LoginMaster");
+                        LoginMaster["SocietyCode"] = user.SocietyCode;
+                        LoginMaster["SocietyName"] = user.SocietyName;
+                        LoginMaster["RoleId"] = user.RoleId.ToString();
+                        LoginMaster["RoleName"] = user.RoleName;
                         LoginMaster["Lang"] = lm.Language;
                         LoginMaster["IsLogin"] = "True";
+
+                        Response.Cookies.Add(LoginMaster);
                     }
-                    Response.Cookies.Add(LoginMaster);
 
-                    Log.LogMessage("Home", "Login", "Login Successfull.", Logger.LogType.Information);
+                    Log.LogMessage("Home", "Login", "Login Successful.", Logger.LogType.Information);
                     return RedirectToAction("Dashboard", "Home");
-
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Invalid UserName or Password");
+                    ModelState.AddModelError("", loginCheck?.message ?? "Invalid SocietyCode or Password");
                     return View("Login");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return RedirectToAction("Login", "Home");
+                ModelState.AddModelError("", "Invalid SocietyCode or Password");
+                return View("Login");
             }
         }
+
+
 
         public ActionResult Logout()
         {
@@ -74,6 +82,48 @@ namespace VIMS.Web.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Login", "Home");
         }
+        #endregion
+
+        #region==> Change Password
+        public ActionResult ChangePassword()
+        {
+            Language();
+            ChangePasswordViewModel cp = new ChangePasswordViewModel();
+            cp.UserCode = LoggedUserDetails.SocietyCode;
+            return View(cp);
+        }
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordViewModel cpvm)
+        {
+            Language();
+            try
+            {
+                cpvm.CreateDate = generalFunctions.getTimeZoneDatetimedb();
+
+                var emplog = ApiCall.PostApi("ChangePassword", JsonConvert.SerializeObject(cpvm));
+
+                var apiResult = JsonConvert.DeserializeObject<ApiResponse<string>>(emplog);
+
+                string msg = apiResult.message;
+
+                if (msg.Contains("successfully"))
+                {
+                    Success(msg, "Home", "ChangePassword");
+                    return RedirectToAction("Dashboard", "Home");
+                }
+                else
+                {
+                    Danger(msg, "Home", "ChangePassword");
+                    return View(cpvm);
+                }
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Home", "ChangePassword");
+                return RedirectToAction("Dashboard", "Home");
+            }
+        }
+
         #endregion
 
         #region==> Dashboard

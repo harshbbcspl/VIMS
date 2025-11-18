@@ -75,6 +75,9 @@
     <Compile Include="VIMS_BreedMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VIMS_LoginRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="VIMS_SpeciesMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>

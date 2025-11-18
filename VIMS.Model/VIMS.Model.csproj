@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Home\ApiResponse.cs" />
+    <Compile Include="Home\ChangePasswordViewModel.cs" />
     <Compile Include="Home\CurrentClickPageViewModel.cs" />
     <Compile Include="Home\DashboardViewModel.cs" />
     <Compile Include="Home\LoginViewModel.cs" />

@@ -1,3 +1,5 @@
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\obj\Debug\VIMS.Web.csproj.AssemblyReference.cache
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\obj\Debug\VIMS.Web.csproj.CoreCompileInputs.cache
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.Web.dll.config
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.Web.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.Web.pdb
@@ -68,9 +70,11 @@ C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\WebGrease.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Web.Http.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Net.Http.Formatting.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Web.Http.WebHost.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\EntityFramework.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.API.pdb
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.API.dll.config
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.DB.pdb
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.DB.dll.config
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.Model.pdb
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Web.Helpers.xml
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Web.Mvc.xml
@@ -85,12 +89,8 @@ C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\Microsoft.CodeDom.Providers.D
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Web.Http.xml
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Net.Http.Formatting.xml
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\System.Web.Http.WebHost.xml
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\obj\Debug\VIMS.Web.csproj.AssemblyReference.cache
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\obj\Debug\VIMS.Web.csproj.CoreCompileInputs.cache
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\EntityFramework.xml
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\gu\VIMS.Model.resources.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\obj\Debug\VIMS.Web.csproj.CopyComplete
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\obj\Debug\VIMS.Web.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\obj\Debug\VIMS.Web.pdb
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\gu\VIMS.Model.resources.dll
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\EntityFramework.dll
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\VIMS.DB.dll.config
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Web\bin\EntityFramework.xml

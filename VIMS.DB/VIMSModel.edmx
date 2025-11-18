@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="VIMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="VIMSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="SpeciesMaster">
           <Key>
             <PropertyRef Name="SpeciesId" />
@@ -48,6 +48,20 @@
           <Parameter Name="SpeciesCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="VIMS_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Oldpassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="Newpassword" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreateDate" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_LoginCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_LoginRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="VIMS_SpeciesMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="SpeciesId" Type="int" Mode="In" />
           <Parameter Name="SpeciesName" Type="nvarchar" Mode="In" />
@@ -65,8 +79,7 @@
         <EntityContainer Name="VIMSModelStoreContainer">
           <EntitySet Name="SpeciesMaster" EntityType="Self.SpeciesMaster" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="VIMSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -129,6 +142,20 @@
             <Parameter Name="SpeciesCode" Mode="In" Type="String" />
             <Parameter Name="Action" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="VIMS_LoginCheck" ReturnType="Collection(String)">
+            <Parameter Name="SocietyCode" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_LoginRtr" ReturnType="Collection(VIMSModel.VIMS_LoginRtr_Result)">
+            <Parameter Name="SocietyCode" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_ChangePassword" ReturnType="Collection(String)">
+            <Parameter Name="SocietyCode" Mode="In" Type="String" />
+            <Parameter Name="Oldpassword" Mode="In" Type="String" />
+            <Parameter Name="Newpassword" Mode="In" Type="String" />
+            <Parameter Name="CreateDate" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="VIMS_AilmentMasterRtr_Result">
           <Property Type="Int32" Name="AilmentId" Nullable="false" />
@@ -161,6 +188,18 @@
           <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
           <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_LoginRtr_Result">
+          <Property Type="Int32" Name="SocietyId" Nullable="false" />
+          <Property Type="String" Name="SocietyName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="SocietyCode" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="250" />
+          <Property Type="Int32" Name="RoleId" Nullable="true" />
+          <Property Type="String" Name="CreatedDate" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="false" MaxLength="10" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -229,6 +268,24 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_LoginCheck" FunctionName="VIMSModel.Store.VIMS_LoginCheck" />
+          <FunctionImportMapping FunctionImportName="VIMS_LoginRtr" FunctionName="VIMSModel.Store.VIMS_LoginRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_LoginRtr_Result">
+                <ScalarProperty Name="SocietyId" ColumnName="SocietyId" />
+                <ScalarProperty Name="SocietyName" ColumnName="SocietyName" />
+                <ScalarProperty Name="SocietyCode" ColumnName="SocietyCode" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_ChangePassword" FunctionName="VIMSModel.Store.VIMS_ChangePassword" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

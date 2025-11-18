@@ -1,0 +1,152 @@
+﻿@model VIMS.Model.Home.LoginViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <!-- CSS files -->
+    <link href="~/Assets/css/tabler.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/tabler-flags.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/tabler-payments.min.css" rel="stylesheet" />
+    <link href="~/Assets/css/tabler-vendors.min.css" rel="stylesheet" />
+    <link href="~/Assets/icons/tabler-icons.min.css" rel="stylesheet" />
+
+    <link href="~/Assets/css/demo.min.css" rel="stylesheet" />
+
+    <script src="~/Assets/js/demo-theme.min.js" defer></script>
+    <script src="~/Assets/lib/jquery/dist/jquery.min.js"></script>
+    <style>
+        .form-control, .form-label {
+            font-size: 1.25rem !important;
+        }
+
+        .toggle-password {
+            font-size: 24px;
+        }
+
+        .card-lg > .card-body {
+            padding: 2rem !important;
+        }
+
+        .invalidLogin {
+            font-size: 20px;
+            font-weight: 600;
+            background-color: none;
+            text-align: center;
+            border-radius: 60px;
+        }
+
+            .invalidLogin ul {
+                padding: 0px !important;
+                list-style-type: none !important;
+            }
+    </style>
+</head>
+<body class=" d-flex flex-column">
+    <div class="page page-center">
+        <div class="container container-tight py-4">
+            <div class="card card-lg">
+                <div class="card-body">
+                    <div class="text-center mb-2">
+                        <a class="navbar-brand navbar-brand-autodark">
+                            <img src="~/Assets/img/NewLogo.png" width="110" height="40" alt="Tabler" class="navbar-brand-image">
+                        </a>
+                    </div>
+                    <h2 class="h2 text-center mb-4">Login to your account</h2>
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="mb-3">
+                            <label class="form-label">SocietyCode</label>
+                            @Html.ValidationMessageFor(m => m.SocietyCode, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(m => m.SocietyCode, new Dictionary<string, object>() {
+                                                                  {"id","txtUsercode"},
+                                                                  {"class","form-control"},
+                                                                  {"placeholder","Enter SocietyCode" },
+                                                                  {"autocomplete","off"},
+                                                                   {"type","text"}})
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label"> Password</label>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            <div class="input-group input-group-flat">
+                                @Html.TextBoxFor(m => m.Password, new Dictionary<string, object>() {
+                                                                   {"id","txtUserpwd"},
+                                                                   {"class","form-control"},
+                                                                   {"placeholder","Enter Password" },
+                                                                   {"autocomplete","off"},
+                                                                   {"type","password" }
+                                    })
+
+                                <span toggle="#password-field" class="input-group-text ti ti-eye toggle-password ti "></span>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            @Html.DropDownListFor(x => x.Language, new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="English", Value = "en",Selected=true},
+                                new SelectListItem{ Text="Gujarati", Value = "gu" }
+                                }, new { @class = "form-control form-select select" })
+
+                        </div>
+                        <div class="text-center">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger invalidLogin" })
+
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" class="btn btn-lg btn-primary w-100">Sign in</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <!--<div class="modal fade" id="pageLoadModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">-->
+    <!-- Modal Header with Close Icon -->
+    <!--<div class="modal-header">
+        <h5 class="modal-title">Welcome</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>-->
+    <!-- Modal Body with Image -->
+    <!--<div class="modal-body text-center">
+        <img src="~/img/dcsbanner.png" alt="Welcome" class="img-fluid" />
+    </div>-->
+    <!-- Modal Footer -->
+    <!--<div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>-->
+    <!-- Libs JS -->
+    <!-- Tabler Core -->
+    <script src="~/Assets/js/tabler.min.js" defer></script>
+    <script src="~/Assets/js/demo.min.js" defer></script>
+    <script>
+        $(".toggle-password").click(function () {
+            $(this).toggleClass("ti-eye-off");
+            input = $(this).parent().find("input");
+            if (input.attr("type") == "password") {
+                input.attr("type", "text");
+            } else {
+                input.attr("type", "password");
+            }
+        });
+            //$(document).ready(function () {
+            //    var myModal = new bootstrap.Modal(document.getElementById('pageLoadModal'), {
+            //        backdrop: 'static',
+            //        keyboard: true
+            //    });
+            //    myModal.show();
+            //});
+    </script>
+</body>
+</html>

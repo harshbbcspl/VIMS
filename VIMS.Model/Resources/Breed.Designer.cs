@@ -61,6 +61,96 @@ namespace VIMS.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Breed.
+        /// </summary>
+        public static string AddBreed {
+            get {
+                return ResourceManager.GetString("AddBreed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breed Code.
+        /// </summary>
+        public static string BreedCode {
+            get {
+                return ResourceManager.GetString("BreedCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breed.
+        /// </summary>
+        public static string Breede {
+            get {
+                return ResourceManager.GetString("Breede", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breed Master.
+        /// </summary>
+        public static string BreedMaster {
+            get {
+                return ResourceManager.GetString("BreedMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breed Name.
+        /// </summary>
+        public static string BreedName {
+            get {
+                return ResourceManager.GetString("BreedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CreatedBy.
+        /// </summary>
+        public static string CreatedBy {
+            get {
+                return ResourceManager.GetString("CreatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Breed Code.
+        /// </summary>
+        public static string EBreedCode {
+            get {
+                return ResourceManager.GetString("EBreedCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Breed Name.
+        /// </summary>
+        public static string EBreedName {
+            get {
+                return ResourceManager.GetString("EBreedName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Breed Code is required..
         /// </summary>
         public static string RBreedCode {
@@ -93,6 +183,51 @@ namespace VIMS.Model.Resources {
         public static string RSpeciesCode {
             get {
                 return ResourceManager.GetString("RSpeciesCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Species.
+        /// </summary>
+        public static string SelectSpecies {
+            get {
+                return ResourceManager.GetString("SelectSpecies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species Code.
+        /// </summary>
+        public static string SpeciesCode {
+            get {
+                return ResourceManager.GetString("SpeciesCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species.
+        /// </summary>
+        public static string Speciese {
+            get {
+                return ResourceManager.GetString("Speciese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Breed Master.
+        /// </summary>
+        public static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Breed.
+        /// </summary>
+        public static string ViewBreed {
+            get {
+                return ResourceManager.GetString("ViewBreed", resourceCulture);
             }
         }
     }

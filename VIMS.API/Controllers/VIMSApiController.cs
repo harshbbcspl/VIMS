@@ -5,6 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using VIMS.DB;
+using VIMS.Model.Home;
 using VIMS.Model.Master;
 
 namespace VIMS.API.Controllers
@@ -13,7 +14,175 @@ namespace VIMS.API.Controllers
     {
         VIMSEntities db = new VIMSEntities();
 
-        #region ==> Master API 
+        #region ==> Home Controller API 
+
+        #region ==>  Login API
+        [HttpPost]
+        [Route("api/VIMSApi/LoginCheckGet")]
+        public HttpResponseMessage LoginCheckGet(LoginViewModel svm)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(svm.SocietyCode) || string.IsNullOrEmpty(svm.Password))
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "SocietyCode and Password are required",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, response);
+                }
+
+                var data = db.VIMS_LoginCheck(
+                    svm.SocietyCode,
+                    svm.Password
+                ).FirstOrDefault();
+
+                if (data != null)
+                {
+                    var response = new
+                    {
+                        result = true,
+                        message = "Login success",
+                        data = data
+                    };
+                    return Request.CreateResponse(HttpStatusCode.OK, response);
+                }
+                else
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "Invalid username or password",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.OK, response);
+                }
+            }
+            catch (Exception ex)
+            {
+                var response = new
+                {
+                    result = false,
+                    message = "An error occurred: " + ex.Message,
+                    data = ""
+                };
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, response);
+            }
+        }
+
+
+        [HttpPost]
+        [Route("api/VIMSApi/LoginUserRtr")]
+        public HttpResponseMessage LoginUserRtr(LoginViewModel svm)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(svm.SocietyCode) || string.IsNullOrEmpty(svm.Password))
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "SocietyCode and Password are required",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, response);
+                }
+
+                var data = db.VIMS_LoginRtr(
+                    svm.SocietyCode,
+                    svm.Password
+                ).ToList();
+
+                if (data != null && data.Count > 0)
+                {
+                    var response = new
+                    {
+                        result = true,
+                        message = "Login data retrieved successfully",
+                        data = data
+                    };
+                    return Request.CreateResponse(HttpStatusCode.OK, response);
+                }
+                else
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "Invalid username or password",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.OK, response);
+                }
+            }
+            catch (Exception ex)
+            {
+                var response = new
+                {
+                    result = false,
+                    message = "An error occurred: " + ex.Message,
+                    data = ""
+                };
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, response);
+            }
+        }
+
+        #endregion
+
+        #region==> Change Password Api
+        [HttpPost]
+        [Route("api/VIMSApi/ChangePassword")]
+        public HttpResponseMessage ChangePassword(ChangePasswordViewModel vm)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(vm.UserCode) ||
+                    string.IsNullOrEmpty(vm.OldPassword) ||
+                    string.IsNullOrEmpty(vm.NewPassword))
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "UserCode, OldPassword and NewPassword are required",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, response);
+                }
+
+                var result = db.VIMS_ChangePassword(
+                    vm.UserCode,
+                    vm.OldPassword,
+                    vm.NewPassword,
+                    vm.CreateDate
+                ).FirstOrDefault();
+
+                var responseSuccess = new
+                {
+                    result = true,
+                    message = result,
+                    data = ""
+                };
+
+                return Request.CreateResponse(HttpStatusCode.OK, responseSuccess);
+            }
+            catch (Exception ex)
+            {
+                var responseError = new
+                {
+                    result = false,
+                    message = "An error occurred: " + ex.Message,
+                    data = ""
+                };
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, responseError);
+            }
+        }
+        #endregion
+
+        #endregion
+
+
+        #region ==> Master Controller API 
 
         #region ==> Species Master API
 

@@ -125,6 +125,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MasterController.cs" />
+    <Compile Include="Controllers\UsermanagementController.cs" />
     <Compile Include="GeneralClasses\Alert.cs" />
     <Compile Include="GeneralClasses\GeneralClass.cs" />
     <Compile Include="GeneralClasses\LangTrans.cs" />
@@ -192,7 +193,6 @@
     <Content Include="Assets\icons\icons.png" />
     <Content Include="Assets\icons\tabler-icons.css" />
     <Content Include="Assets\icons\tabler-icons.min.css" />
-    <Content Include="Assets\img\BanasLogo.jpg" />
     <Content Include="Assets\img\logo.svg" />
     <Content Include="Assets\img\NewLogo.png" />
     <Content Include="Assets\js\demo-theme.js" />
@@ -305,6 +305,7 @@
     <Content Include="Assets\lib\plyr\dist\plyr.polyfilled.min.mjs" />
     <Content Include="Assets\lib\plyr\dist\plyr.polyfilled.mjs" />
     <Content Include="Assets\lib\plyr\dist\plyr.svg" />
+    <Content Include="Assets\lib\popperjs\popper.min.js" />
     <Content Include="Assets\lib\star-rating.js\dist\star-rating.cjs.js" />
     <Content Include="Assets\lib\star-rating.js\dist\star-rating.css" />
     <Content Include="Assets\lib\star-rating.js\dist\star-rating.esm.js" />
@@ -666,12 +667,19 @@
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Master\SpeciesMaster.cshtml" />
     <Content Include="Views\Master\AddSpecies.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Master\BreedMaster.cshtml" />
+    <Content Include="Views\Master\AddBreed.cshtml" />
+    <Content Include="Views\Master\AilmentMaster.cshtml" />
+    <Content Include="Views\Master\AddAilment.cshtml" />
+    <Content Include="Views\Home\ChangePassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Logs\" />
     <Folder Include="Models\" />
     <Folder Include="UploadFiles\" />
+    <Folder Include="Views\Usermanagement\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

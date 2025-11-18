@@ -1,6 +1,6 @@
 ﻿@model VIMS.Model.Master.SpeciesViewModel
 @{
-    ViewBag.Title = "Add Species";
+    ViewBag.Title = @VIMS.Model.Resources.Species.AddSpecies;
 }
 
 <div class="row">
@@ -8,10 +8,10 @@
         <div class="card">
             <div class="card-header row cardTitleRow">
                 <div class="col">
-                    <h4 class="card-title float-left">@ViewBag.Action Species</h4>
+                    <h4 class="card-title float-left">@ViewBag.Action @VIMS.Model.Resources.Species.Speciese</h4>
                 </div>
                 <div class="col-auto">
-                    <a href="@Url.Action("SpeciesMaster", "Master")" class="btn btn-outline-primary">View Species</a>
+                    <a href="@Url.Action("SpeciesMaster", "Master")" class="btn btn-outline-primary">@VIMS.Model.Resources.Species.ViewSpecies</a>
                 </div>
             </div>
             <div class="card-body">
@@ -24,7 +24,7 @@
                     <div class="row form-group">
                         <div class="col-md-3 col-xl-2 col-sm-12">
                             <label class="col-form-label">
-                                Species Code
+                                @VIMS.Model.Resources.Species.SpeciesCode
                                 @Html.ValidationMessageFor(m => m.SpeciesCode, "", new { @class = "text-danger" })
                             </label>
                             @Html.TextBoxFor(m => m.SpeciesCode, new Dictionary<string, object>() {
@@ -32,13 +32,13 @@
                                 {"class","form-control text-uppercase"},
                                 {"autocomplete","off"},
                                 {"required","required"},
-                                {"placeholder","Enter Species Code"}
+                                {"placeholder",@VIMS.Model.Resources.Species.ESpeciesCode}
                             })
                         </div>
 
                         <div class="col-md-3 col-xl-2 col-sm-12">
                             <label class="col-form-label">
-                                Species Name
+                                @VIMS.Model.Resources.Species.SpeciesName
                                 @Html.ValidationMessageFor(m => m.SpeciesName, "", new { @class = "text-danger" })
                             </label>
                             @Html.TextBoxFor(m => m.SpeciesName, new Dictionary<string, object>() {
@@ -46,12 +46,12 @@
                                 {"class","form-control text-capitalize"},
                                 {"autocomplete","off"},
                                 {"required","required"},
-                                {"placeholder","Enter Species Name"}
+                                {"placeholder",@VIMS.Model.Resources.Species.ESpeciesName}
                             })
                         </div>
 
                         <div class="col-md-3 col-xl-2 col-sm-12">
-                            <label class="col-form-label">Active</label>
+                            <label class="col-form-label">@VIMS.Model.Resources.Species.Active</label>
                             @Html.DropDownListFor(x => x.IsActive, new List<SelectListItem>
                             {
                                 new SelectListItem{ Text="Enable", Value = "true", Selected=true },
@@ -69,12 +69,4 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function () {
-        var speciesCode = $("#txtSpeciesCode").val();
-        if (speciesCode) {
-            // Disable species code textbox on edit
-            $("#txtSpeciesCode").prop("disabled", true);
-        }
-    });
-</script>
+

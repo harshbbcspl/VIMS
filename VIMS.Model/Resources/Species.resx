@@ -117,6 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
+  <data name="Active" xml:space="preserve">
+    <value>Active</value>
+  </data>
+  <data name="AddSpecies" xml:space="preserve">
+    <value>Add Species</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>CreatedBy</value>
+  </data>
+  <data name="ESpeciesCode" xml:space="preserve">
+    <value>Enter Species Code</value>
+  </data>
+  <data name="ESpeciesName" xml:space="preserve">
+    <value>Enter Species Name</value>
+  </data>
   <data name="RSpeciesCode" xml:space="preserve">
     <value>Species Code is required.</value>
   </data>
@@ -125,5 +143,23 @@
   </data>
   <data name="RSpeciesName" xml:space="preserve">
     <value>Species Name is required.</value>
+  </data>
+  <data name="SpeciesCode" xml:space="preserve">
+    <value>Species Code</value>
+  </data>
+  <data name="Speciese" xml:space="preserve">
+    <value>Species</value>
+  </data>
+  <data name="SpeciesMaster" xml:space="preserve">
+    <value>Species Master</value>
+  </data>
+  <data name="SpeciesName" xml:space="preserve">
+    <value>Species Name</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Species Master</value>
+  </data>
+  <data name="ViewSpecies" xml:space="preserve">
+    <value>View Species</value>
   </data>
 </root>

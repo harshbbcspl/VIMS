@@ -26,7 +26,7 @@ namespace VIMS.Model.Master
         [Required(ErrorMessageResourceType = typeof(Breed), ErrorMessageResourceName = "RSpeciesCode")]
         public string SpeciesCode { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public string CreatedBy { get; set; }
         public string CreatedDate { get; set; }
@@ -34,6 +34,7 @@ namespace VIMS.Model.Master
         public string UpdatedDate { get; set; }
 
         public List<VIMS_BreedMasterRtr_Result> BreedList { get; set; }
+        public List<VIMS_SpeciesMasterRtr_Result> SpeciesList { get; set; }
 
         public string success { get; set; }
         public string message { get; set; }

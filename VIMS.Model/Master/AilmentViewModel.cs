@@ -20,7 +20,7 @@ namespace VIMS.Model.Master
         [StringLength(10, ErrorMessageResourceType = typeof(Ailment), ErrorMessageResourceName = "RAilmentCodeLength")]
         public string AilmentCode { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public string CreatedBy { get; set; }
         public string CreatedDate { get; set; }

@@ -1,3 +1,5 @@
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.csproj.AssemblyReference.cache
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.csproj.CoreCompileInputs.cache
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.API.dll.config
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.API.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.API.pdb
@@ -51,6 +53,8 @@ C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\roslyn\vbc.rsp
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\roslyn\VBCSCompiler.exe
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\Antlr3.Runtime.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.SqlServer.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\Newtonsoft.Json.dll
@@ -68,7 +72,10 @@ C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.DB.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.Model.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\WebGrease.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.DB.pdb
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.DB.dll.config
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.Model.pdb
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.xml
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.SqlServer.xml
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\Newtonsoft.Json.xml
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\System.Net.Http.Formatting.xml
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\System.Web.Helpers.xml
@@ -82,14 +89,7 @@ C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\System.Web.WebPages.Deploymen
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\System.Web.WebPages.Razor.xml
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\Antlr3.Runtime.pdb
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.csproj.AssemblyReference.cache
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.csproj.CoreCompileInputs.cache
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.dll
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.pdb
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\gu\VIMS.Model.resources.dll
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.csproj.CopyComplete
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.dll
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.SqlServer.dll
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\VIMS.DB.dll.config
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.xml
-C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\bin\EntityFramework.SqlServer.xml
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.dll
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.API\obj\Debug\VIMS.API.pdb

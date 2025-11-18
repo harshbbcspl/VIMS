@@ -61,6 +61,60 @@ namespace VIMS.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Species.
+        /// </summary>
+        public static string AddSpecies {
+            get {
+                return ResourceManager.GetString("AddSpecies", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CreatedBy.
+        /// </summary>
+        public static string CreatedBy {
+            get {
+                return ResourceManager.GetString("CreatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Species Code.
+        /// </summary>
+        public static string ESpeciesCode {
+            get {
+                return ResourceManager.GetString("ESpeciesCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Species Name.
+        /// </summary>
+        public static string ESpeciesName {
+            get {
+                return ResourceManager.GetString("ESpeciesName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Species Code is required..
         /// </summary>
         public static string RSpeciesCode {
@@ -84,6 +138,60 @@ namespace VIMS.Model.Resources {
         public static string RSpeciesName {
             get {
                 return ResourceManager.GetString("RSpeciesName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species Code.
+        /// </summary>
+        public static string SpeciesCode {
+            get {
+                return ResourceManager.GetString("SpeciesCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species.
+        /// </summary>
+        public static string Speciese {
+            get {
+                return ResourceManager.GetString("Speciese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species Master.
+        /// </summary>
+        public static string SpeciesMaster {
+            get {
+                return ResourceManager.GetString("SpeciesMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species Name.
+        /// </summary>
+        public static string SpeciesName {
+            get {
+                return ResourceManager.GetString("SpeciesName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Species Master.
+        /// </summary>
+        public static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Species.
+        /// </summary>
+        public static string ViewSpecies {
+            get {
+                return ResourceManager.GetString("ViewSpecies", resourceCulture);
             }
         }
     }

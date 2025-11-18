@@ -59,6 +59,20 @@
       <Parameter Name="SpeciesCode" Mode="In" Type="String" />
       <Parameter Name="Action" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="VIMS_LoginCheck" ReturnType="Collection(String)">
+      <Parameter Name="SocietyCode" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_LoginRtr" ReturnType="Collection(VIMSModel.VIMS_LoginRtr_Result)">
+      <Parameter Name="SocietyCode" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_ChangePassword" ReturnType="Collection(String)">
+      <Parameter Name="SocietyCode" Mode="In" Type="String" />
+      <Parameter Name="Oldpassword" Mode="In" Type="String" />
+      <Parameter Name="Newpassword" Mode="In" Type="String" />
+      <Parameter Name="CreateDate" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="VIMS_AilmentMasterRtr_Result">
     <Property Type="Int32" Name="AilmentId" Nullable="false" />
@@ -91,5 +105,17 @@
     <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
     <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_LoginRtr_Result">
+    <Property Type="Int32" Name="SocietyId" Nullable="false" />
+    <Property Type="String" Name="SocietyName" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="SocietyCode" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="250" />
+    <Property Type="Int32" Name="RoleId" Nullable="true" />
+    <Property Type="String" Name="CreatedDate" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="false" MaxLength="10" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

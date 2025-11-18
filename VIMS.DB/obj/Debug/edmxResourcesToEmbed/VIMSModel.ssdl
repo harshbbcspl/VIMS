@@ -43,6 +43,20 @@
     <Parameter Name="SpeciesCode" Type="nvarchar" Mode="In" />
     <Parameter Name="Action" Type="nvarchar" Mode="In" />
   </Function>
+  <Function Name="VIMS_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Oldpassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="Newpassword" Type="nvarchar" Mode="In" />
+    <Parameter Name="CreateDate" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VIMS_LoginCheck" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="VIMS_LoginRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+  </Function>
   <Function Name="VIMS_SpeciesMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="SpeciesId" Type="int" Mode="In" />
     <Parameter Name="SpeciesName" Type="nvarchar" Mode="In" />

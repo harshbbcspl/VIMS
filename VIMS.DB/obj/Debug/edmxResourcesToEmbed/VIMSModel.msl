@@ -62,5 +62,23 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VIMS_LoginCheck" FunctionName="VIMSModel.Store.VIMS_LoginCheck" />
+    <FunctionImportMapping FunctionImportName="VIMS_LoginRtr" FunctionName="VIMSModel.Store.VIMS_LoginRtr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VIMSModel.VIMS_LoginRtr_Result">
+          <ScalarProperty Name="SocietyId" ColumnName="SocietyId" />
+          <ScalarProperty Name="SocietyName" ColumnName="SocietyName" />
+          <ScalarProperty Name="SocietyCode" ColumnName="SocietyCode" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VIMS_ChangePassword" FunctionName="VIMSModel.Store.VIMS_ChangePassword" />
   </EntityContainerMapping>
 </Mapping>

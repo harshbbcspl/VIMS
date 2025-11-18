@@ -61,6 +61,87 @@ namespace VIMS.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Action.
+        /// </summary>
+        public static string Action {
+            get {
+                return ResourceManager.GetString("Action", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Active.
+        /// </summary>
+        public static string Active {
+            get {
+                return ResourceManager.GetString("Active", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add Ailment.
+        /// </summary>
+        public static string AddAilment {
+            get {
+                return ResourceManager.GetString("AddAilment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ailment Code.
+        /// </summary>
+        public static string AilmentCode {
+            get {
+                return ResourceManager.GetString("AilmentCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ailment Master.
+        /// </summary>
+        public static string AilmentMaster {
+            get {
+                return ResourceManager.GetString("AilmentMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ailment Name.
+        /// </summary>
+        public static string AilmentName {
+            get {
+                return ResourceManager.GetString("AilmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CreatedBy.
+        /// </summary>
+        public static string CreatedBy {
+            get {
+                return ResourceManager.GetString("CreatedBy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Ailment Code.
+        /// </summary>
+        public static string EAilmentCode {
+            get {
+                return ResourceManager.GetString("EAilmentCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter Ailment Name.
+        /// </summary>
+        public static string EAilmentName {
+            get {
+                return ResourceManager.GetString("EAilmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ailment Code is required..
         /// </summary>
         public static string RAilmentCode {
@@ -84,6 +165,24 @@ namespace VIMS.Model.Resources {
         public static string RAilmentName {
             get {
                 return ResourceManager.GetString("RAilmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ailment Master.
+        /// </summary>
+        public static string title {
+            get {
+                return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View Ailment.
+        /// </summary>
+        public static string ViewAilment {
+            get {
+                return ResourceManager.GetString("ViewAilment", resourceCulture);
             }
         }
     }

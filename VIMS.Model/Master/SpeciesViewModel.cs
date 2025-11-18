@@ -17,7 +17,7 @@ namespace VIMS.Model.Master
         [StringLength(10, ErrorMessageResourceType = typeof(Species), ErrorMessageResourceName = "RSpeciesCodeLength")]
         public string SpeciesCode { get; set; }
 
-        public bool IsActive { get; set; }
+        public bool IsActive { get; set; } = true;
 
         public string CreatedBy { get; set; }
         public string CreatedDate { get; set; }
@@ -26,9 +26,9 @@ namespace VIMS.Model.Master
 
         public List<VIMS_SpeciesMasterRtr_Result> SpeciesList { get; set; }
 
-        public string success { get; set; }
-        public string message { get; set; }
-        public string result { get; set; }
+        //public string success { get; set; }
+        //public string message { get; set; }
+        //public string result { get; set; }
         public string Action { get; set; }
     }
 }

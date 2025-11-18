@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<VIMS.DB.VIMS_SpeciesMasterRtr_Result>
 @{
-    ViewBag.Title = "Species Master";
+    ViewBag.Title = @VIMS.Model.Resources.Species.title;
     ViewBag.Module = "Master";
 }
 
@@ -9,12 +9,12 @@
         <div class="card card-table">
             <div class="card-header row cardTitleRow">
                 <div class="col">
-                    <h4 class="card-title float-left">Species Master</h4>
+                    <h4 class="card-title float-left">@VIMS.Model.Resources.Species.SpeciesMaster</h4>
                 </div>
                 <div class="col-auto">
                     @*@if (Convert.ToInt32(TempData["InsertRight"]) == 1)
                     {*@
-                        <a href="@Url.Action("AddSpecies", "Master")" class="btn btn-outline-primary float-right">Add Species</a>
+                    <a href="@Url.Action("AddSpecies", "Master")" class="btn btn-outline-primary float-right">@VIMS.Model.Resources.Species.AddSpecies</a>
                     @*}*@
                 </div>
             </div>
@@ -23,11 +23,11 @@
                     <table class="table card-table table-vcenter text-nowrap datatable">
                         <thead>
                             <tr>
-                                <th>Action</th>
-                                <th>Active</th>
-                                <th>Species Code</th>
-                                <th>Species Name</th>
-                                <th>Created By</th>
+                                <th>@VIMS.Model.Resources.Species.Action</th>
+                                <th>@VIMS.Model.Resources.Species.Active</th>
+                                <th>@VIMS.Model.Resources.Species.SpeciesCode</th>
+                                <th>@VIMS.Model.Resources.Species.SpeciesName</th>
+                                <th>@VIMS.Model.Resources.Species.CreatedBy</th>
                             </tr>
                         </thead>
                         <tbody>

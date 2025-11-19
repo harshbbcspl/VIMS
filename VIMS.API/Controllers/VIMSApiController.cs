@@ -7,6 +7,7 @@ using System.Web.Http;
 using VIMS.DB;
 using VIMS.Model.Home;
 using VIMS.Model.Master;
+using VIMS.Model.Usermanagement;
 
 namespace VIMS.API.Controllers
 {
@@ -23,7 +24,7 @@ namespace VIMS.API.Controllers
         {
             try
             {
-                if (string.IsNullOrEmpty(svm.SocietyCode) || string.IsNullOrEmpty(svm.Password))
+                if (string.IsNullOrEmpty(svm.UserCode) || string.IsNullOrEmpty(svm.Password))
                 {
                     var response = new
                     {
@@ -35,7 +36,7 @@ namespace VIMS.API.Controllers
                 }
 
                 var data = db.VIMS_LoginCheck(
-                    svm.SocietyCode,
+                    svm.UserCode,
                     svm.Password
                 ).FirstOrDefault();
 
@@ -79,7 +80,7 @@ namespace VIMS.API.Controllers
         {
             try
             {
-                if (string.IsNullOrEmpty(svm.SocietyCode) || string.IsNullOrEmpty(svm.Password))
+                if (string.IsNullOrEmpty(svm.UserCode) || string.IsNullOrEmpty(svm.Password))
                 {
                     var response = new
                     {
@@ -91,7 +92,7 @@ namespace VIMS.API.Controllers
                 }
 
                 var data = db.VIMS_LoginRtr(
-                    svm.SocietyCode,
+                    svm.UserCode,
                     svm.Password
                 ).ToList();
 
@@ -511,5 +512,117 @@ namespace VIMS.API.Controllers
         #endregion
 
         #endregion
+
+        #region ==> Usermanagement Controller Api 
+
+        #region ==> Role Master API
+
+        [HttpPost]
+        [Route("api/VIMSApi/RoleMasterRtr")]
+        public HttpResponseMessage RoleMasterRtr(RoleMasterViewModel rvm)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(rvm.Action))
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "Action is required",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, response);
+                }
+
+                var data = db.VIMS_RoleMasterRtr(
+                    rvm.RoleId,
+                    rvm.Action
+                ).ToList();
+
+                if (data != null && data.Count > 0)
+                {
+                    var response = new
+                    {
+                        result = true,
+                        message = "Data retrieved successfully",
+                        data = data
+                    };
+                    return Request.CreateResponse(HttpStatusCode.OK, response);
+                }
+                else
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "No records found",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.OK, response);
+                }
+            }
+            catch (Exception ex)
+            {
+                var responseError = new
+                {
+                    result = false,
+                    message = "An error occurred: " + ex.Message,
+                    data = ""
+                };
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, responseError);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/VIMSApi/RoleMasterInsUpd")]
+        public HttpResponseMessage RoleMasterInsUpd(RoleMasterViewModel rvm)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(rvm.Action))
+                {
+                    var response = new
+                    {
+                        result = false,
+                        message = "Action is required",
+                        data = ""
+                    };
+                    return Request.CreateResponse(HttpStatusCode.BadRequest, response);
+                }
+
+                var result = db.VIMS_RoleMasterInsUpd(
+                    rvm.RoleId,
+                    rvm.RoleName,
+                    rvm.CreatedBy,
+                    rvm.UpdatedBy,
+                    rvm.IsActive,
+                    rvm.Action
+                ).FirstOrDefault();
+
+                var responseSuccess = new
+                {
+                    result = true,
+                    message = result,
+                    data = ""
+                };
+
+                return Request.CreateResponse(HttpStatusCode.OK, responseSuccess);
+            }
+            catch (Exception ex)
+            {
+                var responseError = new
+                {
+                    result = false,
+                    message = "An error occurred: " + ex.Message,
+                    data = ""
+                };
+                return Request.CreateResponse(HttpStatusCode.InternalServerError, responseError);
+            }
+        }
+
+        #endregion
+
+
+        #endregion
+
     }
 }

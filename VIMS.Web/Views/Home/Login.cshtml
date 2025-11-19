@@ -61,12 +61,12 @@
                     {
                         @Html.AntiForgeryToken()
                         <div class="mb-3">
-                            <label class="form-label">SocietyCode</label>
-                            @Html.ValidationMessageFor(m => m.SocietyCode, "", new { @class = "text-danger" })
-                            @Html.TextBoxFor(m => m.SocietyCode, new Dictionary<string, object>() {
+                            <label class="form-label">Usercode</label>
+                            @Html.ValidationMessageFor(m => m.UserCode, "", new { @class = "text-danger" })
+                            @Html.TextBoxFor(m => m.UserCode, new Dictionary<string, object>() {
                                                                   {"id","txtUsercode"},
                                                                   {"class","form-control"},
-                                                                  {"placeholder","Enter SocietyCode" },
+                                                                  {"placeholder","Enter Usercode" },
                                                                   {"autocomplete","off"},
                                                                    {"type","text"}})
                         </div>

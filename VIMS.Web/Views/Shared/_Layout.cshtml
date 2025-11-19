@@ -36,8 +36,8 @@
                                 HttpCookie reqCookies = Request.Cookies["LoginMaster"];
                                 if (reqCookies != null)
                                 {
-                                    SocietyCode = reqCookies["SocietyCode"].ToString();
-                                    SocietyName = reqCookies["SocietyName"].ToString();
+                                    SocietyCode = reqCookies["UserCode"].ToString();
+                                    SocietyName = reqCookies["UserName"].ToString();
                                 }
                             }
                             <div class="d-none d-xl-block ps-2">

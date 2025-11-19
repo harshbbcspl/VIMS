@@ -259,8 +259,8 @@ namespace VIMS.Web.GeneralClasses
                 HttpCookie reqCookies = Request.Cookies["LoginMaster"];
                 if (reqCookies != null)
                 {
-                    em.SocietyCode = reqCookies["SocietyCode"].ToString();
-                    em.SocietyName = reqCookies["SocietyName"].ToString();
+                    em.UserCode = reqCookies["UserCode"].ToString();
+                    em.UserName = reqCookies["UserName"].ToString();
                     em.RoleId = reqCookies["RoleId"];
                     em.Language = reqCookies["Lang"].ToString();
                     em.IsLogin = reqCookies["IsLogin"].ToString();

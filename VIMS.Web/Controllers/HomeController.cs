@@ -31,8 +31,8 @@ namespace VIMS.Web.Controllers
 
                 if (loginCheck != null && loginCheck.result && loginCheck.data == 1)
                 {
-                    FormsAuthentication.SetAuthCookie(lm.SocietyCode, false);
-                    FormsAuthentication.RedirectFromLoginPage(lm.SocietyCode, true);
+                    FormsAuthentication.SetAuthCookie(lm.UserCode, false);
+                    FormsAuthentication.RedirectFromLoginPage(lm.UserCode, true);
 
                     var staffResponse = ApiCall.PostApi("LoginUserRtr", JsonConvert.SerializeObject(lm));
                     var staffData = JsonConvert.DeserializeObject<ApiResponse<List<LoginViewModel>>>(staffResponse);
@@ -42,8 +42,8 @@ namespace VIMS.Web.Controllers
                         var user = staffData.data.First();
 
                         HttpCookie LoginMaster = new HttpCookie("LoginMaster");
-                        LoginMaster["SocietyCode"] = user.SocietyCode;
-                        LoginMaster["SocietyName"] = user.SocietyName;
+                        LoginMaster["UserCode"] = user.UserCode;
+                        LoginMaster["UserName"] = user.UserName;
                         LoginMaster["RoleId"] = user.RoleId.ToString();
                         LoginMaster["RoleName"] = user.RoleName;
                         LoginMaster["Lang"] = lm.Language;
@@ -89,7 +89,7 @@ namespace VIMS.Web.Controllers
         {
             Language();
             ChangePasswordViewModel cp = new ChangePasswordViewModel();
-            cp.UserCode = LoggedUserDetails.SocietyCode;
+            cp.UserCode = LoggedUserDetails.UserCode;
             return View(cp);
         }
         [HttpPost]
@@ -132,7 +132,7 @@ namespace VIMS.Web.Controllers
             Language();
             DashboardViewModel dvm = new DashboardViewModel();
 
-            dvm.SocietyCode = LoggedUserDetails.SocietyCode;
+            dvm.SocietyCode = LoggedUserDetails.UserCode;
             dvm.IpAddress = GetClientIpAddress();
             dvm.Controller = this.ControllerContext.RouteData.Values["controller"].ToString();
             dvm.Action = this.ControllerContext.RouteData.Values["action"].ToString();

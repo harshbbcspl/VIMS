@@ -187,32 +187,6 @@ namespace VIMS.DB
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_SpeciesMasterRtr_Result>("VIMS_SpeciesMasterRtr", speciesIdParameter, speciesCodeParameter, actionParameter);
         }
     
-        public virtual ObjectResult<string> VIMS_LoginCheck(string societyCode, string password)
-        {
-            var societyCodeParameter = societyCode != null ?
-                new ObjectParameter("SocietyCode", societyCode) :
-                new ObjectParameter("SocietyCode", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("Password", password) :
-                new ObjectParameter("Password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_LoginCheck", societyCodeParameter, passwordParameter);
-        }
-    
-        public virtual ObjectResult<VIMS_LoginRtr_Result> VIMS_LoginRtr(string societyCode, string password)
-        {
-            var societyCodeParameter = societyCode != null ?
-                new ObjectParameter("SocietyCode", societyCode) :
-                new ObjectParameter("SocietyCode", typeof(string));
-    
-            var passwordParameter = password != null ?
-                new ObjectParameter("Password", password) :
-                new ObjectParameter("Password", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_LoginRtr_Result>("VIMS_LoginRtr", societyCodeParameter, passwordParameter);
-        }
-    
         public virtual ObjectResult<string> VIMS_ChangePassword(string societyCode, string oldpassword, string newpassword, string createDate)
         {
             var societyCodeParameter = societyCode != null ?
@@ -232,6 +206,660 @@ namespace VIMS.DB
                 new ObjectParameter("CreateDate", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_ChangePassword", societyCodeParameter, oldpasswordParameter, newpasswordParameter, createDateParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_IntePageModuleInsUpd(Nullable<int> inteId, Nullable<int> moduleId, Nullable<int> pageId, string createdBy, Nullable<bool> isActive, string action)
+        {
+            var inteIdParameter = inteId.HasValue ?
+                new ObjectParameter("InteId", inteId) :
+                new ObjectParameter("InteId", typeof(int));
+    
+            var moduleIdParameter = moduleId.HasValue ?
+                new ObjectParameter("ModuleId", moduleId) :
+                new ObjectParameter("ModuleId", typeof(int));
+    
+            var pageIdParameter = pageId.HasValue ?
+                new ObjectParameter("PageId", pageId) :
+                new ObjectParameter("PageId", typeof(int));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_IntePageModuleInsUpd", inteIdParameter, moduleIdParameter, pageIdParameter, createdByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_IntePageModuleRtr_Result> VIMS_IntePageModuleRtr(string action, Nullable<int> moduleId)
+        {
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            var moduleIdParameter = moduleId.HasValue ?
+                new ObjectParameter("ModuleId", moduleId) :
+                new ObjectParameter("ModuleId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_IntePageModuleRtr_Result>("VIMS_IntePageModuleRtr", actionParameter, moduleIdParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_InteRoleModuleInsUpd(Nullable<int> inteId, Nullable<int> roleId, string modid, Nullable<int> mPInteId, Nullable<bool> isActive, Nullable<bool> viewRight, Nullable<bool> insertRight, Nullable<bool> updateRight, Nullable<bool> deleteRight, string createdBy, string updatedBy, string action)
+        {
+            var inteIdParameter = inteId.HasValue ?
+                new ObjectParameter("InteId", inteId) :
+                new ObjectParameter("InteId", typeof(int));
+    
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            var modidParameter = modid != null ?
+                new ObjectParameter("Modid", modid) :
+                new ObjectParameter("Modid", typeof(string));
+    
+            var mPInteIdParameter = mPInteId.HasValue ?
+                new ObjectParameter("MPInteId", mPInteId) :
+                new ObjectParameter("MPInteId", typeof(int));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var viewRightParameter = viewRight.HasValue ?
+                new ObjectParameter("ViewRight", viewRight) :
+                new ObjectParameter("ViewRight", typeof(bool));
+    
+            var insertRightParameter = insertRight.HasValue ?
+                new ObjectParameter("InsertRight", insertRight) :
+                new ObjectParameter("InsertRight", typeof(bool));
+    
+            var updateRightParameter = updateRight.HasValue ?
+                new ObjectParameter("UpdateRight", updateRight) :
+                new ObjectParameter("UpdateRight", typeof(bool));
+    
+            var deleteRightParameter = deleteRight.HasValue ?
+                new ObjectParameter("DeleteRight", deleteRight) :
+                new ObjectParameter("DeleteRight", typeof(bool));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_InteRoleModuleInsUpd", inteIdParameter, roleIdParameter, modidParameter, mPInteIdParameter, isActiveParameter, viewRightParameter, insertRightParameter, updateRightParameter, deleteRightParameter, createdByParameter, updatedByParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_InteRoleModuleRtr_Result> VIMS_InteRoleModuleRtr()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_InteRoleModuleRtr_Result>("VIMS_InteRoleModuleRtr");
+        }
+    
+        public virtual ObjectResult<string> VIMS_ModuleMasterInsUpd(Nullable<int> moduleId, string moduleName, string gUModuleName, Nullable<int> modulePriority, Nullable<bool> isActive, Nullable<bool> isSelfURL, string faIcon, string createdBy, string updatedBy, string action)
+        {
+            var moduleIdParameter = moduleId.HasValue ?
+                new ObjectParameter("ModuleId", moduleId) :
+                new ObjectParameter("ModuleId", typeof(int));
+    
+            var moduleNameParameter = moduleName != null ?
+                new ObjectParameter("ModuleName", moduleName) :
+                new ObjectParameter("ModuleName", typeof(string));
+    
+            var gUModuleNameParameter = gUModuleName != null ?
+                new ObjectParameter("GUModuleName", gUModuleName) :
+                new ObjectParameter("GUModuleName", typeof(string));
+    
+            var modulePriorityParameter = modulePriority.HasValue ?
+                new ObjectParameter("ModulePriority", modulePriority) :
+                new ObjectParameter("ModulePriority", typeof(int));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var isSelfURLParameter = isSelfURL.HasValue ?
+                new ObjectParameter("IsSelfURL", isSelfURL) :
+                new ObjectParameter("IsSelfURL", typeof(bool));
+    
+            var faIconParameter = faIcon != null ?
+                new ObjectParameter("FaIcon", faIcon) :
+                new ObjectParameter("FaIcon", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_ModuleMasterInsUpd", moduleIdParameter, moduleNameParameter, gUModuleNameParameter, modulePriorityParameter, isActiveParameter, isSelfURLParameter, faIconParameter, createdByParameter, updatedByParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_ModuleMasterRtr_Result> VIMS_ModuleMasterRtr(Nullable<int> moduleId, string action)
+        {
+            var moduleIdParameter = moduleId.HasValue ?
+                new ObjectParameter("ModuleId", moduleId) :
+                new ObjectParameter("ModuleId", typeof(int));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_ModuleMasterRtr_Result>("VIMS_ModuleMasterRtr", moduleIdParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_PageMasterInsUpd(Nullable<int> pageId, string pageName, string gUPageName, string pageUrl, Nullable<int> pagePriority, Nullable<bool> isActive, Nullable<bool> isPdf, string createdBy, string updatedBy, string action)
+        {
+            var pageIdParameter = pageId.HasValue ?
+                new ObjectParameter("PageId", pageId) :
+                new ObjectParameter("PageId", typeof(int));
+    
+            var pageNameParameter = pageName != null ?
+                new ObjectParameter("PageName", pageName) :
+                new ObjectParameter("PageName", typeof(string));
+    
+            var gUPageNameParameter = gUPageName != null ?
+                new ObjectParameter("GUPageName", gUPageName) :
+                new ObjectParameter("GUPageName", typeof(string));
+    
+            var pageUrlParameter = pageUrl != null ?
+                new ObjectParameter("PageUrl", pageUrl) :
+                new ObjectParameter("PageUrl", typeof(string));
+    
+            var pagePriorityParameter = pagePriority.HasValue ?
+                new ObjectParameter("PagePriority", pagePriority) :
+                new ObjectParameter("PagePriority", typeof(int));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var isPdfParameter = isPdf.HasValue ?
+                new ObjectParameter("IsPdf", isPdf) :
+                new ObjectParameter("IsPdf", typeof(bool));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_PageMasterInsUpd", pageIdParameter, pageNameParameter, gUPageNameParameter, pageUrlParameter, pagePriorityParameter, isActiveParameter, isPdfParameter, createdByParameter, updatedByParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_PageMasterRtr_Result> VIMS_PageMasterRtr(Nullable<int> pageId, string action)
+        {
+            var pageIdParameter = pageId.HasValue ?
+                new ObjectParameter("PageId", pageId) :
+                new ObjectParameter("PageId", typeof(int));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_PageMasterRtr_Result>("VIMS_PageMasterRtr", pageIdParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_RoleMasterInsUpd(Nullable<int> roleId, string roleName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            var roleNameParameter = roleName != null ?
+                new ObjectParameter("RoleName", roleName) :
+                new ObjectParameter("RoleName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_RoleMasterInsUpd", roleIdParameter, roleNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_RoleMasterRtr_Result> VIMS_RoleMasterRtr(Nullable<int> roleId, string action)
+        {
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_RoleMasterRtr_Result>("VIMS_RoleMasterRtr", roleIdParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_AdminMasterInsUpd(Nullable<int> adminId, string adminCode, string name, string gender, Nullable<System.DateTime> dateOfBirth, string address, Nullable<int> cityId, Nullable<int> stateId, string pinCode, string contactNumber, string password, Nullable<int> roleId, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var adminIdParameter = adminId.HasValue ?
+                new ObjectParameter("AdminId", adminId) :
+                new ObjectParameter("AdminId", typeof(int));
+    
+            var adminCodeParameter = adminCode != null ?
+                new ObjectParameter("AdminCode", adminCode) :
+                new ObjectParameter("AdminCode", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var genderParameter = gender != null ?
+                new ObjectParameter("Gender", gender) :
+                new ObjectParameter("Gender", typeof(string));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("DateOfBirth", dateOfBirth) :
+                new ObjectParameter("DateOfBirth", typeof(System.DateTime));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var cityIdParameter = cityId.HasValue ?
+                new ObjectParameter("CityId", cityId) :
+                new ObjectParameter("CityId", typeof(int));
+    
+            var stateIdParameter = stateId.HasValue ?
+                new ObjectParameter("StateId", stateId) :
+                new ObjectParameter("StateId", typeof(int));
+    
+            var pinCodeParameter = pinCode != null ?
+                new ObjectParameter("PinCode", pinCode) :
+                new ObjectParameter("PinCode", typeof(string));
+    
+            var contactNumberParameter = contactNumber != null ?
+                new ObjectParameter("ContactNumber", contactNumber) :
+                new ObjectParameter("ContactNumber", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_AdminMasterInsUpd", adminIdParameter, adminCodeParameter, nameParameter, genderParameter, dateOfBirthParameter, addressParameter, cityIdParameter, stateIdParameter, pinCodeParameter, contactNumberParameter, passwordParameter, roleIdParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_AdminMasterRtr_Result> VIMS_AdminMasterRtr(Nullable<int> adminId, string adminCode, string action)
+        {
+            var adminIdParameter = adminId.HasValue ?
+                new ObjectParameter("AdminId", adminId) :
+                new ObjectParameter("AdminId", typeof(int));
+    
+            var adminCodeParameter = adminCode != null ?
+                new ObjectParameter("AdminCode", adminCode) :
+                new ObjectParameter("AdminCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_AdminMasterRtr_Result>("VIMS_AdminMasterRtr", adminIdParameter, adminCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_CityMasterInsUpd(Nullable<int> cityId, string cityCode, string cityName, Nullable<int> stateId, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var cityIdParameter = cityId.HasValue ?
+                new ObjectParameter("CityId", cityId) :
+                new ObjectParameter("CityId", typeof(int));
+    
+            var cityCodeParameter = cityCode != null ?
+                new ObjectParameter("CityCode", cityCode) :
+                new ObjectParameter("CityCode", typeof(string));
+    
+            var cityNameParameter = cityName != null ?
+                new ObjectParameter("CityName", cityName) :
+                new ObjectParameter("CityName", typeof(string));
+    
+            var stateIdParameter = stateId.HasValue ?
+                new ObjectParameter("StateId", stateId) :
+                new ObjectParameter("StateId", typeof(int));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_CityMasterInsUpd", cityIdParameter, cityCodeParameter, cityNameParameter, stateIdParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_CityMasterRtr_Result> VIMS_CityMasterRtr(Nullable<int> cityId, string cityCode, Nullable<int> stateId, string action)
+        {
+            var cityIdParameter = cityId.HasValue ?
+                new ObjectParameter("CityId", cityId) :
+                new ObjectParameter("CityId", typeof(int));
+    
+            var cityCodeParameter = cityCode != null ?
+                new ObjectParameter("CityCode", cityCode) :
+                new ObjectParameter("CityCode", typeof(string));
+    
+            var stateIdParameter = stateId.HasValue ?
+                new ObjectParameter("StateId", stateId) :
+                new ObjectParameter("StateId", typeof(int));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_CityMasterRtr_Result>("VIMS_CityMasterRtr", cityIdParameter, cityCodeParameter, stateIdParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_CustomerMasterInsUpd(Nullable<int> customerId, string customerCode, string name, string address, string contactNumber1, string contactNumber2, Nullable<int> roleId, string password, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var customerIdParameter = customerId.HasValue ?
+                new ObjectParameter("CustomerId", customerId) :
+                new ObjectParameter("CustomerId", typeof(int));
+    
+            var customerCodeParameter = customerCode != null ?
+                new ObjectParameter("CustomerCode", customerCode) :
+                new ObjectParameter("CustomerCode", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var contactNumber1Parameter = contactNumber1 != null ?
+                new ObjectParameter("ContactNumber1", contactNumber1) :
+                new ObjectParameter("ContactNumber1", typeof(string));
+    
+            var contactNumber2Parameter = contactNumber2 != null ?
+                new ObjectParameter("ContactNumber2", contactNumber2) :
+                new ObjectParameter("ContactNumber2", typeof(string));
+    
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_CustomerMasterInsUpd", customerIdParameter, customerCodeParameter, nameParameter, addressParameter, contactNumber1Parameter, contactNumber2Parameter, roleIdParameter, passwordParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_CustomerMasterRtr_Result> VIMS_CustomerMasterRtr(Nullable<int> customerId, string customerCode, string action)
+        {
+            var customerIdParameter = customerId.HasValue ?
+                new ObjectParameter("CustomerId", customerId) :
+                new ObjectParameter("CustomerId", typeof(int));
+    
+            var customerCodeParameter = customerCode != null ?
+                new ObjectParameter("CustomerCode", customerCode) :
+                new ObjectParameter("CustomerCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_CustomerMasterRtr_Result>("VIMS_CustomerMasterRtr", customerIdParameter, customerCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_DoctorMasterInsUpd(Nullable<int> doctorId, string doctorCode, string name, string gender, Nullable<System.DateTime> dateOfBirth, string address, Nullable<int> cityId, Nullable<int> stateId, string pinCode, string contactNumber1, string contactNumber2, string password, Nullable<int> roleId, Nullable<System.DateTime> joiningDate, Nullable<System.DateTime> endingDate, string qualifications, string signaturePath, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var doctorIdParameter = doctorId.HasValue ?
+                new ObjectParameter("DoctorId", doctorId) :
+                new ObjectParameter("DoctorId", typeof(int));
+    
+            var doctorCodeParameter = doctorCode != null ?
+                new ObjectParameter("DoctorCode", doctorCode) :
+                new ObjectParameter("DoctorCode", typeof(string));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("Name", name) :
+                new ObjectParameter("Name", typeof(string));
+    
+            var genderParameter = gender != null ?
+                new ObjectParameter("Gender", gender) :
+                new ObjectParameter("Gender", typeof(string));
+    
+            var dateOfBirthParameter = dateOfBirth.HasValue ?
+                new ObjectParameter("DateOfBirth", dateOfBirth) :
+                new ObjectParameter("DateOfBirth", typeof(System.DateTime));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var cityIdParameter = cityId.HasValue ?
+                new ObjectParameter("CityId", cityId) :
+                new ObjectParameter("CityId", typeof(int));
+    
+            var stateIdParameter = stateId.HasValue ?
+                new ObjectParameter("StateId", stateId) :
+                new ObjectParameter("StateId", typeof(int));
+    
+            var pinCodeParameter = pinCode != null ?
+                new ObjectParameter("PinCode", pinCode) :
+                new ObjectParameter("PinCode", typeof(string));
+    
+            var contactNumber1Parameter = contactNumber1 != null ?
+                new ObjectParameter("ContactNumber1", contactNumber1) :
+                new ObjectParameter("ContactNumber1", typeof(string));
+    
+            var contactNumber2Parameter = contactNumber2 != null ?
+                new ObjectParameter("ContactNumber2", contactNumber2) :
+                new ObjectParameter("ContactNumber2", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            var roleIdParameter = roleId.HasValue ?
+                new ObjectParameter("RoleId", roleId) :
+                new ObjectParameter("RoleId", typeof(int));
+    
+            var joiningDateParameter = joiningDate.HasValue ?
+                new ObjectParameter("JoiningDate", joiningDate) :
+                new ObjectParameter("JoiningDate", typeof(System.DateTime));
+    
+            var endingDateParameter = endingDate.HasValue ?
+                new ObjectParameter("EndingDate", endingDate) :
+                new ObjectParameter("EndingDate", typeof(System.DateTime));
+    
+            var qualificationsParameter = qualifications != null ?
+                new ObjectParameter("Qualifications", qualifications) :
+                new ObjectParameter("Qualifications", typeof(string));
+    
+            var signaturePathParameter = signaturePath != null ?
+                new ObjectParameter("SignaturePath", signaturePath) :
+                new ObjectParameter("SignaturePath", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_DoctorMasterInsUpd", doctorIdParameter, doctorCodeParameter, nameParameter, genderParameter, dateOfBirthParameter, addressParameter, cityIdParameter, stateIdParameter, pinCodeParameter, contactNumber1Parameter, contactNumber2Parameter, passwordParameter, roleIdParameter, joiningDateParameter, endingDateParameter, qualificationsParameter, signaturePathParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_DoctorMasterRtr_Result> VIMS_DoctorMasterRtr(Nullable<int> doctorId, string doctorCode, string action)
+        {
+            var doctorIdParameter = doctorId.HasValue ?
+                new ObjectParameter("DoctorId", doctorId) :
+                new ObjectParameter("DoctorId", typeof(int));
+    
+            var doctorCodeParameter = doctorCode != null ?
+                new ObjectParameter("DoctorCode", doctorCode) :
+                new ObjectParameter("DoctorCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_DoctorMasterRtr_Result>("VIMS_DoctorMasterRtr", doctorIdParameter, doctorCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_LoginCheck(string userCode, string password)
+        {
+            var userCodeParameter = userCode != null ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_LoginCheck", userCodeParameter, passwordParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_StatesMasterInsUpd(Nullable<int> stateId, string stateCode, string stateName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var stateIdParameter = stateId.HasValue ?
+                new ObjectParameter("StateId", stateId) :
+                new ObjectParameter("StateId", typeof(int));
+    
+            var stateCodeParameter = stateCode != null ?
+                new ObjectParameter("StateCode", stateCode) :
+                new ObjectParameter("StateCode", typeof(string));
+    
+            var stateNameParameter = stateName != null ?
+                new ObjectParameter("StateName", stateName) :
+                new ObjectParameter("StateName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_StatesMasterInsUpd", stateIdParameter, stateCodeParameter, stateNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_StatesMasterRtr_Result> VIMS_StatesMasterRtr(Nullable<int> stateId, string stateCode, string action)
+        {
+            var stateIdParameter = stateId.HasValue ?
+                new ObjectParameter("StateId", stateId) :
+                new ObjectParameter("StateId", typeof(int));
+    
+            var stateCodeParameter = stateCode != null ?
+                new ObjectParameter("StateCode", stateCode) :
+                new ObjectParameter("StateCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_StatesMasterRtr_Result>("VIMS_StatesMasterRtr", stateIdParameter, stateCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_LoginRtr_Result> VIMS_LoginRtr(string userCode, string password)
+        {
+            var userCodeParameter = userCode != null ?
+                new ObjectParameter("UserCode", userCode) :
+                new ObjectParameter("UserCode", typeof(string));
+    
+            var passwordParameter = password != null ?
+                new ObjectParameter("Password", password) :
+                new ObjectParameter("Password", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_LoginRtr_Result>("VIMS_LoginRtr", userCodeParameter, passwordParameter);
         }
     }
 }

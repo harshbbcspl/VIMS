@@ -103,6 +103,7 @@
       <DependentUpon>Species.gu.resx</DependentUpon>
     </Compile>
     <Compile Include="Usermanagement\MenuViewModel.cs" />
+    <Compile Include="Usermanagement\RoleMasterViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

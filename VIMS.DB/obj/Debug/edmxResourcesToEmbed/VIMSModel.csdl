@@ -59,19 +59,190 @@
       <Parameter Name="SpeciesCode" Mode="In" Type="String" />
       <Parameter Name="Action" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="VIMS_LoginCheck" ReturnType="Collection(String)">
-      <Parameter Name="SocietyCode" Mode="In" Type="String" />
-      <Parameter Name="Password" Mode="In" Type="String" />
-    </FunctionImport>
-    <FunctionImport Name="VIMS_LoginRtr" ReturnType="Collection(VIMSModel.VIMS_LoginRtr_Result)">
-      <Parameter Name="SocietyCode" Mode="In" Type="String" />
-      <Parameter Name="Password" Mode="In" Type="String" />
-    </FunctionImport>
     <FunctionImport Name="VIMS_ChangePassword" ReturnType="Collection(String)">
       <Parameter Name="SocietyCode" Mode="In" Type="String" />
       <Parameter Name="Oldpassword" Mode="In" Type="String" />
       <Parameter Name="Newpassword" Mode="In" Type="String" />
       <Parameter Name="CreateDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_IntePageModuleInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="InteId" Mode="In" Type="Int32" />
+      <Parameter Name="ModuleId" Mode="In" Type="Int32" />
+      <Parameter Name="PageId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_IntePageModuleRtr" ReturnType="Collection(VIMSModel.VIMS_IntePageModuleRtr_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="ModuleId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_InteRoleModuleInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="InteId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="Modid" Mode="In" Type="String" />
+      <Parameter Name="MPInteId" Mode="In" Type="Int32" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="ViewRight" Mode="In" Type="Boolean" />
+      <Parameter Name="InsertRight" Mode="In" Type="Boolean" />
+      <Parameter Name="UpdateRight" Mode="In" Type="Boolean" />
+      <Parameter Name="DeleteRight" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_InteRoleModuleRtr" ReturnType="Collection(VIMSModel.VIMS_InteRoleModuleRtr_Result)" />
+    <FunctionImport Name="VIMS_ModuleMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="ModuleId" Mode="In" Type="Int32" />
+      <Parameter Name="ModuleName" Mode="In" Type="String" />
+      <Parameter Name="GUModuleName" Mode="In" Type="String" />
+      <Parameter Name="ModulePriority" Mode="In" Type="Int32" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="IsSelfURL" Mode="In" Type="Boolean" />
+      <Parameter Name="FaIcon" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_ModuleMasterRtr" ReturnType="Collection(VIMSModel.VIMS_ModuleMasterRtr_Result)">
+      <Parameter Name="ModuleId" Mode="In" Type="Int32" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_PageMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="PageId" Mode="In" Type="Int32" />
+      <Parameter Name="PageName" Mode="In" Type="String" />
+      <Parameter Name="GUPageName" Mode="In" Type="String" />
+      <Parameter Name="PageUrl" Mode="In" Type="String" />
+      <Parameter Name="PagePriority" Mode="In" Type="Int32" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="IsPdf" Mode="In" Type="Boolean" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_PageMasterRtr" ReturnType="Collection(VIMSModel.VIMS_PageMasterRtr_Result)">
+      <Parameter Name="PageId" Mode="In" Type="Int32" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_RoleMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="RoleName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_RoleMasterRtr" ReturnType="Collection(VIMSModel.VIMS_RoleMasterRtr_Result)">
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_AdminMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="AdminId" Mode="In" Type="Int32" />
+      <Parameter Name="AdminCode" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="PinCode" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_AdminMasterRtr" ReturnType="Collection(VIMSModel.VIMS_AdminMasterRtr_Result)">
+      <Parameter Name="AdminId" Mode="In" Type="Int32" />
+      <Parameter Name="AdminCode" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_CityMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="CityCode" Mode="In" Type="String" />
+      <Parameter Name="CityName" Mode="In" Type="String" />
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_CityMasterRtr" ReturnType="Collection(VIMSModel.VIMS_CityMasterRtr_Result)">
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="CityCode" Mode="In" Type="String" />
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_CustomerMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerCode" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber1" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber2" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_CustomerMasterRtr" ReturnType="Collection(VIMSModel.VIMS_CustomerMasterRtr_Result)">
+      <Parameter Name="CustomerId" Mode="In" Type="Int32" />
+      <Parameter Name="CustomerCode" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_DoctorMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="DoctorId" Mode="In" Type="Int32" />
+      <Parameter Name="DoctorCode" Mode="In" Type="String" />
+      <Parameter Name="Name" Mode="In" Type="String" />
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="DateOfBirth" Mode="In" Type="DateTime" />
+      <Parameter Name="Address" Mode="In" Type="String" />
+      <Parameter Name="CityId" Mode="In" Type="Int32" />
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="PinCode" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber1" Mode="In" Type="String" />
+      <Parameter Name="ContactNumber2" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="RoleId" Mode="In" Type="Int32" />
+      <Parameter Name="JoiningDate" Mode="In" Type="DateTime" />
+      <Parameter Name="EndingDate" Mode="In" Type="DateTime" />
+      <Parameter Name="Qualifications" Mode="In" Type="String" />
+      <Parameter Name="SignaturePath" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_DoctorMasterRtr" ReturnType="Collection(VIMSModel.VIMS_DoctorMasterRtr_Result)">
+      <Parameter Name="DoctorId" Mode="In" Type="Int32" />
+      <Parameter Name="DoctorCode" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_LoginCheck" ReturnType="Collection(String)">
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_StatesMasterInsUpd" ReturnType="Collection(String)">
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="StateName" Mode="In" Type="String" />
+      <Parameter Name="CreatedBy" Mode="In" Type="String" />
+      <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_StatesMasterRtr" ReturnType="Collection(VIMSModel.VIMS_StatesMasterRtr_Result)">
+      <Parameter Name="StateId" Mode="In" Type="Int32" />
+      <Parameter Name="StateCode" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VIMS_LoginRtr" ReturnType="Collection(VIMSModel.VIMS_LoginRtr_Result)">
+      <Parameter Name="UserCode" Mode="In" Type="String" />
+      <Parameter Name="Password" Mode="In" Type="String" />
     </FunctionImport>
   </EntityContainer>
   <ComplexType Name="VIMS_AilmentMasterRtr_Result">
@@ -106,16 +277,170 @@
     <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
   </ComplexType>
-  <ComplexType Name="VIMS_LoginRtr_Result">
-    <Property Type="Int32" Name="SocietyId" Nullable="false" />
-    <Property Type="String" Name="SocietyName" Nullable="false" MaxLength="100" />
-    <Property Type="String" Name="SocietyCode" Nullable="false" MaxLength="100" />
-    <Property Type="String" Name="Password" Nullable="false" MaxLength="250" />
+  <ComplexType Name="VIMS_IntePageModuleRtr_Result">
+    <Property Type="Int32" Name="InteId" Nullable="false" />
+    <Property Type="Int32" Name="ModuleId" Nullable="true" />
+    <Property Type="Int32" Name="PageId" Nullable="false" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="ModuleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GUModuleName" Nullable="true" />
+    <Property Type="String" Name="PageName" Nullable="true" />
+    <Property Type="String" Name="GUPageName" Nullable="true" />
+    <Property Type="String" Name="PageUrl" Nullable="true" />
+    <Property Type="String" Name="cdate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="VIMS_InteRoleModuleRtr_Result">
+    <Property Type="Int32" Name="InteId" Nullable="false" />
     <Property Type="Int32" Name="RoleId" Nullable="true" />
-    <Property Type="String" Name="CreatedDate" Nullable="false" MaxLength="10" />
-    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
-    <Property Type="String" Name="UpdatedDate" Nullable="false" MaxLength="10" />
-    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="Int32" Name="ModuleId" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Boolean" Name="ViewRight" Nullable="true" />
+    <Property Type="Boolean" Name="InsertRight" Nullable="true" />
+    <Property Type="Boolean" Name="UpdateRight" Nullable="true" />
+    <Property Type="Boolean" Name="DeleteRight" Nullable="true" />
+    <Property Type="Int32" Name="PageId" Nullable="true" />
+    <Property Type="String" Name="PageName" Nullable="true" />
+    <Property Type="String" Name="GUPageName" Nullable="true" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="MPInteId" Nullable="true" />
     <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ModuleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GUModuleName" Nullable="true" />
+    <Property Type="String" Name="cdate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_ModuleMasterRtr_Result">
+    <Property Type="Int32" Name="ModuleId" Nullable="false" />
+    <Property Type="String" Name="ModuleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="GUModuleName" Nullable="true" />
+    <Property Type="Boolean" Name="IsSelfURL" Nullable="true" />
+    <Property Type="String" Name="FaIcon" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="ModulePriority" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ActStatus" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="VIMS_PageMasterRtr_Result">
+    <Property Type="Int32" Name="PageId" Nullable="false" />
+    <Property Type="String" Name="PageName" Nullable="true" />
+    <Property Type="String" Name="GUPageName" Nullable="true" />
+    <Property Type="String" Name="PageUrl" Nullable="true" />
+    <Property Type="Int32" Name="PagePriority" Nullable="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="true" />
+    <Property Type="Boolean" Name="IsPdf" Nullable="true" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ActStatus" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="VIMS_RoleMasterRtr_Result">
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="ActiveStatus" Nullable="false" MaxLength="7" />
+  </ComplexType>
+  <ComplexType Name="VIMS_AdminMasterRtr_Result">
+    <Property Type="Int32" Name="AdminId" Nullable="false" />
+    <Property Type="String" Name="AdminCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CityId" Nullable="false" />
+    <Property Type="String" Name="CityName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="StateId" Nullable="false" />
+    <Property Type="String" Name="StateName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PinCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumber" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_CityMasterRtr_Result">
+    <Property Type="Int32" Name="CityId" Nullable="false" />
+    <Property Type="String" Name="CityCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="CityName" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="StateId" Nullable="false" />
+    <Property Type="String" Name="StateName" Nullable="true" MaxLength="100" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_CustomerMasterRtr_Result">
+    <Property Type="Int32" Name="CustomerId" Nullable="false" />
+    <Property Type="String" Name="CustomerCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ContactNumber1" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ContactNumber2" Nullable="true" MaxLength="20" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_DoctorMasterRtr_Result">
+    <Property Type="Int32" Name="DoctorId" Nullable="false" />
+    <Property Type="String" Name="DoctorCode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="150" />
+    <Property Type="String" Name="Gender" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="DateOfBirth" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Address" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CityId" Nullable="false" />
+    <Property Type="String" Name="CityName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="StateId" Nullable="false" />
+    <Property Type="String" Name="StateName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PinCode" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ContactNumber1" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="ContactNumber2" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="JoiningDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="EndingDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Qualifications" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="SignaturePath" Nullable="true" MaxLength="300" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_StatesMasterRtr_Result">
+    <Property Type="Int32" Name="StateId" Nullable="false" />
+    <Property Type="String" Name="StateCode" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="StateName" Nullable="false" MaxLength="100" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="VIMS_LoginRtr_Result">
+    <Property Type="Int32" Name="LoginId" Nullable="false" />
+    <Property Type="String" Name="UserCode" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="RoleId" Nullable="false" />
+    <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="150" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
   </ComplexType>
 </Schema>

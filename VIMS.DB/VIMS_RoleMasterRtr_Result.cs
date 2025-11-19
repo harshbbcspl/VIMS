@@ -11,13 +11,15 @@ namespace VIMS.DB
 {
     using System;
     
-    public partial class VIMS_LoginRtr_Result
+    public partial class VIMS_RoleMasterRtr_Result
     {
-        public int LoginId { get; set; }
-        public string UserCode { get; set; }
         public int RoleId { get; set; }
         public string RoleName { get; set; }
-        public string UserName { get; set; }
+        public string CreatedBy { get; set; }
+        public string CreatedDate { get; set; }
+        public string UpdatedBy { get; set; }
+        public string UpdatedDate { get; set; }
         public bool IsActive { get; set; }
+        public string ActiveStatus { get; set; }
     }
 }

@@ -61,7 +61,7 @@ namespace VIMS.Model.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Society Code.
+        ///   Looks up a localized string similar to User Code.
         /// </summary>
         public static string SocietyCode {
             get {
@@ -70,7 +70,7 @@ namespace VIMS.Model.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Society Name.
+        ///   Looks up a localized string similar to User Name.
         /// </summary>
         public static string SocietyName {
             get {

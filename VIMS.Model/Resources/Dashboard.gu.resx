@@ -118,10 +118,10 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SocietyCode" xml:space="preserve">
-    <value>મંડળી કોડ</value>
+    <value>વપરાશકર્તા કોડ</value>
   </data>
   <data name="SocietyName" xml:space="preserve">
-    <value>મંડળીનું નામ</value>
+    <value>વપરાશકર્તા નામ</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>ડેશબોર્ડ</value>

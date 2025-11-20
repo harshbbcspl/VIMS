@@ -1,0 +1,77 @@
+﻿@model VIMS.Model.Master.StatesViewModel
+@{
+    ViewBag.Title = ViewBag.Action + @VIMS.Model.Resources.States.State;
+}
+
+<div class="row">
+    <div class="col-md-12 my-5">
+        <div class="card">
+            <div class="card-header row cardTitleRow">
+                <div class="col">
+                    <h4 class="card-title float-left">@ViewBag.Action @VIMS.Model.Resources.States.State</h4>
+                </div>
+                <div class="col-auto">
+                    <a href="@Url.Action("StatesMaster", "Master")" class="btn btn-outline-primary">
+                        @VIMS.Model.Resources.States.ViewStates
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                @using (Html.BeginForm("AddState", "Master", FormMethod.Post, new { @class = "forms-sample", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(x => x.StateId)
+                    @Html.HiddenFor(x => x.Action)
+
+                    <div class="row form-group">
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.States.StateCode
+                                @Html.ValidationMessageFor(m => m.StateCode, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.StateCode, new Dictionary<string, object>() {
+                                {"id","txtStateCode"},
+                                {"class","form-control text-uppercase"},
+                                {"autocomplete","off"},
+                                {"required","required"},
+                                {"placeholder",@VIMS.Model.Resources.States.EStateCode}
+                            })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.States.StateName
+                                @Html.ValidationMessageFor(m => m.StateName, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.StateName, new Dictionary<string, object>() {
+                                {"id","txtStateName"},
+                                {"class","form-control text-capitalize"},
+                                {"autocomplete","off"},
+                                {"required","required"},
+                                {"placeholder",@VIMS.Model.Resources.States.EStateName}
+                            })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">@VIMS.Model.Resources.States.Active</label>
+                            @Html.DropDownListFor(x => x.IsActive,
+                            new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="Enable",  Value = "true", Selected = Model.IsActive },
+                                new SelectListItem{ Text="Disable", Value = "false", Selected = !Model.IsActive }
+                            },
+                            new { @class = "select2 w-100", @id = "IsActive" })
+                        </div>
+
+                        <div class="col-md-12 text-right mt-4">
+                            <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

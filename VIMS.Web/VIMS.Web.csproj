@@ -133,6 +133,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\AjaxDataHelper.cs" />
     <Compile Include="iNotifyLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
@@ -673,6 +674,16 @@
     <Content Include="Views\Master\AilmentMaster.cshtml" />
     <Content Include="Views\Master\AddAilment.cshtml" />
     <Content Include="Views\Home\ChangePassword.cshtml" />
+    <Content Include="Views\Master\StatesMaster.cshtml" />
+    <Content Include="Views\Master\AddState.cshtml" />
+    <Content Include="Views\Master\CityMaster.cshtml" />
+    <Content Include="Views\Master\AddCity.cshtml" />
+    <Content Include="Views\Master\CustomerMaster.cshtml" />
+    <Content Include="Views\Master\AddCustomer.cshtml" />
+    <Content Include="Views\Master\AdminMaster.cshtml" />
+    <Content Include="Views\Master\AddAdmin.cshtml" />
+    <Content Include="Views\Master\DoctorMaster.cshtml" />
+    <Content Include="Views\Master\AddDoctor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

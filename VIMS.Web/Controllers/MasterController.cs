@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,6 +9,7 @@ using VIMS.DB;
 using VIMS.Model.Home;
 using VIMS.Model.Master;
 using VIMS.Web.GeneralClasses;
+using VIMS.Web.Helpers;
 using static VIMS.Web.GeneralClasses.GeneralClass;
 
 namespace VIMS.Web.Controllers
@@ -56,6 +58,76 @@ namespace VIMS.Web.Controllers
                     sm.IsActive = status.Equals("true");
 
                     var apiResult = ApiCall.PostApi("AilmentMasterInsUpd", JsonConvert.SerializeObject(sm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResult);
+
+                    msg = response.message;
+                }
+                else if (Type == "StatesMaster")
+                {
+                    StatesViewModel sm = new StatesViewModel();
+                    sm.Action = "Active";
+                    sm.UpdatedDate = generalFunctions.getTimeZoneDatetimedb();
+                    sm.UpdatedBy = User.Identity.Name;
+                    sm.StateId = Convert.ToInt32(Code);
+                    sm.IsActive = status.Equals("true");
+
+                    var apiResult = ApiCall.PostApi("StatesMasterInsUpd", JsonConvert.SerializeObject(sm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResult);
+
+                    msg = response.message;
+                }
+                else if (Type == "CityMaster")
+                {
+                    CityViewModel sm = new CityViewModel();
+                    sm.Action = "Active";
+                    sm.UpdatedDate = generalFunctions.getTimeZoneDatetimedb();
+                    sm.UpdatedBy = User.Identity.Name;
+                    sm.CityId = Convert.ToInt32(Code);
+                    sm.IsActive = status.Equals("true");
+
+                    var apiResult = ApiCall.PostApi("CityMasterInsUpd", JsonConvert.SerializeObject(sm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResult);
+
+                    msg = response.message;
+                }
+                else if (Type == "CustomerMaster")
+                {
+                    CustomerViewModel sm = new CustomerViewModel();
+                    sm.Action = "Active";
+                    sm.UpdatedDate = generalFunctions.getTimeZoneDatetimedb();
+                    sm.UpdatedBy = User.Identity.Name;
+                    sm.CustomerId = Convert.ToInt32(Code);
+                    sm.IsActive = status.Equals("true");
+
+                    var apiResult = ApiCall.PostApi("CustomerMasterInsUpd", JsonConvert.SerializeObject(sm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResult);
+
+                    msg = response.message;
+                }
+                else if (Type == "AdminMaster")
+                {
+                    AdminViewModel sm = new AdminViewModel();
+                    sm.Action = "Active";
+                    sm.UpdatedDate = generalFunctions.getTimeZoneDatetimedb();
+                    sm.UpdatedBy = User.Identity.Name;
+                    sm.AdminId = Convert.ToInt32(Code);
+                    sm.IsActive = status.Equals("true");
+
+                    var apiResult = ApiCall.PostApi("AdminMasterInsUpd", JsonConvert.SerializeObject(sm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResult);
+
+                    msg = response.message;
+                }
+                else if (Type == "DoctorMaster")
+                {
+                    DoctorViewModel sm = new DoctorViewModel();
+                    sm.Action = "Active";
+                    sm.UpdatedDate = generalFunctions.getTimeZoneDatetimedb();
+                    sm.UpdatedBy = User.Identity.Name;
+                    sm.DoctorId = Convert.ToInt32(Code);
+                    sm.IsActive = status.Equals("true");
+
+                    var apiResult = ApiCall.PostApi("DoctorMasterInsUpd", JsonConvert.SerializeObject(sm));
                     var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResult);
 
                     msg = response.message;
@@ -633,6 +705,698 @@ namespace VIMS.Web.Controllers
 
         #endregion
 
+        #region ==> States Master
 
+        public ActionResult StatesMaster()
+        {
+            StatesViewModel svm = new StatesViewModel
+            {
+                Action = "All"
+            };
+
+            var apiResponse = ApiCall.PostApi("StatesMasterRtr", JsonConvert.SerializeObject(svm));
+            var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_StatesMasterRtr_Result>>>(apiResponse);
+
+            if (response != null && response.result == true)
+            {
+                return View(response.data);
+            }
+
+            return View(new List<VIMS_StatesMasterRtr_Result>());
+        }
+
+        public ActionResult AddState(int? id)
+        {
+            try
+            {
+                StatesViewModel svm = new StatesViewModel();
+
+                if (id.HasValue)
+                {
+                    svm.Action = "GetById";
+                    svm.StateId = id.Value;
+
+                    var apiResponse = ApiCall.PostApi("StatesMasterRtr", JsonConvert.SerializeObject(svm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_StatesMasterRtr_Result>>>(apiResponse);
+
+                    if (response != null && response.result == true && response.data.Count > 0)
+                    {
+                        var item = response.data.First();
+                        svm.StateId = item.StateId;
+                        svm.StateCode = item.StateCode;
+                        svm.StateName = item.StateName;
+                        svm.IsActive = item.IsActive;
+                    }
+
+                    ViewBag.Action = "Update";
+                    svm.Action = "Update";
+                }
+                else
+                {
+                    ViewBag.Action = "Add";
+                    svm.Action = "Save";
+                }
+
+                return View(svm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "StatesMaster", true);
+                return RedirectToAction("StatesMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddState(StatesViewModel svm)
+        {
+            try
+            {
+                string apiName = "StatesMasterInsUpd";
+
+                if (svm.Action == "Save")
+                {
+                    svm.Action = "Insert";
+                    svm.CreatedBy = User.Identity.Name;
+                    svm.UpdatedBy = User.Identity.Name;
+                }
+                else
+                {
+                    svm.Action = "Update";
+                    svm.UpdatedBy = User.Identity.Name;
+                }
+
+                var apiResponse = ApiCall.PostApi(apiName, JsonConvert.SerializeObject(svm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResponse);
+
+                if (response != null && response.result == true)
+                {
+                    Success(response.message, "Master", "AddState", true);
+                    return RedirectToAction("StatesMaster");
+                }
+                else
+                {
+                    Danger(response?.message ?? "Something went wrong", "Master", "AddState", true);
+                    return View(svm);
+                }
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "AddState", true);
+                return View(svm);
+            }
+        }
+
+
+        public ActionResult EditState(int id)
+        {
+            try
+            {
+                StatesViewModel svm = new StatesViewModel
+                {
+                    Action = "GetById",
+                    StateId = id
+                };
+
+                var apiResponse = ApiCall.PostApi("StatesMasterRtr", JsonConvert.SerializeObject(svm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_StatesMasterRtr_Result>>>(apiResponse);
+
+                if (response != null && response.result == true && response.data.Count > 0)
+                {
+                    var item = response.data.First();
+                    svm.StateId = item.StateId;
+                    svm.StateCode = item.StateCode;
+                    svm.StateName = item.StateName;
+                    svm.IsActive = item.IsActive;
+                }
+
+                svm.Action = "Update";
+                ViewBag.Action = "Update";
+
+                return View("AddState", svm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "StatesMaster", true);
+                return RedirectToAction("StatesMaster");
+            }
+        }
+
+        #endregion
+
+        #region ==> City Master 
+
+        public ActionResult CityMaster()
+        {
+            CityViewModel cvm = new CityViewModel
+            {
+                Action = "All"
+            };
+
+            var apiResponse = ApiCall.PostApi("CityMasterRtr", JsonConvert.SerializeObject(cvm));
+            var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_CityMasterRtr_Result>>>(apiResponse);
+
+            if (response != null && response.result == true)
+            {
+                return View(response.data);
+            }
+
+            return View(new List<VIMS_CityMasterRtr_Result>());
+        }
+
+        public ActionResult AddCity(int? id)
+        {
+            try
+            {
+                CityViewModel cvm = new CityViewModel();
+
+                StatesViewModel svm = new StatesViewModel { Action = "ActiveStates" };
+                var spApi = ApiCall.PostApi("StatesMasterRtr", JsonConvert.SerializeObject(svm));
+                var spResponse = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_StatesMasterRtr_Result>>>(spApi);
+
+                if (spResponse != null && spResponse.result)
+                {
+                    cvm.StatesList = spResponse.data;
+                }
+
+                if (id.HasValue)
+                {
+                    cvm.Action = "GetById";
+                    cvm.CityId = id.Value;
+
+                    var apiResponse = ApiCall.PostApi("CityMasterRtr", JsonConvert.SerializeObject(cvm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_CityMasterRtr_Result>>>(apiResponse);
+
+                    if (response != null && response.result && response.data.Count > 0)
+                    {
+                        var item = response.data.First();
+
+                        cvm.CityId = item.CityId;
+                        cvm.CityCode = item.CityCode;
+                        cvm.CityName = item.CityName;
+                        cvm.StateId = item.StateId;
+                        cvm.IsActive = item.IsActive;
+                    }
+
+                    ViewBag.Action = "Update";
+                    cvm.Action = "Update";
+                }
+                else
+                {
+                    ViewBag.Action = "Add";
+                    cvm.Action = "Save";
+                }
+
+                return View(cvm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "CityMaster", true);
+                return RedirectToAction("CityMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddCity(CityViewModel cvm)
+        {
+            try
+            {
+                if (cvm.Action == "Save")
+                {
+                    cvm.Action = "Insert";
+                    cvm.CreatedBy = User.Identity.Name;
+                    cvm.UpdatedBy = User.Identity.Name;
+                }
+                else
+                {
+                    cvm.Action = "Update";
+                    cvm.UpdatedBy = User.Identity.Name;
+                }
+
+                var apiResponse = ApiCall.PostApi("CityMasterInsUpd", JsonConvert.SerializeObject(cvm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResponse);
+
+                if (response != null && response.result == true)
+                {
+                    Success(response.message, "Master", "AddCity", true);
+                    return RedirectToAction("CityMaster");
+                }
+                else
+                {
+                    Danger(response?.message ?? "Something went wrong", "Master", "AddCity", true);
+                    return View(cvm);
+                }
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "AddCity", true);
+                return View(cvm);
+            }
+        }
+
+        public ActionResult EditCity(int id)
+        {
+            return RedirectToAction("AddCity", new { id = id });
+        }
+
+
+        #endregion
+
+        #region ==> Customer Master
+
+        public ActionResult CustomerMaster()
+        {
+            CustomerViewModel cvm = new CustomerViewModel
+            {
+                Action = "All"
+            };
+
+            var apiResponse = ApiCall.PostApi("CustomerMasterRtr", JsonConvert.SerializeObject(cvm));
+            var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_CustomerMasterRtr_Result>>>(apiResponse);
+
+            if (response != null && response.result)
+            {
+                return View(response.data);
+            }
+
+            return View(new List<VIMS_CustomerMasterRtr_Result>());
+        }
+
+        public ActionResult AddCustomer(int? id)
+        {
+            try
+            {
+                CustomerViewModel cvm = new CustomerViewModel();
+
+                VIMS_RoleMasterRtr_Result roles = new VIMS_RoleMasterRtr_Result();
+                var roleReq = new { Action = "ActiveRoles" };
+                var roleApi = ApiCall.PostApi("RoleMasterRtr", JsonConvert.SerializeObject(roleReq));
+                var roleResponse = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_RoleMasterRtr_Result>>>(roleApi);
+
+                if (roleResponse != null && roleResponse.result)
+                {
+                    cvm.RoleList = roleResponse.data;
+                }
+
+                if (id.HasValue)
+                {
+                    cvm.Action = "GetById";
+                    cvm.CustomerId = id.Value;
+
+                    var apiResponse = ApiCall.PostApi("CustomerMasterRtr", JsonConvert.SerializeObject(cvm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_CustomerMasterRtr_Result>>>(apiResponse);
+
+                    if (response != null && response.result && response.data.Count > 0)
+                    {
+                        var item = response.data.First();
+
+                        cvm.CustomerId = item.CustomerId;
+                        cvm.SocietyCode = item.SocietyCode;
+                        cvm.CustomerCode = item.CustomerCode;
+                        cvm.Name = item.Name;
+                        cvm.Address = item.Address;
+                        cvm.ContactNumber1 = item.ContactNumber1;
+                        cvm.ContactNumber2 = item.ContactNumber2;
+                        cvm.RoleId = item.RoleId;
+                        cvm.IsActive = item.IsActive;
+                        cvm.Password = item.Password;
+                    }
+
+                    ViewBag.Action = "Update";
+                    cvm.Action = "Update";
+                }
+                else
+                {
+                    ViewBag.Action = "Add";
+                    cvm.Action = "Save";
+                }
+
+                return View(cvm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "CustomerMaster", true);
+                return RedirectToAction("CustomerMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddCustomer(CustomerViewModel cvm)
+        {
+            try
+            {
+                if (cvm.Action == "Save")
+                {
+                    cvm.Action = "Insert";
+                    cvm.CreatedBy = User.Identity.Name;
+                    cvm.UpdatedBy = User.Identity.Name;
+                }
+                else
+                {
+                    cvm.Action = "Update";
+                    cvm.UpdatedBy = User.Identity.Name;
+                }
+
+                var apiResponse = ApiCall.PostApi("CustomerMasterInsUpd", JsonConvert.SerializeObject(cvm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResponse);
+
+                if (response != null && response.result)
+                {
+                    Success(response.message, "Master", "CustomerMaster", true);
+                    return RedirectToAction("CustomerMaster");
+                }
+
+                Danger(response?.message ?? "Something went wrong", "Master", "CustomerMaster", true);
+                return View(cvm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "CustomerMaster", true);
+                return View(cvm);
+            }
+        }
+
+        public ActionResult EditCustomer(int id)
+        {
+            return RedirectToAction("AddCustomer", new { id = id });
+        }
+
+
+        #endregion
+
+        #region ==> Admin Master
+
+        public ActionResult AdminMaster()
+        {
+            AdminViewModel avm = new AdminViewModel { Action = "All" };
+
+            var apiResponse = ApiCall.PostApi("AdminMasterRtr", JsonConvert.SerializeObject(avm));
+            var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_AdminMasterRtr_Result>>>(apiResponse);
+
+            if (response != null && response.result)
+            {
+                return View(response.data);
+            }
+
+            return View(new List<VIMS_AdminMasterRtr_Result>());
+        }
+
+        public ActionResult AddAdmin(int? id)
+        {
+            try
+            {
+                AdminViewModel avm = new AdminViewModel();
+
+                var roleReq = new { Action = "ActiveRoles" };
+                var roleApi = ApiCall.PostApi("RoleMasterRtr", JsonConvert.SerializeObject(roleReq));
+                var roleResponse = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_RoleMasterRtr_Result>>>(roleApi);
+                if (roleResponse != null && roleResponse.result)
+                    avm.RoleList = roleResponse.data;
+
+                var stateReq = new { Action = "ActiveStates" };
+                var stateApi = ApiCall.PostApi("StatesMasterRtr", JsonConvert.SerializeObject(stateReq));
+                var stateResponse = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_StatesMasterRtr_Result>>>(stateApi);
+                if (stateResponse != null && stateResponse.result)
+                    avm.StatesList = stateResponse.data;
+
+                if (id.HasValue)
+                {
+                    avm.Action = "GetById";
+                    avm.AdminId = id.Value;
+
+                    var apiResponse = ApiCall.PostApi("AdminMasterRtr", JsonConvert.SerializeObject(avm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_AdminMasterRtr_Result>>>(apiResponse);
+
+                    if (response != null && response.result && response.data.Count > 0)
+                    {
+                        var item = response.data.First();
+                        avm.AdminId = item.AdminId;
+                        avm.AdminCode = item.AdminCode;
+                        avm.Name = item.Name;
+                        avm.Gender = item.Gender;
+                        avm.DateOfBirth = item.DateOfBirth;
+                        avm.Address = item.Address;
+                        avm.StateId = item.StateId;
+                        avm.CityId = item.CityId;
+                        avm.PinCode = item.PinCode;
+                        avm.ContactNumber = item.ContactNumber;
+                        avm.Password = item.Password;
+                        avm.RoleId = item.RoleId;
+                        avm.IsActive = item.IsActive;
+                    }
+
+                    ViewBag.Action = "Update";
+                    avm.Action = "Update";
+                }
+                else
+                {
+                    ViewBag.Action = "Add";
+                    avm.Action = "Save";
+                }
+
+                return View(avm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "AdminMaster", true);
+                return RedirectToAction("AdminMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddAdmin(AdminViewModel avm)
+        {
+            try
+            {
+                if (avm.Action == "Save")
+                {
+                    avm.Action = "Insert";
+                    avm.CreatedBy = User.Identity.Name;
+                    avm.UpdatedBy = User.Identity.Name;
+                }
+                else
+                {
+                    avm.Action = "Update";
+                    avm.UpdatedBy = User.Identity.Name;
+                }
+
+                avm.DateOfBirth = generalFunctions.ConvertDOB_To_YYYYMMDD(avm.DateOfBirth);
+
+                var apiResponse = ApiCall.PostApi("AdminMasterInsUpd", JsonConvert.SerializeObject(avm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResponse);
+
+                if (response != null && response.result)
+                {
+                    Success(response.message, "Master", "AdminMaster", true);
+                    return RedirectToAction("AdminMaster");
+                }
+
+                Danger(response?.message ?? "Something went wrong", "Master", "AdminMaster", true);
+                return View(avm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "AdminMaster", true);
+                return View(avm);
+            }
+        }
+
+        public ActionResult EditAdmin(int id)
+        {
+            return RedirectToAction("AddAdmin", new { id = id });
+        }
+
+      
+        #endregion
+
+        #region ==> Doctor Master
+
+        public ActionResult DoctorMaster()
+        {
+            DoctorViewModel dvm = new DoctorViewModel { Action = "All" };
+
+            var apiResponse = ApiCall.PostApi("DoctorMasterRtr", JsonConvert.SerializeObject(dvm));
+
+            var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_DoctorMasterRtr_Result>>>(apiResponse);
+
+            if (response != null && response.result)
+            {
+                return View(response.data);
+            }
+
+            return View(new List<VIMS_DoctorMasterRtr_Result>());
+        }
+
+        public ActionResult AddDoctor(int? id)
+        {
+            try
+            {
+                DoctorViewModel dvm = new DoctorViewModel();
+
+                var stateReq = new { Action = "ActiveStates" };
+                var stateApi = ApiCall.PostApi("StatesMasterRtr", JsonConvert.SerializeObject(stateReq));
+                var stateResponse = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_StatesMasterRtr_Result>>>(stateApi);
+                if (stateResponse != null && stateResponse.result)
+                    dvm.StatesList = stateResponse.data;
+
+                var roleReq = new { Action = "ActiveRoles" };
+                var roleApi = ApiCall.PostApi("RoleMasterRtr", JsonConvert.SerializeObject(roleReq));
+                var roleResponse = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_RoleMasterRtr_Result>>>(roleApi);
+                if (roleResponse != null && roleResponse.result)
+                    dvm.RoleList = roleResponse.data;
+
+                if (id.HasValue)
+                {
+                    dvm.Action = "GetById";
+                    dvm.DoctorId = id.Value;
+
+                    var apiResponse = ApiCall.PostApi("DoctorMasterRtr", JsonConvert.SerializeObject(dvm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_DoctorMasterRtr_Result>>>(apiResponse);
+
+                    if (response != null && response.result && response.data.Count > 0)
+                    {
+                        var item = response.data.First();
+
+                        dvm.DoctorId = item.DoctorId;
+                        dvm.DoctorCode = item.DoctorCode;
+                        dvm.Name = item.Name;
+                        dvm.Gender = item.Gender;
+                        dvm.DateOfBirth = item.DateOfBirth;
+                        dvm.Address = item.Address;
+                        dvm.StateId = item.StateId;
+                        dvm.CityId = item.CityId;
+                        dvm.PinCode = item.PinCode;
+                        dvm.ContactNumber1 = item.ContactNumber1;
+                        dvm.ContactNumber2 = item.ContactNumber2;
+                        dvm.Password = item.Password;
+                        dvm.RoleId = item.RoleId;
+                        dvm.JoiningDate = item.JoiningDate;
+                        dvm.EndingDate = item.EndingDate;
+                        dvm.Qualifications = item.Qualifications;
+                        dvm.SignaturePath = item.SignaturePath;
+                        dvm.IsActive = item.IsActive;
+                    }
+
+                    ViewBag.Action = "Update";
+                    dvm.Action = "Update";
+                }
+                else
+                {
+                    ViewBag.Action = "Add";
+                    dvm.Action = "Save";
+                }
+
+                return View(dvm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "DoctorMaster", true);
+                return RedirectToAction("DoctorMaster");
+            }
+        }
+
+        [HttpPost]
+        public ActionResult AddDoctor(HttpPostedFileBase signatureFile, DoctorViewModel dvm)
+        {
+            try
+            {
+                string path = Server.MapPath(System.Configuration.ConfigurationManager.AppSettings["fileupload"]);
+                string folder = path + "DoctorSignature";
+
+                if (!Directory.Exists(folder))
+                    Directory.CreateDirectory(folder);
+
+                if (dvm.Action == "Save")
+                {
+                    if (signatureFile != null && signatureFile.ContentLength > 0)
+                    {
+                        string ext = Path.GetExtension(signatureFile.FileName);
+                        string fileName = Guid.NewGuid() + ext;
+
+                        dvm.SignaturePath = "DoctorSignature/" + fileName;
+
+                        string fullpath = Path.Combine(folder, fileName);
+                        signatureFile.SaveAs(fullpath);
+                    }
+                    else
+                    {
+                        Danger("Please upload doctor signature file.", "Master", "DoctorMaster", true);
+                        return RedirectToAction("DoctorMaster");
+                    }
+
+                    dvm.Action = "Insert";
+                    dvm.CreatedBy = User.Identity.Name;
+                    dvm.UpdatedBy = User.Identity.Name;
+                }
+                else  
+                {
+                    if (signatureFile != null && signatureFile.ContentLength > 0)
+                    {
+                        string ext = Path.GetExtension(signatureFile.FileName);
+                        string fileName = Guid.NewGuid() + ext;
+
+                        dvm.SignaturePath = "DoctorSignature/" + fileName;
+
+                        string fullpath = Path.Combine(folder, fileName);
+                        signatureFile.SaveAs(fullpath);
+                    }
+                    else
+                    {
+                        dvm.SignaturePath = dvm.SignaturePath;  
+                    }
+
+                    dvm.Action = "Update";
+                    dvm.UpdatedBy = User.Identity.Name;
+                }
+
+
+                dvm.DateOfBirth = generalFunctions.ConvertDOB_To_YYYYMMDD(dvm.DateOfBirth);
+                dvm.JoiningDate = generalFunctions.ConvertDOB_To_YYYYMMDD(dvm.JoiningDate);
+                dvm.EndingDate = generalFunctions.ConvertDOB_To_YYYYMMDD(dvm.EndingDate);
+
+                var apiResponse = ApiCall.PostApi("DoctorMasterInsUpd", JsonConvert.SerializeObject(dvm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResponse);
+
+                if (response != null && response.result)
+                {
+                    Success(response.message, "Master", "DoctorMaster", true);
+                    return RedirectToAction("DoctorMaster");
+                }
+
+                Danger(response?.message ?? "Something went wrong", "Master", "DoctorMaster", true);
+                return View(dvm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Master", "DoctorMaster", true);
+                return View(dvm);
+            }
+        }
+
+        public ActionResult EditDoctor(int id)
+        {
+            return RedirectToAction("AddDoctor", new { id = id });
+        }
+
+        #endregion
+
+        #region ==> Ajax Method 
+
+        [HttpPost]
+        public JsonResult GetCitiesByState(int stateId)
+        {
+            try
+            {
+                var request = new { StateId = stateId, Action = "GetByState" };
+                var cities = AjaxDataHelper.GetDataFromApi<VIMS_CityMasterRtr_Result>("CityMasterRtr", request);
+
+                return Json(cities, JsonRequestBehavior.AllowGet);
+            }
+            catch
+            {
+                return Json(new List<VIMS_CityMasterRtr_Result>(), JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        #endregion
     }
 }

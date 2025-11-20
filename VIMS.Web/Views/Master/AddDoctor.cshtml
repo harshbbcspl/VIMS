@@ -1,0 +1,280 @@
+﻿@using VIMS.DB
+@model VIMS.Model.Master.DoctorViewModel
+
+@{
+    ViewBag.Title = (ViewBag.Action == "Update"
+        ? VIMS.Model.Resources.Doctor.EditDoctor
+        : VIMS.Model.Resources.Doctor.AddDoctor);
+}
+
+<div class="row">
+    <div class="col-md-12 my-5">
+        <div class="card">
+            <div class="card-header row cardTitleRow">
+                <div class="col">
+                    <h4 class="card-title float-left">
+                        @(ViewBag.Action == "Update"
+                            ? VIMS.Model.Resources.Doctor.EditDoctor
+                            : VIMS.Model.Resources.Doctor.AddDoctor)
+                    </h4>
+                </div>
+                <div class="col-auto">
+                    <a href="@Url.Action("DoctorMaster", "Master")" class="btn btn-outline-primary">
+                        @VIMS.Model.Resources.Doctor.ViewDoctors
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                @using (Html.BeginForm("AddDoctor", "Master", FormMethod.Post, new { enctype = "multipart/form-data", @class = "forms-sample", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.DoctorId)
+                    @Html.HiddenFor(m => m.Action)
+
+                    <div class="row form-group">
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.DoctorCode
+                                @Html.ValidationMessageFor(m => m.DoctorCode, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.DoctorCode, new { @class = "form-control text-uppercase", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EDoctorCode })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.Name
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control text-capitalize", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EName })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.Gender
+                                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(m => m.Gender, new List<SelectListItem> {
+                                new SelectListItem { Text = "Male", Value = "Male", Selected = Model.Gender=="Male" },
+                                new SelectListItem { Text = "Female", Value = "Female", Selected = Model.Gender=="Female" },
+                                new SelectListItem { Text = "Other", Value = "Other", Selected = Model.Gender=="Other" }
+                            }, @VIMS.Model.Resources.Doctor.SelectGender, new { @class = "form-control select2", required = "required" })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.DateOfBirth
+                                @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+                            </label>
+                            <input type="text"
+                                   id="txtDateOfBirth"
+                                   name="DateOfBirth"
+                                   class="form-control"
+                                   placeholder="dd-MM-yyyy"
+                                   value="@Model.DateOfBirth"
+                                   required />
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.Address
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EAddress })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.State
+                                @Html.ValidationMessageFor(m => m.StateId, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(m => m.StateId,
+                                new SelectList(Model.StatesList, "StateId", "StateName", Model.StateId),
+                                @VIMS.Model.Resources.Doctor.SelectState,
+                                new { @class = "form-control select2", id = "ddlState", required = "required" })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.City
+                                @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(
+                                 m => m.CityId,
+                                 new SelectList(
+                                     (Model.CityList != null ? Model.CityList : new List<VIMS_CityMasterRtr_Result>()),
+                                     "CityId",
+                                     "CityName",
+                                     Model.CityId
+                                 ),
+                                 @VIMS.Model.Resources.Doctor.SelectCity,
+                                 new { @class = "form-control select2", id = "ddlCity", required = "required" }
+                             )
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.PinCode
+                                @Html.ValidationMessageFor(m => m.PinCode, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.PinCode, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EPinCode })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.ContactNumber1
+                                @Html.ValidationMessageFor(m => m.ContactNumber1, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.ContactNumber1, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EContactNumber1 })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.ContactNumber2
+                                @Html.ValidationMessageFor(m => m.ContactNumber2, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.ContactNumber2, new { @class = "form-control", autocomplete = "off", placeholder = @VIMS.Model.Resources.Doctor.EContactNumber2 })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.Password
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EPassword })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.Role
+                                @Html.ValidationMessageFor(m => m.RoleId, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(
+                                m => m.RoleId,
+                                new SelectList(Model.RoleList, "RoleId", "RoleName", Model.RoleId),
+                                @VIMS.Model.Resources.Doctor.SelectRole,
+                                new { @class = "form-control select2", id = "ddlRole", required = "required" }
+                            )
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.JoiningDate
+                                @Html.ValidationMessageFor(m => m.JoiningDate, "", new { @class = "text-danger" })
+                            </label>
+                            <input type="text"
+                                   id="txtJoiningDate"
+                                   name="JoiningDate"
+                                   class="form-control"
+                                   placeholder="dd-MM-yyyy"
+                                   value="@Model.JoiningDate"
+                                   required />
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.EndingDate
+                                @Html.ValidationMessageFor(m => m.EndingDate, "", new { @class = "text-danger" })
+                            </label>
+                            <input type="text"
+                                   id="txtEndingDate"
+                                   name="EndingDate"
+                                   class="form-control"
+                                   placeholder="dd-MM-yyyy"
+                                   value="@Model.EndingDate" />
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.Qualifications
+                                @Html.ValidationMessageFor(m => m.Qualifications, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.Qualifications, new { @class = "form-control", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EQualifications })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Doctor.Signature
+                                @Html.ValidationMessageFor(m => m.SignaturePath, "", new { @class = "text-danger" })
+                            </label>
+                            <input type="file" name="signatureFile" class="form-control" />
+                            @if (!string.IsNullOrEmpty(Model.SignaturePath))
+                            {
+                                <small>Current: @Model.SignaturePath</small>
+                            }
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">@VIMS.Model.Resources.Doctor.Active</label>
+                            @Html.DropDownListFor(x => x.IsActive, new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="Enable", Value = "true", Selected=Model.IsActive },
+                                new SelectListItem{ Text="Disable", Value = "false", Selected=!Model.IsActive }
+                            }, new { @class = "form-control select2", id = "ddlIsActive" })
+                        </div>
+
+                        <div class="col-md-12 text-right mt-4">
+                            <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        function setupDatePicker(selector) {
+            if ($.fn.Zebra_DatePicker) {
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, '0');
+                var mm = String(today.getMonth() + 1).padStart(2, '0');
+                var yyyy = today.getFullYear();
+                var maxDateStr = dd + '-' + mm + '-' + yyyy;
+                $(selector).Zebra_DatePicker({
+                    format: 'd-m-Y',
+                    direction: [false, maxDateStr],
+                    default_position: 'below'
+                });
+            }
+        }
+
+        setupDatePicker('#txtDateOfBirth');
+        setupDatePicker('#txtJoiningDate');
+        setupDatePicker('#txtEndingDate');
+    });
+
+    $(document).ready(function () {
+        $('#ddlState').change(function () {
+            var stateId = $(this).val();
+            $('#ddlCity').empty().append('<option>Loading...</option>');
+
+            if (stateId) {
+                $.ajax({
+                    url: '@Url.Action("GetCitiesByState")',
+                    type: 'POST',
+                    data: { stateId: stateId },
+                    success: function (data) {
+                        $('#ddlCity').empty().append('<option value="">--Select City--</option>');
+                        $.each(data, function (i, city) {
+                            $('#ddlCity').append('<option value="' + city.CityId + '">' + city.CityName + '</option>');
+                        });
+
+                        var selectedCity = '@Model.CityId';
+                        if (selectedCity) $('#ddlCity').val(selectedCity);
+                    },
+                    error: function () {
+                        alert('Failed to retrieve cities.');
+                    }
+                });
+            } else {
+                $('#ddlCity').empty().append('<option value="">--Select City--</option>');
+            }
+        });
+
+        if ('@ViewBag.Action' === 'Update') $('#ddlState').trigger('change');
+    });
+</script>

@@ -141,6 +141,19 @@ namespace VIMS.Web.GeneralClasses
                 string gatimes = gatime.ToString("HH:mm");
                 return gatimes.Replace('.', ':');
             }
+            public static string ConvertDOB_To_YYYYMMDD(string dob)
+            {
+                try
+                {
+                    DateTime parsed = DateTime.ParseExact(dob, "dd-MM-yyyy",
+                                    System.Globalization.CultureInfo.InvariantCulture);
+                    return parsed.ToString("yyyy-MM-dd");
+                }
+                catch
+                {
+                    return dob;
+                }
+            }
             public static string getDate()
             {
                 var info = TimeZoneInfo.FindSystemTimeZoneById("India Standard Time");

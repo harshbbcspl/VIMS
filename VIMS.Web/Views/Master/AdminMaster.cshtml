@@ -1,0 +1,105 @@
+﻿@model IEnumerable<VIMS.DB.VIMS_AdminMasterRtr_Result>
+
+@{
+    ViewBag.Title = @VIMS.Model.Resources.Admin.title;
+    ViewBag.Module = "Master";
+}
+
+<div class="row">
+    <div class="col-sm-12 my-5">
+        <div class="card card-table">
+            <div class="card-header row cardTitleRow">
+                <div class="col">
+                    <h4 class="card-title float-left">@VIMS.Model.Resources.Admin.AdminMaster</h4>
+                </div>
+                <div class="col-auto">
+
+                    @*@if (Convert.ToInt32(TempData["InsertRight"]) == 1)
+        {*@
+                    <a href="@Url.Action("AddAdmin", "Master")" class="btn btn-outline-primary float-right">
+                        @VIMS.Model.Resources.Admin.AddAdmin
+                    </a>
+                    @*}*@
+                </div>
+            </div>
+
+            <div class="card-body booking_card">
+                <div class="table-responsive">
+                    <table class="table card-table table-vcenter text-nowrap datatable">
+                        <thead>
+                            <tr>
+                                <th>@VIMS.Model.Resources.Admin.Action</th>
+                                <th>@VIMS.Model.Resources.Admin.Active</th>
+                                <th>@VIMS.Model.Resources.Admin.AdminCode</th>
+                                <th>@VIMS.Model.Resources.Admin.Name</th>
+                                <th>@VIMS.Model.Resources.Admin.Gender</th>
+                                <th>@VIMS.Model.Resources.Admin.ContactNo</th>
+                                <th>@VIMS.Model.Resources.Admin.CreatedBy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @*@if (Convert.ToInt32(TempData["ViewRight"]) == 1)
+        {*@
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @*@if (Convert.ToInt32(TempData["UpdateRight"]) == 1)
+        {*@
+                                        <a href="@Url.Action("EditAdmin", "Master", new { id = item.AdminId })" class="mx-3">
+                                            <i class="ti ti-edit fa-2x"></i>
+                                        </a>
+                                        @*}
+        else
+        {
+            <i class="ti ti-edit-off fa-2x"></i>
+        }*@
+
+                                    </td>
+
+                                    <td class="justify-content-center d-flex">
+                                        @*@if (Convert.ToInt32(TempData["DeleteRight"]) == 1)
+        {*@
+                                        <div class="slider">
+                                            <input type="checkbox"
+                                                   name="slider"
+                                                   class="slider-checkbox"
+                                                   id="chk_@item.AdminId"
+                                                   onclick='ActiveDeactiveStatusChange(this, "@item.AdminId", "AdminMaster")'
+                                                   @(item.IsActive ? "checked" : "") />
+                                            <label class="slider-label" for="chk_@item.AdminId">
+                                                <span class="slider-inner"></span>
+                                                <span class="slider-circle"></span>
+                                            </label>
+                                        </div>
+                                        @*}
+        else
+        {
+            <div class="slider">
+                <input type="checkbox" name="slider" class="slider-checkbox" disabled="disabled" id="@item.AdminId"
+                       @(item.IsActive == true ? "checked" : "")>
+                <label class="slider-label" for="@item.AdminId">
+                    <span class="slider-inner"></span>
+                    <span class="slider-circle"></span>
+                </label>
+            </div>
+        }*@
+
+                                    </td>
+
+                                    <td>@item.AdminCode</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Gender</td>
+                                    <td>@item.ContactNumber</td>
+                                    <td>@item.CreatedBy</td>
+                                </tr>
+                            }
+                            @*}*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@
     <Parameter Name="AdminCode" Type="nvarchar" Mode="In" />
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Gender" Type="nvarchar" Mode="In" />
-    <Parameter Name="DateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="DateOfBirth" Type="nvarchar" Mode="In" />
     <Parameter Name="Address" Type="nvarchar" Mode="In" />
     <Parameter Name="CityId" Type="int" Mode="In" />
     <Parameter Name="StateId" Type="int" Mode="In" />
@@ -90,6 +90,7 @@
   </Function>
   <Function Name="VIMS_CustomerMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CustomerId" Type="int" Mode="In" />
+    <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
     <Parameter Name="CustomerCode" Type="nvarchar" Mode="In" />
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Address" Type="nvarchar" Mode="In" />
@@ -105,6 +106,7 @@
   <Function Name="VIMS_CustomerMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="CustomerId" Type="int" Mode="In" />
     <Parameter Name="CustomerCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
     <Parameter Name="Action" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="VIMS_DoctorMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -112,7 +114,7 @@
     <Parameter Name="DoctorCode" Type="nvarchar" Mode="In" />
     <Parameter Name="Name" Type="nvarchar" Mode="In" />
     <Parameter Name="Gender" Type="nvarchar" Mode="In" />
-    <Parameter Name="DateOfBirth" Type="date" Mode="In" />
+    <Parameter Name="DateOfBirth" Type="nvarchar" Mode="In" />
     <Parameter Name="Address" Type="nvarchar" Mode="In" />
     <Parameter Name="CityId" Type="int" Mode="In" />
     <Parameter Name="StateId" Type="int" Mode="In" />
@@ -121,8 +123,8 @@
     <Parameter Name="ContactNumber2" Type="nvarchar" Mode="In" />
     <Parameter Name="Password" Type="nvarchar" Mode="In" />
     <Parameter Name="RoleId" Type="int" Mode="In" />
-    <Parameter Name="JoiningDate" Type="date" Mode="In" />
-    <Parameter Name="EndingDate" Type="date" Mode="In" />
+    <Parameter Name="JoiningDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="EndingDate" Type="nvarchar" Mode="In" />
     <Parameter Name="Qualifications" Type="nvarchar" Mode="In" />
     <Parameter Name="SignaturePath" Type="nvarchar" Mode="In" />
     <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />

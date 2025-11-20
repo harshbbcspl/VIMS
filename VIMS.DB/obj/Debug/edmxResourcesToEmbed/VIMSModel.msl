@@ -159,7 +159,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="VIMS_AdminMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_AdminMasterInsUpd" />
     <FunctionImportMapping FunctionImportName="VIMS_AdminMasterRtr" FunctionName="VIMSModel.Store.VIMS_AdminMasterRtr">
       <ResultMapping>
         <ComplexTypeMapping TypeName="VIMSModel.VIMS_AdminMasterRtr_Result">
@@ -203,28 +202,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="VIMS_CustomerMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_CustomerMasterInsUpd" />
-    <FunctionImportMapping FunctionImportName="VIMS_CustomerMasterRtr" FunctionName="VIMSModel.Store.VIMS_CustomerMasterRtr">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="VIMSModel.VIMS_CustomerMasterRtr_Result">
-          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
-          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
-          <ScalarProperty Name="Address" ColumnName="Address" />
-          <ScalarProperty Name="ContactNumber1" ColumnName="ContactNumber1" />
-          <ScalarProperty Name="ContactNumber2" ColumnName="ContactNumber2" />
-          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
-          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
-          <ScalarProperty Name="Password" ColumnName="Password" />
-          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="VIMS_DoctorMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_DoctorMasterInsUpd" />
     <FunctionImportMapping FunctionImportName="VIMS_DoctorMasterRtr" FunctionName="VIMSModel.Store.VIMS_DoctorMasterRtr">
       <ResultMapping>
         <ComplexTypeMapping TypeName="VIMSModel.VIMS_DoctorMasterRtr_Result">
@@ -281,6 +258,30 @@
           <ScalarProperty Name="RoleName" ColumnName="RoleName" />
           <ScalarProperty Name="UserName" ColumnName="UserName" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="VIMS_AdminMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_AdminMasterInsUpd" />
+    <FunctionImportMapping FunctionImportName="VIMS_DoctorMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_DoctorMasterInsUpd" />
+    <FunctionImportMapping FunctionImportName="VIMS_CustomerMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_CustomerMasterInsUpd" />
+    <FunctionImportMapping FunctionImportName="VIMS_CustomerMasterRtr" FunctionName="VIMSModel.Store.VIMS_CustomerMasterRtr">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="VIMSModel.VIMS_CustomerMasterRtr_Result">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="SocietyCode" ColumnName="SocietyCode" />
+          <ScalarProperty Name="CustomerCode" ColumnName="CustomerCode" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ContactNumber1" ColumnName="ContactNumber1" />
+          <ScalarProperty Name="ContactNumber2" ColumnName="ContactNumber2" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

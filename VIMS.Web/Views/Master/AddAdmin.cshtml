@@ -1,0 +1,233 @@
+﻿@using VIMS.DB
+
+@model VIMS.Model.Master.AdminViewModel
+
+@{
+    ViewBag.Title = (ViewBag.Action == "Update"
+    ? VIMS.Model.Resources.Admin.EditAdmin
+    : VIMS.Model.Resources.Admin.AddAdmin);
+
+}
+
+<div class="row">
+    <div class="col-md-12 my-5">
+        <div class="card">
+            <div class="card-header row cardTitleRow">
+                <div class="col">
+                    <h4 class="card-title float-left">
+                        @(ViewBag.Action == "Update"
+                            ? VIMS.Model.Resources.Admin.EditAdmin
+                            : VIMS.Model.Resources.Admin.AddAdmin)
+
+                    </h4>
+                </div>
+                <div class="col-auto">
+                    <a href="@Url.Action("AdminMaster", "Master")" class="btn btn-outline-primary">
+                        @VIMS.Model.Resources.Admin.ViewAdmins
+                    </a>
+                </div>
+            </div>
+
+            <div class="card-body">
+                @using (Html.BeginForm("AddAdmin", "Master", FormMethod.Post, new { @class = "forms-sample", autocomplete = "off" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.AdminId)
+                    @Html.HiddenFor(m => m.Action)
+
+                    <div class="row form-group">
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.AdminCode
+                                @Html.ValidationMessageFor(m => m.AdminCode, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.AdminCode, new { @class = "form-control text-uppercase", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Admin.EAdminCode })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.Name
+                                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.Name, new { @class = "form-control text-capitalize", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Admin.EName })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.Gender
+                                @Html.ValidationMessageFor(m => m.Gender, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(m => m.Gender, new List<SelectListItem> {
+                                new SelectListItem { Text = "Male", Value = "Male", Selected = Model.Gender=="Male" },
+                                new SelectListItem { Text = "Female", Value = "Female", Selected = Model.Gender=="Female" },
+                                new SelectListItem { Text = "Other", Value = "Other", Selected = Model.Gender=="Other" }
+                            }, @VIMS.Model.Resources.Admin.SelectGender, new { @class = "form-control select2", required = "required" })
+                        </div>
+
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.DateofBirth
+                                @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "text-danger" })
+                            </label>
+                            <input type="text"
+                                   id="txtDateOfBirth"
+                                   name="DateOfBirth"
+                                   class="form-control"
+                                   placeholder="dd-MM-yyyy"
+                                   value="@Model.DateOfBirth"
+                                   required />
+                        </div>
+
+
+
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.Address
+                                @Html.ValidationMessageFor(m => m.Address, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.Address, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Admin.EAddress })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.State
+                                @Html.ValidationMessageFor(m => m.StateId, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(m => m.StateId,
+                                new SelectList(Model.StatesList, "StateId", "StateName", Model.StateId),
+                                @VIMS.Model.Resources.Admin.SelectState,
+                                new { @class = "form-control select2", id = "ddlState", required = "required" })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.City
+                                @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(
+                                 m => m.CityId,
+                                 new SelectList(
+                                     (Model.CityList != null ? Model.CityList : new List<VIMS_CityMasterRtr_Result>()),
+                                     "CityId",
+                                     "CityName",
+                                     Model.CityId
+                                 ),
+                                 @VIMS.Model.Resources.Admin.SelectCity,
+                                 new { @class = "form-control select2", id = "ddlCity", required = "required" }
+                             )
+
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.PinCode
+                                @Html.ValidationMessageFor(m => m.PinCode, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.PinCode, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Admin.EPinCode })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.ContactNumber
+                                @Html.ValidationMessageFor(m => m.ContactNumber, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Admin.EContactNumber })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.Password
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.TextBoxFor(m => m.Password, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = @VIMS.Model.Resources.Admin.EPassword })
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">
+                                @VIMS.Model.Resources.Admin.Role
+                                @Html.ValidationMessageFor(m => m.RoleId, "", new { @class = "text-danger" })
+                            </label>
+                            @Html.DropDownListFor(
+                                m => m.RoleId,
+                                new SelectList(Model.RoleList, "RoleId", "RoleName", Model.RoleId),
+                                @VIMS.Model.Resources.Admin.SelectRole,
+                                new { @class = "form-control select2", id = "ddlRole", required = "required" }
+                            )
+                        </div>
+
+                        <div class="col-md-3 col-xl-2 col-sm-12">
+                            <label class="col-form-label">@VIMS.Model.Resources.Admin.Active</label>
+                            @Html.DropDownListFor(x => x.IsActive, new List<SelectListItem>
+                            {
+                                new SelectListItem{ Text="Enable", Value = "true", Selected=Model.IsActive },
+                                new SelectListItem{ Text="Disable", Value = "false", Selected=!Model.IsActive }
+                            }, new { @class = "form-control select2", id = "ddlIsActive" })
+                        </div>
+
+                        <div class="col-md-12 text-right mt-4">
+                            <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        if ($.fn.Zebra_DatePicker) {
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+            var yyyy = today.getFullYear();
+            var maxDateStr = dd + '-' + mm + '-' + yyyy;
+            $('#txtDateOfBirth').Zebra_DatePicker({
+                format: 'd-m-Y',   
+                direction: [false, maxDateStr], 
+                default_position: 'below'
+            });
+        }
+    });
+</script>
+
+
+
+<script>
+        $(document).ready(function () {
+            $('#ddlState').change(function () {
+                var stateId = $(this).val();
+                $('#ddlCity').empty().append('<option>Loading...</option>');
+
+                if (stateId) {
+                    $.ajax({
+                        url: '@Url.Action("GetCitiesByState")',
+                        type: 'POST',
+                        data: { stateId: stateId },
+                        success: function (data) {
+                            $('#ddlCity').empty().append('<option value="">--Select City--</option>');
+                            $.each(data, function (i, city) {
+                                $('#ddlCity').append('<option value="' + city.CityId + '">' + city.CityName + '</option>');
+                            });
+
+                            var selectedCity = '@Model.CityId';
+                            if (selectedCity) $('#ddlCity').val(selectedCity);
+                        },
+                        error: function () {
+                            alert('Failed to retrieve cities.');
+                        }
+                    });
+                }
+                else {
+                    $('#ddlCity').empty().append('<option value="">--Select City--</option>');
+                }
+            });
+
+            if ('@ViewBag.Action' === 'Update') $('#ddlState').trigger('change');
+        });
+</script>
+

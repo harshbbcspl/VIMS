@@ -14,6 +14,7 @@ namespace VIMS.DB
     public partial class VIMS_CustomerMasterRtr_Result
     {
         public int CustomerId { get; set; }
+        public string SocietyCode { get; set; }
         public string CustomerCode { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }

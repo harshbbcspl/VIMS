@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using VIMS.DB;
@@ -1376,6 +1377,48 @@ namespace VIMS.Web.Controllers
         {
             return RedirectToAction("AddDoctor", new { id = id });
         }
+
+        public ActionResult DownloadOrShowSignature(string id)
+        {
+            try
+            {
+                DoctorViewModel sb = new DoctorViewModel { Action = "All" };
+                var apiResponse = ApiCall.PostApi("DoctorMasterRtr", JsonConvert.SerializeObject(sb));
+
+                var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_DoctorMasterRtr_Result>>>(apiResponse);
+
+                if (response != null && response.result && response.data != null && response.data.Count > 0)
+                {
+                    var doctor = response.data.FirstOrDefault(x => x.DoctorCode.ToString() == id);
+
+                    if (doctor != null && !string.IsNullOrEmpty(doctor.SignaturePath))
+                    {
+                        string fileUrl = string.Format("{0}{1}", System.Configuration.ConfigurationManager.AppSettings["FileRtr"], doctor.SignaturePath);
+
+                        using (WebClient webClient = new WebClient())
+                        {
+                            byte[] fileBytes = webClient.DownloadData(fileUrl);
+                            if (fileBytes != null && fileBytes.Length > 0)
+                            {
+                                string contentType = MimeMapping.GetMimeMapping(doctor.SignaturePath);
+                                string fileExtension = Path.GetExtension(doctor.SignaturePath);
+                                string fileName = id + fileExtension; 
+
+                                return File(fileBytes, contentType, fileName);
+                            }
+                        }
+                    }
+                }
+
+                return HttpNotFound("Signature not found.");
+            }
+            catch (Exception ex)
+            {
+                return new HttpStatusCodeResult(500, ex.Message);
+            }
+        }
+
+
 
         #endregion
 

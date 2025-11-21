@@ -72,16 +72,28 @@
     <Compile Include="VIMS_AdminMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VIMS_AgeGroupMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="VIMS_AilmentMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VIMS_BaseUnitMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="VIMS_BreedMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_CenterMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VIMS_CityMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VIMS_CustomerMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_DiseaseMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VIMS_DoctorMasterRtr_Result.cs">
@@ -96,19 +108,43 @@
     <Compile Include="VIMS_LoginRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VIMS_MedicineGroupMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_MedicineMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="VIMS_ModuleMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VIMS_PageMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="VIMS_PlantMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="VIMS_RoleMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_RouteMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_SampleMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VIMS_SpeciesMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
     <Compile Include="VIMS_StatesMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_SymptomsMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_VehicleMasterRtr_Result.cs">
+      <DependentUpon>VIMSModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VIMS_VendorMasterRtr_Result.cs">
       <DependentUpon>VIMSModel.tt</DependentUpon>
     </Compile>
   </ItemGroup>

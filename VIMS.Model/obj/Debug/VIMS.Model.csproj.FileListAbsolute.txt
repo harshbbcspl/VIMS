@@ -33,3 +33,5 @@ C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Model\obj\Debug\VIMS.Model.Resources.
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Model\obj\Debug\VIMS.Model.Resources.Customer.gu.resources
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Model\obj\Debug\VIMS.Model.Resources.Doctor.gu.resources
 C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Model\obj\Debug\VIMS.Model.Resources.States.gu.resources
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Model\obj\Debug\VIMS.Model.Resources.Role.resources
+C:\Users\BBCSPL\source\repos\VIMS.Web\VIMS.Model\obj\Debug\VIMS.Model.Resources.Role.gu.resources

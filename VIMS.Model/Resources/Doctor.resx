@@ -166,7 +166,7 @@
     <value>Edit Doctor</value>
   </data>
   <data name="EDoctorCode" xml:space="preserve">
-    <value>Enter DoctorCode</value>
+    <value>Enter Doctor Code</value>
   </data>
   <data name="EName" xml:space="preserve">
     <value>Enter Name</value>
@@ -197,6 +197,9 @@
   </data>
   <data name="PinCode" xml:space="preserve">
     <value>Pin Code</value>
+  </data>
+  <data name="PreviewSignature" xml:space="preserve">
+    <value>Preview Signature</value>
   </data>
   <data name="Qualifications" xml:space="preserve">
     <value>Qualifications</value>
@@ -235,7 +238,7 @@
     <value> Enter Password</value>
   </data>
   <data name="RPinCode" xml:space="preserve">
-    <value> Enter PicCode</value>
+    <value> Enter Pin Code</value>
   </data>
   <data name="RQualifications" xml:space="preserve">
     <value> Enter Qualification</value>
@@ -269,6 +272,9 @@
   </data>
   <data name="title" xml:space="preserve">
     <value>Doctor Master</value>
+  </data>
+  <data name="UploadedSignature" xml:space="preserve">
+    <value>Uploaded Signature</value>
   </data>
   <data name="ViewDoctors" xml:space="preserve">
     <value>View Doctors</value>

@@ -1063,7 +1063,7 @@ namespace VIMS.API.Controllers
 
         [HttpPost]
         [Route("api/VIMSApi/RoleMasterRtr")]
-        public HttpResponseMessage RoleMasterRtr(RoleMasterViewModel rvm)
+        public HttpResponseMessage RoleMasterRtr(RoleViewModel rvm)
         {
             try
             {
@@ -1118,7 +1118,7 @@ namespace VIMS.API.Controllers
 
         [HttpPost]
         [Route("api/VIMSApi/RoleMasterInsUpd")]
-        public HttpResponseMessage RoleMasterInsUpd(RoleMasterViewModel rvm)
+        public HttpResponseMessage RoleMasterInsUpd(RoleViewModel rvm)
         {
             try
             {

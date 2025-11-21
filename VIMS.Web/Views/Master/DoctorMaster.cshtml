@@ -35,6 +35,7 @@
                                 <th>@VIMS.Model.Resources.Doctor.Name</th>
                                 <th>@VIMS.Model.Resources.Doctor.Gender</th>
                                 <th>@VIMS.Model.Resources.Doctor.ContactNo</th>
+                                <th>@VIMS.Model.Resources.Doctor.Signature</th>
                                 <th>@VIMS.Model.Resources.Doctor.CreatedBy</th>
                             </tr>
                         </thead>
@@ -44,57 +45,73 @@
         {*@
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @*@if (Convert.ToInt32(TempData["UpdateRight"]) == 1)
-        {*@
-                                        <a href="@Url.Action("EditDoctor", "Master", new { id = item.DoctorId })" class="mx-3">
-                                            <i class="ti ti-edit fa-2x"></i>
-                                        </a>
-                                        @*}
-        else
-        {
-            <i class="ti ti-edit-off fa-2x"></i>
-        }*@
-                                        
-                                    </td>
+                            <tr>
+                                <td>
+                                    @*@if (Convert.ToInt32(TempData["UpdateRight"]) == 1)
+            {*@
+                                    <a href="@Url.Action("EditDoctor", "Master", new { id = item.DoctorId })" class="mx-3">
+                                        <i class="ti ti-edit fa-2x"></i>
+                                    </a>
+                                    @*}
+            else
+            {
+                <i class="ti ti-edit-off fa-2x"></i>
+            }*@
 
-                                    <td class="justify-content-center d-flex">
-                                        @*@if (Convert.ToInt32(TempData["DeleteRight"]) == 1)
-        {*@
-                                        <div class="slider">
-                                            <input type="checkbox"
-                                                   class="slider-checkbox"
-                                                   id="chk_@item.DoctorId"
-                                                   onclick='ActiveDeactiveStatusChange(this, "@item.DoctorId", "DoctorMaster")'
-                                                   @(item.IsActive ? "checked" : "") />
+                                </td>
 
-                                            <label class="slider-label" for="chk_@item.DoctorId">
-                                                <span class="slider-inner"></span>
-                                                <span class="slider-circle"></span>
-                                            </label>
-                                        </div>
-                                        @*}
-        else
-        {
-            <div class="slider">
-                <input type="checkbox" name="slider" class="slider-checkbox" disabled="disabled" id="@item.DoctorId"
-                       @(item.IsActive == true ? "checked" : "")>
-                <label class="slider-label" for="@item.DoctorId">
-                    <span class="slider-inner"></span>
-                    <span class="slider-circle"></span>
-                </label>
-            </div>
-        }*@
+                                <td class="justify-content-center d-flex">
+                                    @*@if (Convert.ToInt32(TempData["DeleteRight"]) == 1)
+            {*@
+                                    <div class="slider">
+                                        <input type="checkbox"
+                                               class="slider-checkbox"
+                                               id="chk_@item.DoctorId"
+                                               onclick='ActiveDeactiveStatusChange(this, "@item.DoctorId", "DoctorMaster")'
+                                               @(item.IsActive ? "checked" : "") />
 
-                                    </td>
+                                        <label class="slider-label" for="chk_@item.DoctorId">
+                                            <span class="slider-inner"></span>
+                                            <span class="slider-circle"></span>
+                                        </label>
+                                    </div>
+                                    @*}
+            else
+            {
+                <div class="slider">
+                    <input type="checkbox" name="slider" class="slider-checkbox" disabled="disabled" id="@item.DoctorId"
+                           @(item.IsActive == true ? "checked" : "")>
+                    <label class="slider-label" for="@item.DoctorId">
+                        <span class="slider-inner"></span>
+                        <span class="slider-circle"></span>
+                    </label>
+                </div>
+            }*@
 
-                                    <td>@item.DoctorCode</td>
-                                    <td>@item.Name</td>
-                                    <td>@item.Gender</td>
-                                    <td>@item.ContactNumber1</td>
-                                    <td>@item.CreatedBy</td>
-                                </tr>
+                                </td>
+
+                                <td>@item.DoctorCode</td>
+                                <td>@item.Name</td>
+                                <td>@item.Gender</td>
+                                <td>@item.ContactNumber1</td>
+                                <td>
+                                    @if (item.SignaturePath == null)
+                                    {
+                                        <span><i class="las la-exclamation-triangle"></i></span>
+
+                                    }
+                                    else
+                                    {
+                                        if (item.SignaturePath.Contains(".pdf"))
+                                        {
+                                            <a href="@Url.Action("DownloadOrShowSignature", new { id = item.DoctorCode, name = "DownloadSignature" })" class="btn editbtn btn-danger" title="PDF" target="_blank">
+                                                <i class="fas fa-file-pdf fa-lg"></i>
+                                            </a>
+                                        }
+                                    }
+                                </td>
+                                <td>@item.CreatedBy</td>
+                            </tr>
                             }
                             @*}*@
                         </tbody>

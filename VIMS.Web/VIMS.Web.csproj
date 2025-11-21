@@ -684,13 +684,14 @@
     <Content Include="Views\Master\AddAdmin.cshtml" />
     <Content Include="Views\Master\DoctorMaster.cshtml" />
     <Content Include="Views\Master\AddDoctor.cshtml" />
+    <Content Include="Views\Usermanagement\RoleMaster.cshtml" />
+    <Content Include="Views\Usermanagement\AddRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Logs\" />
     <Folder Include="Models\" />
     <Folder Include="UploadFiles\" />
-    <Folder Include="Views\Usermanagement\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

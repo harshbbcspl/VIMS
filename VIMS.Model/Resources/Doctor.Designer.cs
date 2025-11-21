@@ -205,7 +205,7 @@ namespace VIMS.Model.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter DoctorCode.
+        ///   Looks up a localized string similar to Enter Doctor Code.
         /// </summary>
         public static string EDoctorCode {
             get {
@@ -300,6 +300,15 @@ namespace VIMS.Model.Resources {
         public static string PinCode {
             get {
                 return ResourceManager.GetString("PinCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preview Signature.
+        /// </summary>
+        public static string PreviewSignature {
+            get {
+                return ResourceManager.GetString("PreviewSignature", resourceCulture);
             }
         }
         
@@ -412,7 +421,7 @@ namespace VIMS.Model.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to  Enter PicCode.
+        ///   Looks up a localized string similar to  Enter Pin Code.
         /// </summary>
         public static string RPinCode {
             get {
@@ -516,6 +525,15 @@ namespace VIMS.Model.Resources {
         public static string title {
             get {
                 return ResourceManager.GetString("title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uploaded Signature.
+        /// </summary>
+        public static string UploadedSignature {
+            get {
+                return ResourceManager.GetString("UploadedSignature", resourceCulture);
             }
         }
         

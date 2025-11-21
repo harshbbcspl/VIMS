@@ -41,6 +41,20 @@
           <Parameter Name="AdminCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="VIMS_AgeGroupMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AgeGroupId" Type="int" Mode="In" />
+          <Parameter Name="AgeGroupCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="AgeGroupName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_AgeGroupMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="AgeGroupId" Type="int" Mode="In" />
+          <Parameter Name="AgeGroupCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="VIMS_AilmentMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AilmentId" Type="int" Mode="In" />
           <Parameter Name="AilmentCode" Type="nvarchar" Mode="In" />
@@ -53,6 +67,20 @@
         <Function Name="VIMS_AilmentMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="AilmentId" Type="int" Mode="In" />
           <Parameter Name="AilmentCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_BaseUnitMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BaseUnitId" Type="int" Mode="In" />
+          <Parameter Name="BaseUnitCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="BaseUnitName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_BaseUnitMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="BaseUnitId" Type="int" Mode="In" />
+          <Parameter Name="BaseUnitCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="VIMS_BreedMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -69,6 +97,24 @@
           <Parameter Name="BreedId" Type="int" Mode="In" />
           <Parameter Name="BreedCode" Type="nvarchar" Mode="In" />
           <Parameter Name="SpeciesCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_CenterMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CenterId" Type="int" Mode="In" />
+          <Parameter Name="PlantCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="CenterCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="CenterName" Type="nvarchar" Mode="In" />
+          <Parameter Name="AutoAllocation" Type="bit" Mode="In" />
+          <Parameter Name="NoOfVisit" Type="int" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_CenterMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CenterId" Type="int" Mode="In" />
+          <Parameter Name="CenterCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="PlantCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="VIMS_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -112,6 +158,20 @@
           <Parameter Name="CustomerId" Type="int" Mode="In" />
           <Parameter Name="CustomerCode" Type="nvarchar" Mode="In" />
           <Parameter Name="SocietyCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_DiseaseMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DiseaseId" Type="int" Mode="In" />
+          <Parameter Name="DiseaseCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="DiseaseName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_DiseaseMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DiseaseId" Type="int" Mode="In" />
+          <Parameter Name="DiseaseCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="VIMS_DoctorMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -177,6 +237,50 @@
           <Parameter Name="UserCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Password" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="VIMS_MedicineGroupMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineGroupId" Type="int" Mode="In" />
+          <Parameter Name="MedicineGroupCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="MedicineGroupName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_MedicineGroupMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineGroupId" Type="int" Mode="In" />
+          <Parameter Name="MedicineGroupCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_MedicineMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineId" Type="int" Mode="In" />
+          <Parameter Name="MedicineCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="MedicineName" Type="nvarchar" Mode="In" />
+          <Parameter Name="BaseUnitCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="BaseCost" Type="decimal" Mode="In" />
+          <Parameter Name="RouteCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="General" Type="bit" Mode="In" />
+          <Parameter Name="FA" Type="bit" Mode="In" />
+          <Parameter Name="Camp" Type="bit" Mode="In" />
+          <Parameter Name="IssueUnit" Type="nvarchar" Mode="In" />
+          <Parameter Name="LowQty" Type="decimal" Mode="In" />
+          <Parameter Name="HighQty" Type="decimal" Mode="In" />
+          <Parameter Name="StockCalculation" Type="bit" Mode="In" />
+          <Parameter Name="Ratio" Type="decimal" Mode="In" />
+          <Parameter Name="MedicineGroupCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="NoOfDays" Type="int" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_MedicineMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MedicineId" Type="int" Mode="In" />
+          <Parameter Name="MedicineCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="MedicineGroupCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="RouteCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="BaseUnitCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="VIMS_ModuleMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ModuleId" Type="int" Mode="In" />
           <Parameter Name="ModuleName" Type="nvarchar" Mode="In" />
@@ -209,6 +313,20 @@
           <Parameter Name="PageId" Type="int" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="VIMS_PlantMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlantId" Type="int" Mode="In" />
+          <Parameter Name="PlantCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="PlantName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_PlantMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="PlantId" Type="int" Mode="In" />
+          <Parameter Name="PlantCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="VIMS_RoleMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RoleId" Type="int" Mode="In" />
           <Parameter Name="RoleName" Type="nvarchar" Mode="In" />
@@ -219,6 +337,33 @@
         </Function>
         <Function Name="VIMS_RoleMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RoleId" Type="int" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_RouteMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RouteId" Type="int" Mode="In" />
+          <Parameter Name="RouteCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="RouteName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_RouteMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RouteId" Type="int" Mode="In" />
+          <Parameter Name="RouteCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_SampleMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SampleId" Type="int" Mode="In" />
+          <Parameter Name="SampleName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_SampleMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SampleId" Type="int" Mode="In" />
+          <Parameter Name="SampleName" Type="nvarchar" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="VIMS_SpeciesMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -247,6 +392,65 @@
         <Function Name="VIMS_StatesMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="StateId" Type="int" Mode="In" />
           <Parameter Name="StateCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_SymptomsMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SymptomsId" Type="int" Mode="In" />
+          <Parameter Name="DiseaseCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="SymptomsCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="SymptomsName" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_SymptomsMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SymptomsId" Type="int" Mode="In" />
+          <Parameter Name="SymptomsCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="DiseaseCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_VehicleMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VehicleId" Type="int" Mode="In" />
+          <Parameter Name="VendorCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="VehicleCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="VehicleRegisterNumber" Type="nvarchar" Mode="In" />
+          <Parameter Name="VehicleRegisterDate" Type="date" Mode="In" />
+          <Parameter Name="Model" Type="nvarchar" Mode="In" />
+          <Parameter Name="Rate" Type="decimal" Mode="In" />
+          <Parameter Name="RateEffectiveDate" Type="date" Mode="In" />
+          <Parameter Name="ContractStartDate" Type="date" Mode="In" />
+          <Parameter Name="ContractEndDate" Type="date" Mode="In" />
+          <Parameter Name="InsuranceCommitmentDate" Type="date" Mode="In" />
+          <Parameter Name="InsuranceExpiryDate" Type="date" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_VehicleMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VehicleId" Type="int" Mode="In" />
+          <Parameter Name="VehicleCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="VendorCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_VendorMasterInsUpd" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VendorId" Type="int" Mode="In" />
+          <Parameter Name="PlantCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="VendorCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="VendorName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Address" Type="nvarchar" Mode="In" />
+          <Parameter Name="MobileNumber1" Type="nvarchar" Mode="In" />
+          <Parameter Name="MobileNumber2" Type="nvarchar" Mode="In" />
+          <Parameter Name="CreatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="UpdatedBy" Type="nvarchar" Mode="In" />
+          <Parameter Name="IsActive" Type="bit" Mode="In" />
+          <Parameter Name="Action" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="VIMS_VendorMasterRtr" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="VendorId" Type="int" Mode="In" />
+          <Parameter Name="VendorCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="PlantCode" Type="nvarchar" Mode="In" />
           <Parameter Name="Action" Type="nvarchar" Mode="In" />
         </Function>
         <EntityContainer Name="VIMSModelStoreContainer">
@@ -502,6 +706,210 @@
             <Parameter Name="SocietyCode" Mode="In" Type="String" />
             <Parameter Name="Action" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="VIMS_AgeGroupMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="AgeGroupId" Mode="In" Type="Int32" />
+            <Parameter Name="AgeGroupCode" Mode="In" Type="String" />
+            <Parameter Name="AgeGroupName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_AgeGroupMasterRtr" ReturnType="Collection(VIMSModel.VIMS_AgeGroupMasterRtr_Result)">
+            <Parameter Name="AgeGroupId" Mode="In" Type="Int32" />
+            <Parameter Name="AgeGroupCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_BaseUnitMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="BaseUnitId" Mode="In" Type="Int32" />
+            <Parameter Name="BaseUnitCode" Mode="In" Type="String" />
+            <Parameter Name="BaseUnitName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_BaseUnitMasterRtr" ReturnType="Collection(VIMSModel.VIMS_BaseUnitMasterRtr_Result)">
+            <Parameter Name="BaseUnitId" Mode="In" Type="Int32" />
+            <Parameter Name="BaseUnitCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_CenterMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="CenterId" Mode="In" Type="Int32" />
+            <Parameter Name="PlantCode" Mode="In" Type="String" />
+            <Parameter Name="CenterCode" Mode="In" Type="String" />
+            <Parameter Name="CenterName" Mode="In" Type="String" />
+            <Parameter Name="AutoAllocation" Mode="In" Type="Boolean" />
+            <Parameter Name="NoOfVisit" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_CenterMasterRtr" ReturnType="Collection(VIMSModel.VIMS_CenterMasterRtr_Result)">
+            <Parameter Name="CenterId" Mode="In" Type="Int32" />
+            <Parameter Name="CenterCode" Mode="In" Type="String" />
+            <Parameter Name="PlantCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_DiseaseMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="DiseaseId" Mode="In" Type="Int32" />
+            <Parameter Name="DiseaseCode" Mode="In" Type="String" />
+            <Parameter Name="DiseaseName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_DiseaseMasterRtr" ReturnType="Collection(VIMSModel.VIMS_DiseaseMasterRtr_Result)">
+            <Parameter Name="DiseaseId" Mode="In" Type="Int32" />
+            <Parameter Name="DiseaseCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_MedicineGroupMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="MedicineGroupId" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineGroupCode" Mode="In" Type="String" />
+            <Parameter Name="MedicineGroupName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_MedicineGroupMasterRtr" ReturnType="Collection(VIMSModel.VIMS_MedicineGroupMasterRtr_Result)">
+            <Parameter Name="MedicineGroupId" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineGroupCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_MedicineMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="MedicineId" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineCode" Mode="In" Type="String" />
+            <Parameter Name="MedicineName" Mode="In" Type="String" />
+            <Parameter Name="BaseUnitCode" Mode="In" Type="String" />
+            <Parameter Name="BaseCost" Mode="In" Type="Decimal" />
+            <Parameter Name="RouteCode" Mode="In" Type="String" />
+            <Parameter Name="General" Mode="In" Type="Boolean" />
+            <Parameter Name="FA" Mode="In" Type="Boolean" />
+            <Parameter Name="Camp" Mode="In" Type="Boolean" />
+            <Parameter Name="IssueUnit" Mode="In" Type="String" />
+            <Parameter Name="LowQty" Mode="In" Type="Decimal" />
+            <Parameter Name="HighQty" Mode="In" Type="Decimal" />
+            <Parameter Name="StockCalculation" Mode="In" Type="Boolean" />
+            <Parameter Name="Ratio" Mode="In" Type="Decimal" />
+            <Parameter Name="MedicineGroupCode" Mode="In" Type="String" />
+            <Parameter Name="NoOfDays" Mode="In" Type="Int32" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_MedicineMasterRtr" ReturnType="Collection(VIMSModel.VIMS_MedicineMasterRtr_Result)">
+            <Parameter Name="MedicineId" Mode="In" Type="Int32" />
+            <Parameter Name="MedicineCode" Mode="In" Type="String" />
+            <Parameter Name="MedicineGroupCode" Mode="In" Type="String" />
+            <Parameter Name="RouteCode" Mode="In" Type="String" />
+            <Parameter Name="BaseUnitCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_PlantMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="PlantId" Mode="In" Type="Int32" />
+            <Parameter Name="PlantCode" Mode="In" Type="String" />
+            <Parameter Name="PlantName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_PlantMasterRtr" ReturnType="Collection(VIMSModel.VIMS_PlantMasterRtr_Result)">
+            <Parameter Name="PlantId" Mode="In" Type="Int32" />
+            <Parameter Name="PlantCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_RouteMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="RouteId" Mode="In" Type="Int32" />
+            <Parameter Name="RouteCode" Mode="In" Type="String" />
+            <Parameter Name="RouteName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_RouteMasterRtr" ReturnType="Collection(VIMSModel.VIMS_RouteMasterRtr_Result)">
+            <Parameter Name="RouteId" Mode="In" Type="Int32" />
+            <Parameter Name="RouteCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_SampleMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="SampleId" Mode="In" Type="Int32" />
+            <Parameter Name="SampleName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_SampleMasterRtr" ReturnType="Collection(VIMSModel.VIMS_SampleMasterRtr_Result)">
+            <Parameter Name="SampleId" Mode="In" Type="Int32" />
+            <Parameter Name="SampleName" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_SymptomsMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="SymptomsId" Mode="In" Type="Int32" />
+            <Parameter Name="DiseaseCode" Mode="In" Type="String" />
+            <Parameter Name="SymptomsCode" Mode="In" Type="String" />
+            <Parameter Name="SymptomsName" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_SymptomsMasterRtr" ReturnType="Collection(VIMSModel.VIMS_SymptomsMasterRtr_Result)">
+            <Parameter Name="SymptomsId" Mode="In" Type="Int32" />
+            <Parameter Name="SymptomsCode" Mode="In" Type="String" />
+            <Parameter Name="DiseaseCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_VehicleMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="VehicleId" Mode="In" Type="Int32" />
+            <Parameter Name="VendorCode" Mode="In" Type="String" />
+            <Parameter Name="VehicleCode" Mode="In" Type="String" />
+            <Parameter Name="VehicleRegisterNumber" Mode="In" Type="String" />
+            <Parameter Name="VehicleRegisterDate" Mode="In" Type="DateTime" />
+            <Parameter Name="Model" Mode="In" Type="String" />
+            <Parameter Name="Rate" Mode="In" Type="Decimal" />
+            <Parameter Name="RateEffectiveDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ContractStartDate" Mode="In" Type="DateTime" />
+            <Parameter Name="ContractEndDate" Mode="In" Type="DateTime" />
+            <Parameter Name="InsuranceCommitmentDate" Mode="In" Type="DateTime" />
+            <Parameter Name="InsuranceExpiryDate" Mode="In" Type="DateTime" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_VehicleMasterRtr" ReturnType="Collection(VIMSModel.VIMS_VehicleMasterRtr_Result)">
+            <Parameter Name="VehicleId" Mode="In" Type="Int32" />
+            <Parameter Name="VehicleCode" Mode="In" Type="String" />
+            <Parameter Name="VendorCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_VendorMasterInsUpd" ReturnType="Collection(String)">
+            <Parameter Name="VendorId" Mode="In" Type="Int32" />
+            <Parameter Name="PlantCode" Mode="In" Type="String" />
+            <Parameter Name="VendorCode" Mode="In" Type="String" />
+            <Parameter Name="VendorName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber1" Mode="In" Type="String" />
+            <Parameter Name="MobileNumber2" Mode="In" Type="String" />
+            <Parameter Name="CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="UpdatedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActive" Mode="In" Type="Boolean" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VIMS_VendorMasterRtr" ReturnType="Collection(VIMSModel.VIMS_VendorMasterRtr_Result)">
+            <Parameter Name="VendorId" Mode="In" Type="Int32" />
+            <Parameter Name="VendorCode" Mode="In" Type="String" />
+            <Parameter Name="PlantCode" Mode="In" Type="String" />
+            <Parameter Name="Action" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="VIMS_AilmentMasterRtr_Result">
           <Property Type="Int32" Name="AilmentId" Nullable="false" />
@@ -696,6 +1104,162 @@
           <Property Type="Int32" Name="RoleId" Nullable="false" />
           <Property Type="String" Name="RoleName" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="Password" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_AgeGroupMasterRtr_Result">
+          <Property Type="Int32" Name="AgeGroupId" Nullable="false" />
+          <Property Type="String" Name="AgeGroupCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="AgeGroupName" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_BaseUnitMasterRtr_Result">
+          <Property Type="Int32" Name="BaseUnitId" Nullable="false" />
+          <Property Type="String" Name="BaseUnitCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BaseUnitName" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_CenterMasterRtr_Result">
+          <Property Type="Int32" Name="CenterId" Nullable="false" />
+          <Property Type="String" Name="CenterCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CenterName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="PlantCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PlantName" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="AutoAllocation" Nullable="false" />
+          <Property Type="Int32" Name="NoOfVisit" Nullable="false" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_DiseaseMasterRtr_Result">
+          <Property Type="Int32" Name="DiseaseId" Nullable="false" />
+          <Property Type="String" Name="DiseaseCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DiseaseName" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_MedicineGroupMasterRtr_Result">
+          <Property Type="Int32" Name="MedicineGroupId" Nullable="false" />
+          <Property Type="String" Name="MedicineGroupCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MedicineGroupName" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_MedicineMasterRtr_Result">
+          <Property Type="Int32" Name="MedicineId" Nullable="false" />
+          <Property Type="String" Name="MedicineCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MedicineName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="BaseUnitCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="BaseUnitName" Nullable="true" MaxLength="200" />
+          <Property Type="Decimal" Name="BaseCost" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="String" Name="RouteCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RouteName" Nullable="true" MaxLength="200" />
+          <Property Type="Boolean" Name="General" Nullable="false" />
+          <Property Type="Boolean" Name="FA" Nullable="false" />
+          <Property Type="Boolean" Name="Camp" Nullable="false" />
+          <Property Type="String" Name="IssueUnit" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="LowQty" Nullable="true" Precision="18" Scale="3" />
+          <Property Type="Decimal" Name="HighQty" Nullable="true" Precision="18" Scale="3" />
+          <Property Type="Boolean" Name="StockCalculation" Nullable="false" />
+          <Property Type="Decimal" Name="Ratio" Nullable="true" Precision="18" Scale="3" />
+          <Property Type="String" Name="MedicineGroupCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MedicineGroupName" Nullable="true" MaxLength="200" />
+          <Property Type="Int32" Name="NoOfDays" Nullable="true" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_PlantMasterRtr_Result">
+          <Property Type="Int32" Name="PlantId" Nullable="false" />
+          <Property Type="String" Name="PlantCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PlantName" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_RouteMasterRtr_Result">
+          <Property Type="Int32" Name="RouteId" Nullable="false" />
+          <Property Type="String" Name="RouteCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="RouteName" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_SampleMasterRtr_Result">
+          <Property Type="Int32" Name="SampleId" Nullable="false" />
+          <Property Type="String" Name="SampleName" Nullable="false" MaxLength="200" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_SymptomsMasterRtr_Result">
+          <Property Type="Int32" Name="SymptomsId" Nullable="false" />
+          <Property Type="String" Name="SymptomsCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SymptomsName" Nullable="false" MaxLength="200" />
+          <Property Type="String" Name="DiseaseCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DiseaseName" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_VehicleMasterRtr_Result">
+          <Property Type="Int32" Name="VehicleId" Nullable="false" />
+          <Property Type="String" Name="VehicleCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="VehicleRegisterNumber" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="VehicleRegisterDate" Nullable="false" />
+          <Property Type="String" Name="Model" Nullable="true" MaxLength="100" />
+          <Property Type="Decimal" Name="Rate" Nullable="false" Precision="18" Scale="2" />
+          <Property Type="DateTime" Name="RateEffectiveDate" Nullable="false" />
+          <Property Type="DateTime" Name="ContractStartDate" Nullable="true" />
+          <Property Type="DateTime" Name="ContractEndDate" Nullable="true" />
+          <Property Type="DateTime" Name="InsuranceCommitmentDate" Nullable="true" />
+          <Property Type="DateTime" Name="InsuranceExpiryDate" Nullable="true" />
+          <Property Type="String" Name="VendorCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="100" />
+          <Property Type="Boolean" Name="IsActive" Nullable="false" />
+          <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="UpdatedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="UpdatedDate" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="VIMS_VendorMasterRtr_Result">
+          <Property Type="Int32" Name="VendorId" Nullable="false" />
+          <Property Type="String" Name="PlantCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PlantName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="VendorCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="VendorName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Address" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="MobileNumber1" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="MobileNumber2" Nullable="true" MaxLength="20" />
           <Property Type="Boolean" Name="IsActive" Nullable="false" />
           <Property Type="String" Name="CreatedBy" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="CreatedDate" Nullable="true" MaxLength="10" />
@@ -984,6 +1548,222 @@
                 <ScalarProperty Name="RoleId" ColumnName="RoleId" />
                 <ScalarProperty Name="RoleName" ColumnName="RoleName" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_AgeGroupMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_AgeGroupMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_AgeGroupMasterRtr" FunctionName="VIMSModel.Store.VIMS_AgeGroupMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_AgeGroupMasterRtr_Result">
+                <ScalarProperty Name="AgeGroupId" ColumnName="AgeGroupId" />
+                <ScalarProperty Name="AgeGroupCode" ColumnName="AgeGroupCode" />
+                <ScalarProperty Name="AgeGroupName" ColumnName="AgeGroupName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_BaseUnitMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_BaseUnitMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_BaseUnitMasterRtr" FunctionName="VIMSModel.Store.VIMS_BaseUnitMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_BaseUnitMasterRtr_Result">
+                <ScalarProperty Name="BaseUnitId" ColumnName="BaseUnitId" />
+                <ScalarProperty Name="BaseUnitCode" ColumnName="BaseUnitCode" />
+                <ScalarProperty Name="BaseUnitName" ColumnName="BaseUnitName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_CenterMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_CenterMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_CenterMasterRtr" FunctionName="VIMSModel.Store.VIMS_CenterMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_CenterMasterRtr_Result">
+                <ScalarProperty Name="CenterId" ColumnName="CenterId" />
+                <ScalarProperty Name="CenterCode" ColumnName="CenterCode" />
+                <ScalarProperty Name="CenterName" ColumnName="CenterName" />
+                <ScalarProperty Name="PlantCode" ColumnName="PlantCode" />
+                <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+                <ScalarProperty Name="AutoAllocation" ColumnName="AutoAllocation" />
+                <ScalarProperty Name="NoOfVisit" ColumnName="NoOfVisit" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_DiseaseMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_DiseaseMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_DiseaseMasterRtr" FunctionName="VIMSModel.Store.VIMS_DiseaseMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_DiseaseMasterRtr_Result">
+                <ScalarProperty Name="DiseaseId" ColumnName="DiseaseId" />
+                <ScalarProperty Name="DiseaseCode" ColumnName="DiseaseCode" />
+                <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_MedicineGroupMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_MedicineGroupMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_MedicineGroupMasterRtr" FunctionName="VIMSModel.Store.VIMS_MedicineGroupMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_MedicineGroupMasterRtr_Result">
+                <ScalarProperty Name="MedicineGroupId" ColumnName="MedicineGroupId" />
+                <ScalarProperty Name="MedicineGroupCode" ColumnName="MedicineGroupCode" />
+                <ScalarProperty Name="MedicineGroupName" ColumnName="MedicineGroupName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_MedicineMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_MedicineMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_MedicineMasterRtr" FunctionName="VIMSModel.Store.VIMS_MedicineMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_MedicineMasterRtr_Result">
+                <ScalarProperty Name="MedicineId" ColumnName="MedicineId" />
+                <ScalarProperty Name="MedicineCode" ColumnName="MedicineCode" />
+                <ScalarProperty Name="MedicineName" ColumnName="MedicineName" />
+                <ScalarProperty Name="BaseUnitCode" ColumnName="BaseUnitCode" />
+                <ScalarProperty Name="BaseUnitName" ColumnName="BaseUnitName" />
+                <ScalarProperty Name="BaseCost" ColumnName="BaseCost" />
+                <ScalarProperty Name="RouteCode" ColumnName="RouteCode" />
+                <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+                <ScalarProperty Name="General" ColumnName="General" />
+                <ScalarProperty Name="FA" ColumnName="FA" />
+                <ScalarProperty Name="Camp" ColumnName="Camp" />
+                <ScalarProperty Name="IssueUnit" ColumnName="IssueUnit" />
+                <ScalarProperty Name="LowQty" ColumnName="LowQty" />
+                <ScalarProperty Name="HighQty" ColumnName="HighQty" />
+                <ScalarProperty Name="StockCalculation" ColumnName="StockCalculation" />
+                <ScalarProperty Name="Ratio" ColumnName="Ratio" />
+                <ScalarProperty Name="MedicineGroupCode" ColumnName="MedicineGroupCode" />
+                <ScalarProperty Name="MedicineGroupName" ColumnName="MedicineGroupName" />
+                <ScalarProperty Name="NoOfDays" ColumnName="NoOfDays" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_PlantMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_PlantMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_PlantMasterRtr" FunctionName="VIMSModel.Store.VIMS_PlantMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_PlantMasterRtr_Result">
+                <ScalarProperty Name="PlantId" ColumnName="PlantId" />
+                <ScalarProperty Name="PlantCode" ColumnName="PlantCode" />
+                <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_RouteMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_RouteMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_RouteMasterRtr" FunctionName="VIMSModel.Store.VIMS_RouteMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_RouteMasterRtr_Result">
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="RouteCode" ColumnName="RouteCode" />
+                <ScalarProperty Name="RouteName" ColumnName="RouteName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_SampleMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_SampleMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_SampleMasterRtr" FunctionName="VIMSModel.Store.VIMS_SampleMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_SampleMasterRtr_Result">
+                <ScalarProperty Name="SampleId" ColumnName="SampleId" />
+                <ScalarProperty Name="SampleName" ColumnName="SampleName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_SymptomsMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_SymptomsMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_SymptomsMasterRtr" FunctionName="VIMSModel.Store.VIMS_SymptomsMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_SymptomsMasterRtr_Result">
+                <ScalarProperty Name="SymptomsId" ColumnName="SymptomsId" />
+                <ScalarProperty Name="SymptomsCode" ColumnName="SymptomsCode" />
+                <ScalarProperty Name="SymptomsName" ColumnName="SymptomsName" />
+                <ScalarProperty Name="DiseaseCode" ColumnName="DiseaseCode" />
+                <ScalarProperty Name="DiseaseName" ColumnName="DiseaseName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_VehicleMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_VehicleMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_VehicleMasterRtr" FunctionName="VIMSModel.Store.VIMS_VehicleMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_VehicleMasterRtr_Result">
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+                <ScalarProperty Name="VehicleCode" ColumnName="VehicleCode" />
+                <ScalarProperty Name="VehicleRegisterNumber" ColumnName="VehicleRegisterNumber" />
+                <ScalarProperty Name="VehicleRegisterDate" ColumnName="VehicleRegisterDate" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Rate" ColumnName="Rate" />
+                <ScalarProperty Name="RateEffectiveDate" ColumnName="RateEffectiveDate" />
+                <ScalarProperty Name="ContractStartDate" ColumnName="ContractStartDate" />
+                <ScalarProperty Name="ContractEndDate" ColumnName="ContractEndDate" />
+                <ScalarProperty Name="InsuranceCommitmentDate" ColumnName="InsuranceCommitmentDate" />
+                <ScalarProperty Name="InsuranceExpiryDate" ColumnName="InsuranceExpiryDate" />
+                <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VIMS_VendorMasterInsUpd" FunctionName="VIMSModel.Store.VIMS_VendorMasterInsUpd" />
+          <FunctionImportMapping FunctionImportName="VIMS_VendorMasterRtr" FunctionName="VIMSModel.Store.VIMS_VendorMasterRtr">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="VIMSModel.VIMS_VendorMasterRtr_Result">
+                <ScalarProperty Name="VendorId" ColumnName="VendorId" />
+                <ScalarProperty Name="PlantCode" ColumnName="PlantCode" />
+                <ScalarProperty Name="PlantName" ColumnName="PlantName" />
+                <ScalarProperty Name="VendorCode" ColumnName="VendorCode" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="MobileNumber1" ColumnName="MobileNumber1" />
+                <ScalarProperty Name="MobileNumber2" ColumnName="MobileNumber2" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
                 <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />

@@ -869,5 +869,749 @@ namespace VIMS.DB
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_CustomerMasterRtr_Result>("VIMS_CustomerMasterRtr", customerIdParameter, customerCodeParameter, societyCodeParameter, actionParameter);
         }
+    
+        public virtual ObjectResult<string> VIMS_AgeGroupMasterInsUpd(Nullable<int> ageGroupId, string ageGroupCode, string ageGroupName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var ageGroupIdParameter = ageGroupId.HasValue ?
+                new ObjectParameter("AgeGroupId", ageGroupId) :
+                new ObjectParameter("AgeGroupId", typeof(int));
+    
+            var ageGroupCodeParameter = ageGroupCode != null ?
+                new ObjectParameter("AgeGroupCode", ageGroupCode) :
+                new ObjectParameter("AgeGroupCode", typeof(string));
+    
+            var ageGroupNameParameter = ageGroupName != null ?
+                new ObjectParameter("AgeGroupName", ageGroupName) :
+                new ObjectParameter("AgeGroupName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_AgeGroupMasterInsUpd", ageGroupIdParameter, ageGroupCodeParameter, ageGroupNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_AgeGroupMasterRtr_Result> VIMS_AgeGroupMasterRtr(Nullable<int> ageGroupId, string ageGroupCode, string action)
+        {
+            var ageGroupIdParameter = ageGroupId.HasValue ?
+                new ObjectParameter("AgeGroupId", ageGroupId) :
+                new ObjectParameter("AgeGroupId", typeof(int));
+    
+            var ageGroupCodeParameter = ageGroupCode != null ?
+                new ObjectParameter("AgeGroupCode", ageGroupCode) :
+                new ObjectParameter("AgeGroupCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_AgeGroupMasterRtr_Result>("VIMS_AgeGroupMasterRtr", ageGroupIdParameter, ageGroupCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_BaseUnitMasterInsUpd(Nullable<int> baseUnitId, string baseUnitCode, string baseUnitName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var baseUnitIdParameter = baseUnitId.HasValue ?
+                new ObjectParameter("BaseUnitId", baseUnitId) :
+                new ObjectParameter("BaseUnitId", typeof(int));
+    
+            var baseUnitCodeParameter = baseUnitCode != null ?
+                new ObjectParameter("BaseUnitCode", baseUnitCode) :
+                new ObjectParameter("BaseUnitCode", typeof(string));
+    
+            var baseUnitNameParameter = baseUnitName != null ?
+                new ObjectParameter("BaseUnitName", baseUnitName) :
+                new ObjectParameter("BaseUnitName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_BaseUnitMasterInsUpd", baseUnitIdParameter, baseUnitCodeParameter, baseUnitNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_BaseUnitMasterRtr_Result> VIMS_BaseUnitMasterRtr(Nullable<int> baseUnitId, string baseUnitCode, string action)
+        {
+            var baseUnitIdParameter = baseUnitId.HasValue ?
+                new ObjectParameter("BaseUnitId", baseUnitId) :
+                new ObjectParameter("BaseUnitId", typeof(int));
+    
+            var baseUnitCodeParameter = baseUnitCode != null ?
+                new ObjectParameter("BaseUnitCode", baseUnitCode) :
+                new ObjectParameter("BaseUnitCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_BaseUnitMasterRtr_Result>("VIMS_BaseUnitMasterRtr", baseUnitIdParameter, baseUnitCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_CenterMasterInsUpd(Nullable<int> centerId, string plantCode, string centerCode, string centerName, Nullable<bool> autoAllocation, Nullable<int> noOfVisit, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var centerIdParameter = centerId.HasValue ?
+                new ObjectParameter("CenterId", centerId) :
+                new ObjectParameter("CenterId", typeof(int));
+    
+            var plantCodeParameter = plantCode != null ?
+                new ObjectParameter("PlantCode", plantCode) :
+                new ObjectParameter("PlantCode", typeof(string));
+    
+            var centerCodeParameter = centerCode != null ?
+                new ObjectParameter("CenterCode", centerCode) :
+                new ObjectParameter("CenterCode", typeof(string));
+    
+            var centerNameParameter = centerName != null ?
+                new ObjectParameter("CenterName", centerName) :
+                new ObjectParameter("CenterName", typeof(string));
+    
+            var autoAllocationParameter = autoAllocation.HasValue ?
+                new ObjectParameter("AutoAllocation", autoAllocation) :
+                new ObjectParameter("AutoAllocation", typeof(bool));
+    
+            var noOfVisitParameter = noOfVisit.HasValue ?
+                new ObjectParameter("NoOfVisit", noOfVisit) :
+                new ObjectParameter("NoOfVisit", typeof(int));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_CenterMasterInsUpd", centerIdParameter, plantCodeParameter, centerCodeParameter, centerNameParameter, autoAllocationParameter, noOfVisitParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_CenterMasterRtr_Result> VIMS_CenterMasterRtr(Nullable<int> centerId, string centerCode, string plantCode, string action)
+        {
+            var centerIdParameter = centerId.HasValue ?
+                new ObjectParameter("CenterId", centerId) :
+                new ObjectParameter("CenterId", typeof(int));
+    
+            var centerCodeParameter = centerCode != null ?
+                new ObjectParameter("CenterCode", centerCode) :
+                new ObjectParameter("CenterCode", typeof(string));
+    
+            var plantCodeParameter = plantCode != null ?
+                new ObjectParameter("PlantCode", plantCode) :
+                new ObjectParameter("PlantCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_CenterMasterRtr_Result>("VIMS_CenterMasterRtr", centerIdParameter, centerCodeParameter, plantCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_DiseaseMasterInsUpd(Nullable<int> diseaseId, string diseaseCode, string diseaseName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var diseaseIdParameter = diseaseId.HasValue ?
+                new ObjectParameter("DiseaseId", diseaseId) :
+                new ObjectParameter("DiseaseId", typeof(int));
+    
+            var diseaseCodeParameter = diseaseCode != null ?
+                new ObjectParameter("DiseaseCode", diseaseCode) :
+                new ObjectParameter("DiseaseCode", typeof(string));
+    
+            var diseaseNameParameter = diseaseName != null ?
+                new ObjectParameter("DiseaseName", diseaseName) :
+                new ObjectParameter("DiseaseName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_DiseaseMasterInsUpd", diseaseIdParameter, diseaseCodeParameter, diseaseNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_DiseaseMasterRtr_Result> VIMS_DiseaseMasterRtr(Nullable<int> diseaseId, string diseaseCode, string action)
+        {
+            var diseaseIdParameter = diseaseId.HasValue ?
+                new ObjectParameter("DiseaseId", diseaseId) :
+                new ObjectParameter("DiseaseId", typeof(int));
+    
+            var diseaseCodeParameter = diseaseCode != null ?
+                new ObjectParameter("DiseaseCode", diseaseCode) :
+                new ObjectParameter("DiseaseCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_DiseaseMasterRtr_Result>("VIMS_DiseaseMasterRtr", diseaseIdParameter, diseaseCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_MedicineGroupMasterInsUpd(Nullable<int> medicineGroupId, string medicineGroupCode, string medicineGroupName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var medicineGroupIdParameter = medicineGroupId.HasValue ?
+                new ObjectParameter("MedicineGroupId", medicineGroupId) :
+                new ObjectParameter("MedicineGroupId", typeof(int));
+    
+            var medicineGroupCodeParameter = medicineGroupCode != null ?
+                new ObjectParameter("MedicineGroupCode", medicineGroupCode) :
+                new ObjectParameter("MedicineGroupCode", typeof(string));
+    
+            var medicineGroupNameParameter = medicineGroupName != null ?
+                new ObjectParameter("MedicineGroupName", medicineGroupName) :
+                new ObjectParameter("MedicineGroupName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_MedicineGroupMasterInsUpd", medicineGroupIdParameter, medicineGroupCodeParameter, medicineGroupNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_MedicineGroupMasterRtr_Result> VIMS_MedicineGroupMasterRtr(Nullable<int> medicineGroupId, string medicineGroupCode, string action)
+        {
+            var medicineGroupIdParameter = medicineGroupId.HasValue ?
+                new ObjectParameter("MedicineGroupId", medicineGroupId) :
+                new ObjectParameter("MedicineGroupId", typeof(int));
+    
+            var medicineGroupCodeParameter = medicineGroupCode != null ?
+                new ObjectParameter("MedicineGroupCode", medicineGroupCode) :
+                new ObjectParameter("MedicineGroupCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_MedicineGroupMasterRtr_Result>("VIMS_MedicineGroupMasterRtr", medicineGroupIdParameter, medicineGroupCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_MedicineMasterInsUpd(Nullable<int> medicineId, string medicineCode, string medicineName, string baseUnitCode, Nullable<decimal> baseCost, string routeCode, Nullable<bool> general, Nullable<bool> fA, Nullable<bool> camp, string issueUnit, Nullable<decimal> lowQty, Nullable<decimal> highQty, Nullable<bool> stockCalculation, Nullable<decimal> ratio, string medicineGroupCode, Nullable<int> noOfDays, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var medicineIdParameter = medicineId.HasValue ?
+                new ObjectParameter("MedicineId", medicineId) :
+                new ObjectParameter("MedicineId", typeof(int));
+    
+            var medicineCodeParameter = medicineCode != null ?
+                new ObjectParameter("MedicineCode", medicineCode) :
+                new ObjectParameter("MedicineCode", typeof(string));
+    
+            var medicineNameParameter = medicineName != null ?
+                new ObjectParameter("MedicineName", medicineName) :
+                new ObjectParameter("MedicineName", typeof(string));
+    
+            var baseUnitCodeParameter = baseUnitCode != null ?
+                new ObjectParameter("BaseUnitCode", baseUnitCode) :
+                new ObjectParameter("BaseUnitCode", typeof(string));
+    
+            var baseCostParameter = baseCost.HasValue ?
+                new ObjectParameter("BaseCost", baseCost) :
+                new ObjectParameter("BaseCost", typeof(decimal));
+    
+            var routeCodeParameter = routeCode != null ?
+                new ObjectParameter("RouteCode", routeCode) :
+                new ObjectParameter("RouteCode", typeof(string));
+    
+            var generalParameter = general.HasValue ?
+                new ObjectParameter("General", general) :
+                new ObjectParameter("General", typeof(bool));
+    
+            var fAParameter = fA.HasValue ?
+                new ObjectParameter("FA", fA) :
+                new ObjectParameter("FA", typeof(bool));
+    
+            var campParameter = camp.HasValue ?
+                new ObjectParameter("Camp", camp) :
+                new ObjectParameter("Camp", typeof(bool));
+    
+            var issueUnitParameter = issueUnit != null ?
+                new ObjectParameter("IssueUnit", issueUnit) :
+                new ObjectParameter("IssueUnit", typeof(string));
+    
+            var lowQtyParameter = lowQty.HasValue ?
+                new ObjectParameter("LowQty", lowQty) :
+                new ObjectParameter("LowQty", typeof(decimal));
+    
+            var highQtyParameter = highQty.HasValue ?
+                new ObjectParameter("HighQty", highQty) :
+                new ObjectParameter("HighQty", typeof(decimal));
+    
+            var stockCalculationParameter = stockCalculation.HasValue ?
+                new ObjectParameter("StockCalculation", stockCalculation) :
+                new ObjectParameter("StockCalculation", typeof(bool));
+    
+            var ratioParameter = ratio.HasValue ?
+                new ObjectParameter("Ratio", ratio) :
+                new ObjectParameter("Ratio", typeof(decimal));
+    
+            var medicineGroupCodeParameter = medicineGroupCode != null ?
+                new ObjectParameter("MedicineGroupCode", medicineGroupCode) :
+                new ObjectParameter("MedicineGroupCode", typeof(string));
+    
+            var noOfDaysParameter = noOfDays.HasValue ?
+                new ObjectParameter("NoOfDays", noOfDays) :
+                new ObjectParameter("NoOfDays", typeof(int));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_MedicineMasterInsUpd", medicineIdParameter, medicineCodeParameter, medicineNameParameter, baseUnitCodeParameter, baseCostParameter, routeCodeParameter, generalParameter, fAParameter, campParameter, issueUnitParameter, lowQtyParameter, highQtyParameter, stockCalculationParameter, ratioParameter, medicineGroupCodeParameter, noOfDaysParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_MedicineMasterRtr_Result> VIMS_MedicineMasterRtr(Nullable<int> medicineId, string medicineCode, string medicineGroupCode, string routeCode, string baseUnitCode, string action)
+        {
+            var medicineIdParameter = medicineId.HasValue ?
+                new ObjectParameter("MedicineId", medicineId) :
+                new ObjectParameter("MedicineId", typeof(int));
+    
+            var medicineCodeParameter = medicineCode != null ?
+                new ObjectParameter("MedicineCode", medicineCode) :
+                new ObjectParameter("MedicineCode", typeof(string));
+    
+            var medicineGroupCodeParameter = medicineGroupCode != null ?
+                new ObjectParameter("MedicineGroupCode", medicineGroupCode) :
+                new ObjectParameter("MedicineGroupCode", typeof(string));
+    
+            var routeCodeParameter = routeCode != null ?
+                new ObjectParameter("RouteCode", routeCode) :
+                new ObjectParameter("RouteCode", typeof(string));
+    
+            var baseUnitCodeParameter = baseUnitCode != null ?
+                new ObjectParameter("BaseUnitCode", baseUnitCode) :
+                new ObjectParameter("BaseUnitCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_MedicineMasterRtr_Result>("VIMS_MedicineMasterRtr", medicineIdParameter, medicineCodeParameter, medicineGroupCodeParameter, routeCodeParameter, baseUnitCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_PlantMasterInsUpd(Nullable<int> plantId, string plantCode, string plantName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var plantIdParameter = plantId.HasValue ?
+                new ObjectParameter("PlantId", plantId) :
+                new ObjectParameter("PlantId", typeof(int));
+    
+            var plantCodeParameter = plantCode != null ?
+                new ObjectParameter("PlantCode", plantCode) :
+                new ObjectParameter("PlantCode", typeof(string));
+    
+            var plantNameParameter = plantName != null ?
+                new ObjectParameter("PlantName", plantName) :
+                new ObjectParameter("PlantName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_PlantMasterInsUpd", plantIdParameter, plantCodeParameter, plantNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_PlantMasterRtr_Result> VIMS_PlantMasterRtr(Nullable<int> plantId, string plantCode, string action)
+        {
+            var plantIdParameter = plantId.HasValue ?
+                new ObjectParameter("PlantId", plantId) :
+                new ObjectParameter("PlantId", typeof(int));
+    
+            var plantCodeParameter = plantCode != null ?
+                new ObjectParameter("PlantCode", plantCode) :
+                new ObjectParameter("PlantCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_PlantMasterRtr_Result>("VIMS_PlantMasterRtr", plantIdParameter, plantCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_RouteMasterInsUpd(Nullable<int> routeId, string routeCode, string routeName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var routeIdParameter = routeId.HasValue ?
+                new ObjectParameter("RouteId", routeId) :
+                new ObjectParameter("RouteId", typeof(int));
+    
+            var routeCodeParameter = routeCode != null ?
+                new ObjectParameter("RouteCode", routeCode) :
+                new ObjectParameter("RouteCode", typeof(string));
+    
+            var routeNameParameter = routeName != null ?
+                new ObjectParameter("RouteName", routeName) :
+                new ObjectParameter("RouteName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_RouteMasterInsUpd", routeIdParameter, routeCodeParameter, routeNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_RouteMasterRtr_Result> VIMS_RouteMasterRtr(Nullable<int> routeId, string routeCode, string action)
+        {
+            var routeIdParameter = routeId.HasValue ?
+                new ObjectParameter("RouteId", routeId) :
+                new ObjectParameter("RouteId", typeof(int));
+    
+            var routeCodeParameter = routeCode != null ?
+                new ObjectParameter("RouteCode", routeCode) :
+                new ObjectParameter("RouteCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_RouteMasterRtr_Result>("VIMS_RouteMasterRtr", routeIdParameter, routeCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_SampleMasterInsUpd(Nullable<int> sampleId, string sampleName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var sampleIdParameter = sampleId.HasValue ?
+                new ObjectParameter("SampleId", sampleId) :
+                new ObjectParameter("SampleId", typeof(int));
+    
+            var sampleNameParameter = sampleName != null ?
+                new ObjectParameter("SampleName", sampleName) :
+                new ObjectParameter("SampleName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_SampleMasterInsUpd", sampleIdParameter, sampleNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_SampleMasterRtr_Result> VIMS_SampleMasterRtr(Nullable<int> sampleId, string sampleName, string action)
+        {
+            var sampleIdParameter = sampleId.HasValue ?
+                new ObjectParameter("SampleId", sampleId) :
+                new ObjectParameter("SampleId", typeof(int));
+    
+            var sampleNameParameter = sampleName != null ?
+                new ObjectParameter("SampleName", sampleName) :
+                new ObjectParameter("SampleName", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_SampleMasterRtr_Result>("VIMS_SampleMasterRtr", sampleIdParameter, sampleNameParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_SymptomsMasterInsUpd(Nullable<int> symptomsId, string diseaseCode, string symptomsCode, string symptomsName, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var symptomsIdParameter = symptomsId.HasValue ?
+                new ObjectParameter("SymptomsId", symptomsId) :
+                new ObjectParameter("SymptomsId", typeof(int));
+    
+            var diseaseCodeParameter = diseaseCode != null ?
+                new ObjectParameter("DiseaseCode", diseaseCode) :
+                new ObjectParameter("DiseaseCode", typeof(string));
+    
+            var symptomsCodeParameter = symptomsCode != null ?
+                new ObjectParameter("SymptomsCode", symptomsCode) :
+                new ObjectParameter("SymptomsCode", typeof(string));
+    
+            var symptomsNameParameter = symptomsName != null ?
+                new ObjectParameter("SymptomsName", symptomsName) :
+                new ObjectParameter("SymptomsName", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_SymptomsMasterInsUpd", symptomsIdParameter, diseaseCodeParameter, symptomsCodeParameter, symptomsNameParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_SymptomsMasterRtr_Result> VIMS_SymptomsMasterRtr(Nullable<int> symptomsId, string symptomsCode, string diseaseCode, string action)
+        {
+            var symptomsIdParameter = symptomsId.HasValue ?
+                new ObjectParameter("SymptomsId", symptomsId) :
+                new ObjectParameter("SymptomsId", typeof(int));
+    
+            var symptomsCodeParameter = symptomsCode != null ?
+                new ObjectParameter("SymptomsCode", symptomsCode) :
+                new ObjectParameter("SymptomsCode", typeof(string));
+    
+            var diseaseCodeParameter = diseaseCode != null ?
+                new ObjectParameter("DiseaseCode", diseaseCode) :
+                new ObjectParameter("DiseaseCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_SymptomsMasterRtr_Result>("VIMS_SymptomsMasterRtr", symptomsIdParameter, symptomsCodeParameter, diseaseCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_VehicleMasterInsUpd(Nullable<int> vehicleId, string vendorCode, string vehicleCode, string vehicleRegisterNumber, Nullable<System.DateTime> vehicleRegisterDate, string model, Nullable<decimal> rate, Nullable<System.DateTime> rateEffectiveDate, Nullable<System.DateTime> contractStartDate, Nullable<System.DateTime> contractEndDate, Nullable<System.DateTime> insuranceCommitmentDate, Nullable<System.DateTime> insuranceExpiryDate, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var vehicleIdParameter = vehicleId.HasValue ?
+                new ObjectParameter("VehicleId", vehicleId) :
+                new ObjectParameter("VehicleId", typeof(int));
+    
+            var vendorCodeParameter = vendorCode != null ?
+                new ObjectParameter("VendorCode", vendorCode) :
+                new ObjectParameter("VendorCode", typeof(string));
+    
+            var vehicleCodeParameter = vehicleCode != null ?
+                new ObjectParameter("VehicleCode", vehicleCode) :
+                new ObjectParameter("VehicleCode", typeof(string));
+    
+            var vehicleRegisterNumberParameter = vehicleRegisterNumber != null ?
+                new ObjectParameter("VehicleRegisterNumber", vehicleRegisterNumber) :
+                new ObjectParameter("VehicleRegisterNumber", typeof(string));
+    
+            var vehicleRegisterDateParameter = vehicleRegisterDate.HasValue ?
+                new ObjectParameter("VehicleRegisterDate", vehicleRegisterDate) :
+                new ObjectParameter("VehicleRegisterDate", typeof(System.DateTime));
+    
+            var modelParameter = model != null ?
+                new ObjectParameter("Model", model) :
+                new ObjectParameter("Model", typeof(string));
+    
+            var rateParameter = rate.HasValue ?
+                new ObjectParameter("Rate", rate) :
+                new ObjectParameter("Rate", typeof(decimal));
+    
+            var rateEffectiveDateParameter = rateEffectiveDate.HasValue ?
+                new ObjectParameter("RateEffectiveDate", rateEffectiveDate) :
+                new ObjectParameter("RateEffectiveDate", typeof(System.DateTime));
+    
+            var contractStartDateParameter = contractStartDate.HasValue ?
+                new ObjectParameter("ContractStartDate", contractStartDate) :
+                new ObjectParameter("ContractStartDate", typeof(System.DateTime));
+    
+            var contractEndDateParameter = contractEndDate.HasValue ?
+                new ObjectParameter("ContractEndDate", contractEndDate) :
+                new ObjectParameter("ContractEndDate", typeof(System.DateTime));
+    
+            var insuranceCommitmentDateParameter = insuranceCommitmentDate.HasValue ?
+                new ObjectParameter("InsuranceCommitmentDate", insuranceCommitmentDate) :
+                new ObjectParameter("InsuranceCommitmentDate", typeof(System.DateTime));
+    
+            var insuranceExpiryDateParameter = insuranceExpiryDate.HasValue ?
+                new ObjectParameter("InsuranceExpiryDate", insuranceExpiryDate) :
+                new ObjectParameter("InsuranceExpiryDate", typeof(System.DateTime));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_VehicleMasterInsUpd", vehicleIdParameter, vendorCodeParameter, vehicleCodeParameter, vehicleRegisterNumberParameter, vehicleRegisterDateParameter, modelParameter, rateParameter, rateEffectiveDateParameter, contractStartDateParameter, contractEndDateParameter, insuranceCommitmentDateParameter, insuranceExpiryDateParameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_VehicleMasterRtr_Result> VIMS_VehicleMasterRtr(Nullable<int> vehicleId, string vehicleCode, string vendorCode, string action)
+        {
+            var vehicleIdParameter = vehicleId.HasValue ?
+                new ObjectParameter("VehicleId", vehicleId) :
+                new ObjectParameter("VehicleId", typeof(int));
+    
+            var vehicleCodeParameter = vehicleCode != null ?
+                new ObjectParameter("VehicleCode", vehicleCode) :
+                new ObjectParameter("VehicleCode", typeof(string));
+    
+            var vendorCodeParameter = vendorCode != null ?
+                new ObjectParameter("VendorCode", vendorCode) :
+                new ObjectParameter("VendorCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_VehicleMasterRtr_Result>("VIMS_VehicleMasterRtr", vehicleIdParameter, vehicleCodeParameter, vendorCodeParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<string> VIMS_VendorMasterInsUpd(Nullable<int> vendorId, string plantCode, string vendorCode, string vendorName, string address, string mobileNumber1, string mobileNumber2, string createdBy, string updatedBy, Nullable<bool> isActive, string action)
+        {
+            var vendorIdParameter = vendorId.HasValue ?
+                new ObjectParameter("VendorId", vendorId) :
+                new ObjectParameter("VendorId", typeof(int));
+    
+            var plantCodeParameter = plantCode != null ?
+                new ObjectParameter("PlantCode", plantCode) :
+                new ObjectParameter("PlantCode", typeof(string));
+    
+            var vendorCodeParameter = vendorCode != null ?
+                new ObjectParameter("VendorCode", vendorCode) :
+                new ObjectParameter("VendorCode", typeof(string));
+    
+            var vendorNameParameter = vendorName != null ?
+                new ObjectParameter("VendorName", vendorName) :
+                new ObjectParameter("VendorName", typeof(string));
+    
+            var addressParameter = address != null ?
+                new ObjectParameter("Address", address) :
+                new ObjectParameter("Address", typeof(string));
+    
+            var mobileNumber1Parameter = mobileNumber1 != null ?
+                new ObjectParameter("MobileNumber1", mobileNumber1) :
+                new ObjectParameter("MobileNumber1", typeof(string));
+    
+            var mobileNumber2Parameter = mobileNumber2 != null ?
+                new ObjectParameter("MobileNumber2", mobileNumber2) :
+                new ObjectParameter("MobileNumber2", typeof(string));
+    
+            var createdByParameter = createdBy != null ?
+                new ObjectParameter("CreatedBy", createdBy) :
+                new ObjectParameter("CreatedBy", typeof(string));
+    
+            var updatedByParameter = updatedBy != null ?
+                new ObjectParameter("UpdatedBy", updatedBy) :
+                new ObjectParameter("UpdatedBy", typeof(string));
+    
+            var isActiveParameter = isActive.HasValue ?
+                new ObjectParameter("IsActive", isActive) :
+                new ObjectParameter("IsActive", typeof(bool));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("VIMS_VendorMasterInsUpd", vendorIdParameter, plantCodeParameter, vendorCodeParameter, vendorNameParameter, addressParameter, mobileNumber1Parameter, mobileNumber2Parameter, createdByParameter, updatedByParameter, isActiveParameter, actionParameter);
+        }
+    
+        public virtual ObjectResult<VIMS_VendorMasterRtr_Result> VIMS_VendorMasterRtr(Nullable<int> vendorId, string vendorCode, string plantCode, string action)
+        {
+            var vendorIdParameter = vendorId.HasValue ?
+                new ObjectParameter("VendorId", vendorId) :
+                new ObjectParameter("VendorId", typeof(int));
+    
+            var vendorCodeParameter = vendorCode != null ?
+                new ObjectParameter("VendorCode", vendorCode) :
+                new ObjectParameter("VendorCode", typeof(string));
+    
+            var plantCodeParameter = plantCode != null ?
+                new ObjectParameter("PlantCode", plantCode) :
+                new ObjectParameter("PlantCode", typeof(string));
+    
+            var actionParameter = action != null ?
+                new ObjectParameter("Action", action) :
+                new ObjectParameter("Action", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<VIMS_VendorMasterRtr_Result>("VIMS_VendorMasterRtr", vendorIdParameter, vendorCodeParameter, plantCodeParameter, actionParameter);
+        }
     }
 }

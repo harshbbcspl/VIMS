@@ -6,6 +6,9 @@
         ? VIMS.Model.Resources.Doctor.EditDoctor
         : VIMS.Model.Resources.Doctor.AddDoctor);
 }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.0/viewer.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/viewerjs/1.11.0/viewer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.min.js"></script>
 
 <div class="row">
     <div class="col-md-12 my-5">
@@ -90,9 +93,9 @@
                                 @Html.ValidationMessageFor(m => m.StateId, "", new { @class = "text-danger" })
                             </label>
                             @Html.DropDownListFor(m => m.StateId,
-                                new SelectList(Model.StatesList, "StateId", "StateName", Model.StateId),
-                                @VIMS.Model.Resources.Doctor.SelectState,
-                                new { @class = "form-control select2", id = "ddlState", required = "required" })
+             new SelectList(Model.StatesList, "StateId", "StateName", Model.StateId),
+             @VIMS.Model.Resources.Doctor.SelectState,
+             new { @class = "form-control select2", id = "ddlState", required = "required" })
                         </div>
 
                         <div class="col-md-3 col-xl-2 col-sm-12">
@@ -101,16 +104,16 @@
                                 @Html.ValidationMessageFor(m => m.CityId, "", new { @class = "text-danger" })
                             </label>
                             @Html.DropDownListFor(
-                                 m => m.CityId,
-                                 new SelectList(
-                                     (Model.CityList != null ? Model.CityList : new List<VIMS_CityMasterRtr_Result>()),
-                                     "CityId",
-                                     "CityName",
-                                     Model.CityId
-                                 ),
-                                 @VIMS.Model.Resources.Doctor.SelectCity,
-                                 new { @class = "form-control select2", id = "ddlCity", required = "required" }
-                             )
+              m => m.CityId,
+              new SelectList(
+                  (Model.CityList != null ? Model.CityList : new List<VIMS_CityMasterRtr_Result>()),
+                  "CityId",
+                  "CityName",
+                  Model.CityId
+              ),
+              @VIMS.Model.Resources.Doctor.SelectCity,
+              new { @class = "form-control select2", id = "ddlCity", required = "required" }
+          )
                         </div>
 
                         <div class="col-md-3 col-xl-2 col-sm-12">
@@ -151,11 +154,11 @@
                                 @Html.ValidationMessageFor(m => m.RoleId, "", new { @class = "text-danger" })
                             </label>
                             @Html.DropDownListFor(
-                                m => m.RoleId,
-                                new SelectList(Model.RoleList, "RoleId", "RoleName", Model.RoleId),
-                                @VIMS.Model.Resources.Doctor.SelectRole,
-                                new { @class = "form-control select2", id = "ddlRole", required = "required" }
-                            )
+                                 m => m.RoleId,
+                                 new SelectList(Model.RoleList, "RoleId", "RoleName", Model.RoleId),
+                                 @VIMS.Model.Resources.Doctor.SelectRole,
+                                 new { @class = "form-control select2", id = "ddlRole", required = "required" }
+                             )
                         </div>
 
                         <div class="col-md-3 col-xl-2 col-sm-12">
@@ -193,17 +196,55 @@
                             @Html.TextBoxFor(m => m.Qualifications, new { @class = "form-control", required = "required", placeholder = @VIMS.Model.Resources.Doctor.EQualifications })
                         </div>
 
+
                         <div class="col-md-3 col-xl-2 col-sm-12">
                             <label class="col-form-label">
                                 @VIMS.Model.Resources.Doctor.Signature
                                 @Html.ValidationMessageFor(m => m.SignaturePath, "", new { @class = "text-danger" })
                             </label>
-                            <input type="file" name="signatureFile" class="form-control" />
-                            @if (!string.IsNullOrEmpty(Model.SignaturePath))
+
+                            @if (Model.Action == "Update")
                             {
-                                <small>Current: @Model.SignaturePath</small>
+                                if (string.IsNullOrEmpty(Model.SignaturePath))
+                                {
+                                    <input type="file" accept="image/*,application/pdf" name="signatureFile"
+                                           id="signatureInput" class="dropify" />
+                                }
+                                else
+                                {
+                                    @Html.HiddenFor(m => m.SignaturePath)
+
+                                    <input type="file"
+                                           accept="image/*,application/pdf"
+                                           data-default-file="@string.Format("{0}{1}", System.Configuration.ConfigurationManager.AppSettings["FileRtr"], Model.SignaturePath)"
+                                           name="signatureFile"
+                                           id="signatureInput"
+                                           class="dropify" />
+
+                                    <div id="signature-preview-wrapper" class="mt-2">
+                                        @if (Model.SignaturePath.EndsWith(".pdf"))
+                                        {
+                                        <label class="mt-2">@VIMS.Model.Resources.Doctor.PreviewSignature</label>
+                                            <embed src="@string.Format("{0}{1}", System.Configuration.ConfigurationManager.AppSettings["FileRtr"], Model.SignaturePath)"
+                                                   type="application/pdf" width="100%" height="250px" />
+                                        }
+                                        else
+                                        {
+                                            <img id="signature-img-preview"
+                                                 src="@string.Format("{0}{1}", System.Configuration.ConfigurationManager.AppSettings["FileRtr"], Model.SignaturePath)"
+                                                 class="img-fluid" />
+                                        }
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <input type="file" accept="image/*,application/pdf" name="signatureFile"
+                                       id="signatureInput" class="dropify" />
+                                <div id="signature-preview-wrapper" class="mt-2"></div>
                             }
                         </div>
+
 
                         <div class="col-md-3 col-xl-2 col-sm-12">
                             <label class="col-form-label">@VIMS.Model.Resources.Doctor.Active</label>
@@ -215,7 +256,7 @@
                         </div>
 
                         <div class="col-md-12 text-right mt-4">
-                            <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+                            <button type="submit" id="btnSubmit" class="btn btn-primary">@ViewBag.Action</button>
                         </div>
 
                     </div>
@@ -277,4 +318,79 @@
 
         if ('@ViewBag.Action' === 'Update') $('#ddlState').trigger('change');
     });
+
 </script>
+
+
+<script>
+$(document).ready(function () {
+
+    toastr.options = {
+        "closeButton": true,
+        "progressBar": true,
+        "positionClass": "toast-top-right",
+        "timeOut": "5000"
+    };
+
+    $('.dropify').dropify();
+
+    var submitBtn = $("#btnSubmit");
+    if ('@Model.Action' === 'Save') {
+        submitBtn.prop('disabled', true);
+    }
+
+    $("#signatureInput").change(function () {
+        var file = this.files[0];
+        var preview = $("#signature-preview-wrapper");
+
+        preview.empty();
+
+        if (!file) {
+            if ('@Model.Action' === 'Save') submitBtn.prop('disabled', true);
+            return;
+        }
+
+        var allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
+        if (!allowedTypes.includes(file.type)) {
+            toastr.error("Invalid file type. Only JPG, PNG, or PDF allowed.");
+            $(this).val('');
+            if ('@Model.Action' === 'Save') submitBtn.prop('disabled', true);
+            return;
+        }
+
+        var fileURL = URL.createObjectURL(file);
+
+        if (file.type === "application/pdf") {
+            preview.append(`
+                <label class="mt-2">Preview PDF</label>
+                <embed src="${fileURL}"
+                       type="application/pdf"
+                       width="100%"
+                       height="250px"
+                       style="border:1px solid #ccc;" />
+            `);
+        } else {
+            preview.append(`
+                <label class="mt-2">Preview Image</label>
+                <img src="${fileURL}" class="img-fluid" style="max-height:250px;" />
+            `);
+        }
+
+        toastr.success("Signature file loaded successfully.");
+
+        if ('@Model.Action' === 'Save') submitBtn.prop('disabled', false);
+    });
+
+    $("form").submit(function(e) {
+        var action = '@Model.Action';
+        var fileInput = $("#signatureInput");
+
+        if (action === "Save" && fileInput.val() === "") {
+            toastr.error("Please upload a signature file.");
+            fileInput.focus();
+            e.preventDefault();
+        }
+    });
+});
+</script>
+

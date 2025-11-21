@@ -49,13 +49,22 @@
     <Compile Include="Home\LoginViewModel.cs" />
     <Compile Include="Home\RequiredAttribute.cs" />
     <Compile Include="Master\AdminViewModel.cs" />
+    <Compile Include="Master\AgeGroupViewModel.cs" />
     <Compile Include="Master\AilmentViewModel.cs" />
     <Compile Include="Master\BreedViewModel.cs" />
+    <Compile Include="Master\CenterViewModel.cs" />
     <Compile Include="Master\CityViewModel.cs" />
     <Compile Include="Master\CustomerViewModel.cs" />
+    <Compile Include="Master\DiseaseViewModel.cs" />
     <Compile Include="Master\DoctorViewModel.cs" />
+    <Compile Include="Master\MedicineGroupViewModel.cs" />
+    <Compile Include="Master\PlantViewModel.cs" />
+    <Compile Include="Master\RouteViewModel.cs" />
+    <Compile Include="Master\SampleViewModel.cs" />
     <Compile Include="Master\SpeciesViewModel.cs" />
     <Compile Include="Master\StatesViewModel.cs" />
+    <Compile Include="Master\SymptomsViewModel.cs" />
+    <Compile Include="Master\VendorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Admin.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -66,6 +75,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Admin.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AgeGroups.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgeGroups.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\AgeGroups.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgeGroups.gu.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Ailment.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -86,6 +105,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Breed.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Center.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Center.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Center.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Center.gu.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\ChangePassword.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -127,6 +156,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Dashboard.gu.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Disease.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Disease.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Disease.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Disease.gu.resx</DependentUpon>
+    </Compile>
     <Compile Include="Resources\Doctor.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -136,6 +175,56 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Doctor.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MedicineGroup.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicineGroup.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\MedicineGroup.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MedicineGroup.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Plants.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Plants.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Plants.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Plants.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Role.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Role.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Role.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Role.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Route.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Route.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Route.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Route.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Sample.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sample.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Sample.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sample.gu.resx</DependentUpon>
     </Compile>
     <Compile Include="Resources\Species.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -157,8 +246,28 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>States.gu.resx</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Symptoms.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Symptoms.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Symptoms.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Symptoms.gu.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Vendor.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vendor.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Vendor.gu.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Vendor.gu.resx</DependentUpon>
+    </Compile>
     <Compile Include="Usermanagement\MenuViewModel.cs" />
-    <Compile Include="Usermanagement\RoleMasterViewModel.cs" />
+    <Compile Include="Usermanagement\RoleViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -176,6 +285,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Admin.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AgeGroups.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AgeGroups.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\AgeGroups.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AgeGroups.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Ailment.gu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Ailment.gu.Designer.cs</LastGenOutput>
@@ -191,6 +308,14 @@
     <EmbeddedResource Include="Resources\Breed.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Breed.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Center.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Center.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Center.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Center.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\ChangePassword.gu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -224,6 +349,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Dashboard.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Disease.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Disease.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Disease.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Disease.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\Doctor.gu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Doctor.gu.Designer.cs</LastGenOutput>
@@ -231,6 +364,46 @@
     <EmbeddedResource Include="Resources\Doctor.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Doctor.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MedicineGroup.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MedicineGroup.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\MedicineGroup.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MedicineGroup.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Plants.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Plants.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Plants.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Plants.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Role.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Role.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Role.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Role.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Route.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Route.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Route.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Route.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Sample.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sample.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Sample.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sample.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Species.gu.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -247,6 +420,22 @@
     <EmbeddedResource Include="Resources\States.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>States.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Symptoms.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Symptoms.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Symptoms.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Symptoms.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vendor.gu.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Vendor.gu.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Vendor.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Vendor.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

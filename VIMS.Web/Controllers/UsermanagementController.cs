@@ -7,171 +7,155 @@ using System.Web.Mvc;
 using VIMS.DB;
 using VIMS.Model.Home;
 using VIMS.Model.Usermanagement;
+using VIMS.Web.GeneralClasses;
 
 namespace VIMS.Web.Controllers
 {
-    public class UsermanagementController : Controller
+    public class UsermanagementController : GeneralClass
     {
+        #region==> Change Status 
+        public ActionResult ChangeStatus(string Code, string status, string Type)
+        {
+            string msg = "";
+            try
+            {
+                if (Type == "RoleMaster")
+                {
+                    RoleViewModel sm = new RoleViewModel();
+                    sm.Action = "Active";
+                    sm.UpdatedDate = generalFunctions.getTimeZoneDatetimedb();
+                    sm.UpdatedBy = User.Identity.Name;
+                    sm.RoleId = Convert.ToInt32(Code);
+                    sm.IsActive = status.Equals("true");
+                    var apiResult = ApiCall.PostApi("RoleMasterInsUpd", JsonConvert.SerializeObject(sm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResult);
+                    msg = response.message;
+                }
+                else
+                {
+                    msg = "Did not have method";
+                }
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message.ToString(), "Usermanagement", "ChangeStatus", true); ;
+                return RedirectToAction("Dashboard", "Home");
+            }
+            return Json(msg, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
         #region==> Role Master
+
         public ActionResult RoleMaster()
         {
+            try
+            {
+                RoleViewModel rvm = new RoleViewModel
+                {
+                    Action = "All"
+                };
 
-            //try
-            //{
-            //    string url = generalFunctions.getCommon(Request.Url.AbsoluteUri);
-            //    MenuRightsViewModel mv1 = new MenuRightsViewModel
-            //    {
-            //        Usercode = LoggedUserDetails.SocietyCode,
-            //        PageName = url
-            //    };
+                var apiResponse = ApiCall.PostApi("RoleMasterRtr", JsonConvert.SerializeObject(rvm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_RoleMasterRtr_Result>>>(apiResponse);
 
-            //    var menuRtr = ApiCall.PostApi("MenuRightsRtr", JsonConvert.SerializeObject(mv1));
-            //    mv1 = JsonConvert.DeserializeObject<MenuRightsViewModel>(menuRtr);
+                if (response != null && response.result)
+                    return View(response.data);
 
-            //    if (mv1.MenuRightsList.Count > 0)
-            //    {
-            //        TempData["ViewRight"] = mv1.MenuRightsList.FirstOrDefault().ViewRight;
-            //        TempData["InsertRight"] = mv1.MenuRightsList.FirstOrDefault().InsertRight;
-            //        TempData["UpdateRight"] = mv1.MenuRightsList.FirstOrDefault().UpdateRight;
-            //        TempData["DeleteRight"] = mv1.MenuRightsList.FirstOrDefault().DeleteRight;
-            //    }
-            //    else
-            //    {
-            //        Danger("Sorry,You have no rights to access this page", "RoleMaster", "Master", true);
-            //        return RedirectToAction("Dashboard", "Home");
-            //    }
-
-            //    if (Convert.ToInt32(TempData["ViewRight"]) == 1)
-            //    {
-                 RoleMasterViewModel rvm = new RoleMasterViewModel
-                            {
-                                Action = "All"
-                            };
-
-                            var apiResponse = ApiCall.PostApi("RoleMasterRtr", JsonConvert.SerializeObject(rvm));
-
-                            var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_RoleMasterRtr_Result>>>(apiResponse);
-
-                            if (response != null && response.result == true)
-                            {
-                                return View(response.data);
-                            }
-
-                            return View(new List<VIMS_RoleMasterRtr_Result>());
-            //    }
-            //    else
-            //    {
-            //        return RedirectToAction("Dashboard", "Home");
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Danger(ex.Message, "Master", "RoleMaster", true);
-            //    return RedirectToAction("Dashboard", "Home");
-            //}
+                return View(new List<VIMS_RoleMasterRtr_Result>());
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Usermanagement", "RoleMaster", true);
+                return RedirectToAction("Dashboard", "Home");
+            }
         }
 
+        public ActionResult AddRole(int? id)
+        {
+            try
+            {
+                RoleViewModel rvm = new RoleViewModel();
 
-        //public ActionResult AddRoleMaster()
-        //{
-        //    try
-        //    {
-        //        var list = new List<string>() { "Male", "Female", "Other" };
-        //        ViewBag.list = list;
+                if (id.HasValue)
+                {
+                    rvm.Action = "GetById";
+                    rvm.RoleId = id.Value;
 
-        //        RoleMasterViewModel model = new RoleMasterViewModel();
-        //        model.Action = "Save";
+                    var apiResponse = ApiCall.PostApi("RoleMasterRtr", JsonConvert.SerializeObject(rvm));
+                    var response = JsonConvert.DeserializeObject<ApiResponse<List<VIMS_RoleMasterRtr_Result>>>(apiResponse);
 
-        //        return View(model);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Danger(ex.Message, "Usermanagement", "AddRoleMaster", true);
-        //        return RedirectToAction("Dashboard", "Home");
-        //    }
-        //}
+                    if (response != null && response.result && response.data.Count > 0)
+                    {
+                        var item = response.data.First();
+                        rvm.RoleId = item.RoleId;
+                        rvm.RoleName = item.RoleName;
+                        rvm.IsActive = item.IsActive;
+                    }
 
-        //[HttpPost]
-        //public ActionResult AddRoleMaster(RoleMasterViewModel sm)
-        //{
-        //    try
-        //    {
-        //        if (sm.RoleId == null)
-        //        {
-        //            sm.CreateDate = generalFunctions.getTimeZoneDatetimedb();
-        //            sm.Action = "insert";
-        //            sm.CreateUser = User.Identity.Name;
-        //            sm.UpdateUser = User.Identity.Name;
+                    ViewBag.Action = "Update";
+                    rvm.Action = "Update";
+                }
+                else
+                {
+                    ViewBag.Action = "Add";
+                    rvm.Action = "Save";
+                }
 
-        //            var rolelog = ApiCall.PostApi("RoleMasterInsUpd", Newtonsoft.Json.JsonConvert.SerializeObject(sm));
-        //            sm = JsonConvert.DeserializeObject<RoleMasterViewModel>(rolelog);
-        //            string msg = sm.result;
-        //            if (msg.Contains("successfully"))
-        //            {
-        //                Success(msg, "Usermanagement", "AddRoleMaster", true);
-        //                return RedirectToAction("AddRoleMaster", "Usermanagement");
-        //            }
-        //            else
-        //            {
-        //                Danger(msg, "Usermanagement", "AddRoleMaster", true);
-        //                return RedirectToAction("AddRoleMaster", "Usermanagement");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            sm.Action = "Update";
-        //            sm.UpdateDate = generalFunctions.getTimeZoneDatetimedb();
-        //            sm.UpdateUser = User.Identity.Name;
-        //            var rolelog = ApiCall.PostApi("RoleMasterInsUpd", Newtonsoft.Json.JsonConvert.SerializeObject(sm));
-        //            sm = JsonConvert.DeserializeObject<RoleMasterViewModel>(rolelog);
-        //            string msg = sm.result;
-        //            if (msg.Contains("successfully"))
-        //            {
-        //                Success(msg, "Usermanagement", "AddRoleMaster", true);
-        //                return RedirectToAction("AddRoleMaster", "Usermanagement");
-        //            }
-        //            else
-        //            {
-        //                Danger(msg, "Usermanagement", "AddRoleMaster", true);
-        //                return RedirectToAction("AddRoleMaster", "Usermanagement");
-        //            }
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Danger(ex.Message, "Usermanagement", "AddRoleMaster", true);
-        //        return RedirectToAction("AddRoleMaster", "Usermanagement");
-        //    }
-        //}
+                return View(rvm);
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Usermanagement", "RoleMaster", true);
+                return RedirectToAction("RoleMaster");
+            }
+        }
 
+        [HttpPost]
+        public ActionResult AddRole(RoleViewModel rvm)
+        {
+            try
+            {
+                string apiName = "RoleMasterInsUpd";
 
-        //public ActionResult EditRoleMaster(int id)
-        //{
-        //    try
-        //    {
-        //        var list = new List<string>() { "Male", "Female", "Other" };
-        //        ViewBag.list = list;
-        //        RoleMasterViewModel sb = new RoleMasterViewModel();
-        //        sb.RoleList = sb.RoleList;
-        //        sb.Action = "details";
-        //        sb.RoleId = id.ToString();
-        //        var rolelog = ApiCall.PostApi("RoleMasterRetrieve", Newtonsoft.Json.JsonConvert.SerializeObject(sb));
-        //        sb = JsonConvert.DeserializeObject<RoleMasterViewModel>(rolelog);
-        //        sb.RoleId = sb.RoleList.FirstOrDefault().RoleId.ToString();
-        //        sb.rolename = sb.RoleList.FirstOrDefault().RoleName.ToString();
-        //        sb.CreateDate = sb.RoleList.FirstOrDefault().CreateDate.ToString();
-        //        sb.CreateUser = sb.RoleList.FirstOrDefault().CreateUser;
-        //        sb.IsActive = sb.RoleList.FirstOrDefault().IsActive.ToString();
-        //        ViewBag.action = "Update";
-        //        sb.Action = "Update";
-        //        return View("AddRoleMaster", sb);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Danger(ex.Message, "Usermanagement", "AddRoleMaster", true);
-        //        return RedirectToAction("ViewRoleMaster", "Master");
-        //    }
-        //}
+                if (rvm.Action == "Save")
+                {
+                    rvm.Action = "Insert";
+                    rvm.CreatedBy = User.Identity.Name;
+                    rvm.UpdatedBy = User.Identity.Name;
+                }
+                else
+                {
+                    rvm.Action = "Update";
+                    rvm.UpdatedBy = User.Identity.Name;
+                }
+
+                var apiResponse = ApiCall.PostApi(apiName, JsonConvert.SerializeObject(rvm));
+                var response = JsonConvert.DeserializeObject<ApiResponse<string>>(apiResponse);
+
+                if (response != null && response.result)
+                {
+                    Success(response.message, "Usermanagement", "RoleMaster", true);
+                    return RedirectToAction("RoleMaster");
+                }
+                else
+                {
+                    Danger(response?.message ?? "Something went wrong", "Usermanagement", "RoleMaster", true);
+                    return View(rvm);
+                }
+            }
+            catch (Exception ex)
+            {
+                Danger(ex.Message, "Usermanagement", "RoleMaster", true);
+                return View(rvm);
+            }
+        }
+
+        public ActionResult EditRole(int id)
+        {
+            return RedirectToAction("AddRole", new { id = id });
+        }
+
         #endregion
     }
 }
